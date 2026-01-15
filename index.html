@@ -19,9 +19,10 @@
       }
 
       * { box-sizing: border-box; }
+
       body{
         margin:0;
-        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
         color:var(--ink);
         background:
           radial-gradient(1100px 700px at 20% 10%, rgba(37,99,235,0.16), transparent 60%),
@@ -31,182 +32,172 @@
         min-height:100vh;
       }
 
-      a{ color:var(--blue); text-decoration:none; font-weight:600; }
+      a{
+        color:var(--blue);
+        text-decoration:none;
+        font-weight:600;
+      }
+
       a:hover{ text-decoration:underline; }
 
       .wrap{
-        max-width: 1120px;
-        margin: 0 auto;
-        padding: 44px 18px 60px;
+        max-width:1120px;
+        margin:0 auto;
+        padding:44px 18px 60px;
       }
 
+      /* Top bar */
       .topbar{
         display:flex;
         align-items:center;
         justify-content:space-between;
         gap:16px;
-        margin-bottom: 22px;
+        margin-bottom:24px;
       }
 
       .brand{
         display:flex;
         align-items:center;
-        gap:10px;
-        font-weight:800;
-        letter-spacing:-0.02em;
-        text-decoration:none;
-        color: var(--ink);
       }
 
-      /* NEW: brand logo images */
-      .brand-mark{
-        width: 26px;
-        height: 26px;
-        border-radius: 8px;
-        object-fit: contain;
-        box-shadow: 0 0 0 6px rgba(37,99,235,0.10);
-      }
-
-      .brand-wordmark{
-        height: 22px;
-        width: auto;
-        object-fit: contain;
+      .brand img{
+        height:24px;
+        width:auto;
         display:block;
+        opacity:0.95;
       }
 
       .navlinks{
         display:flex;
-        gap:14px;
+        gap:16px;
         flex-wrap:wrap;
         font-size:14px;
       }
 
+      /* Layout */
       .grid{
         display:grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: 22px;
+        grid-template-columns:1.05fr 0.95fr;
+        gap:22px;
         align-items:start;
       }
 
       .card{
-        background: var(--card);
-        border: 1px solid var(--stroke);
-        border-radius: 26px;
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
+        background:var(--card);
+        border:1px solid var(--stroke);
+        border-radius:26px;
+        box-shadow:var(--shadow);
+        backdrop-filter:blur(14px);
+        -webkit-backdrop-filter:blur(14px);
       }
 
+      /* Hero */
       .hero{
-        padding: 28px 28px 26px;
-        position: relative; /* NEW for watermark */
-        overflow: hidden;
-      }
-
-      /* NEW: subtle hero watermark logo */
-      .hero-watermark{
-        position:absolute;
-        top: 18px;
-        right: 18px;
-        width: 130px;
-        height: auto;
-        opacity: 0.08;
-        pointer-events: none;
-        filter: saturate(0.9);
+        padding:28px 28px 26px;
       }
 
       h1{
-        margin: 0 0 10px;
-        font-size: 44px;
-        line-height: 1.06;
-        letter-spacing: -0.03em;
+        margin:0 0 12px;
+        font-size:44px;
+        line-height:1.06;
+        letter-spacing:-0.03em;
       }
 
       .lead{
-        margin:0 0 16px;
-        font-size: 18px;
-        line-height: 1.55;
-        color: var(--muted);
+        margin:0 0 18px;
+        font-size:18px;
+        line-height:1.55;
+        color:var(--muted);
       }
 
       .bullets{
-        margin: 14px 0 0;
-        padding: 0;
-        list-style: none;
+        margin:14px 0 0;
+        padding:0;
+        list-style:none;
         display:grid;
         gap:10px;
       }
+
       .bullets li{
         display:flex;
         gap:10px;
         align-items:flex-start;
-        color: var(--muted);
-        font-size: 15px;
-        line-height: 1.45;
+        color:var(--muted);
+        font-size:15px;
+        line-height:1.45;
       }
+
       .check{
-        width: 18px; height: 18px;
-        border-radius: 999px;
-        background: rgba(37,99,235,0.12);
-        border: 1px solid rgba(37,99,235,0.18);
-        display:flex; align-items:center; justify-content:center;
-        flex: 0 0 18px;
-        margin-top: 2px;
+        width:18px;
+        height:18px;
+        border-radius:999px;
+        background:rgba(37,99,235,0.12);
+        border:1px solid rgba(37,99,235,0.18);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex:0 0 18px;
+        margin-top:2px;
       }
+
       .check:before{
         content:"";
-        width: 8px; height: 8px;
-        border-radius: 2px;
-        background: var(--blue);
-        transform: rotate(0deg);
-        clip-path: polygon(14% 52%, 0 66%, 39% 100%, 100% 28%, 86% 14%, 39% 72%);
+        width:8px;
+        height:8px;
+        background:var(--blue);
+        clip-path:polygon(14% 52%, 0 66%, 39% 100%, 100% 28%, 86% 14%, 39% 72%);
       }
 
       .ctaRow{
-        margin-top: 18px;
+        margin-top:20px;
         display:flex;
         gap:12px;
         flex-wrap:wrap;
         align-items:center;
       }
+
       .btn{
         display:inline-flex;
         align-items:center;
         justify-content:center;
-        padding: 12px 16px;
-        border-radius: 14px;
-        border: 1px solid rgba(37,99,235,0.22);
-        background: rgba(37,99,235,0.10);
-        color: var(--blue);
-        font-weight: 700;
-        font-size: 14px;
+        padding:12px 16px;
+        border-radius:14px;
+        border:1px solid rgba(37,99,235,0.22);
+        background:rgba(37,99,235,0.10);
+        color:var(--blue);
+        font-weight:700;
+        font-size:14px;
+      }
+
+      .btn:hover{
+        background:rgba(37,99,235,0.14);
         text-decoration:none;
       }
-      .btn:hover{ text-decoration:none; background: rgba(37,99,235,0.14); }
 
       .note{
-        margin-top: 12px;
-        font-size: 13px;
-        color: rgba(71,85,105,0.9);
+        margin-top:14px;
+        font-size:13px;
+        color:rgba(71,85,105,0.9);
       }
 
+      /* Screenshots */
       .shots{
-        padding: 18px;
+        padding:18px;
       }
 
       .shotGrid{
         display:grid;
-        grid-template-columns: 1fr;
-        gap: 14px;
+        gap:14px;
       }
 
       .shot{
-        border-radius: 22px;
+        border-radius:22px;
         overflow:hidden;
-        border: 1px solid var(--stroke);
-        background: rgba(255,255,255,0.55);
-        box-shadow: 0 14px 35px rgba(2,6,23,0.10);
+        border:1px solid var(--stroke);
+        background:rgba(255,255,255,0.55);
+        box-shadow:0 14px 35px rgba(2,6,23,0.10);
       }
+
       .shot img{
         width:100%;
         height:auto;
@@ -214,25 +205,25 @@
       }
 
       .caption{
-        padding: 10px 12px 12px;
-        font-size: 13px;
-        color: rgba(71,85,105,0.95);
-        border-top: 1px solid rgba(15,23,42,0.06);
-        background: rgba(255,255,255,0.55);
+        padding:10px 12px 12px;
+        font-size:13px;
+        color:rgba(71,85,105,0.95);
+        border-top:1px solid rgba(15,23,42,0.06);
+        background:rgba(255,255,255,0.55);
       }
 
       .footer{
-        margin-top: 18px;
+        margin-top:18px;
         text-align:center;
-        color: rgba(71,85,105,0.8);
-        font-size: 13px;
+        color:rgba(71,85,105,0.8);
+        font-size:13px;
       }
 
       /* Responsive */
-      @media (max-width: 900px){
-        .grid{ grid-template-columns: 1fr; }
-        h1{ font-size: 38px; }
-        .hero-watermark{ width: 110px; }
+      @media (max-width:900px){
+        .grid{ grid-template-columns:1fr; }
+        h1{ font-size:38px; }
+        .brand img{ height:22px; }
       }
     </style>
   </head>
@@ -240,16 +231,9 @@
   <body>
     <div class="wrap">
       <div class="topbar">
-        <!-- UPDATED: use real logos instead of dot + text -->
-        <a class="brand" href="./">
+        <a class="brand" href="./" aria-label="MetHere home">
           <img
-            class="brand-mark"
-            src="./assets/MetHere-ios-appLogo-Current.png"
-            alt="MetHere logo mark"
-          />
-          <img
-            class="brand-wordmark"
-            src="./assets/MetHere-inline-clean-white-tight.png"
+            src="./assets/logos/MetHere-inline-clean-white-tight.png"
             alt="MetHere"
           />
         </a>
@@ -262,25 +246,18 @@
 
       <div class="grid">
         <div class="card hero">
-          <!-- NEW: subtle watermark -->
-          <img
-            class="hero-watermark"
-            src="./assets/MetHere-ios-splash-Current.png"
-            alt=""
-            aria-hidden="true"
-          />
-
           <h1>Remember the people you meet — and where you met them.</h1>
+
           <p class="lead">
             MetHere helps you capture real-world connections by linking people to places.
             Add a venue, attach the people you met there, and find them later when it matters.
           </p>
 
           <ul class="bullets">
-            <li><span class="check" aria-hidden="true"></span>Organize people by venues and meetings.</li>
-            <li><span class="check" aria-hidden="true"></span>Fast recall with search, favourites, and sort.</li>
-            <li><span class="check" aria-hidden="true"></span>Optional proximity reminders when you’re nearby.</li>
-            <li><span class="check" aria-hidden="true"></span>Local-first by default with export/import tools.</li>
+            <li><span class="check"></span>Organize people by venues and meetings.</li>
+            <li><span class="check"></span>Fast recall with search, favourites, and sort.</li>
+            <li><span class="check"></span>Optional proximity reminders when you’re nearby.</li>
+            <li><span class="check"></span>Local-first by default with export/import tools.</li>
           </ul>
 
           <div class="ctaRow">
@@ -289,29 +266,38 @@
           </div>
 
           <div class="note">
-            MetHere is currently in development/testing. For support, email <strong>metherecontact@gmail.com</strong>.
+            MetHere is currently in development/testing.
+            For support, email <strong>metherecontact@gmail.com</strong>.
           </div>
         </div>
 
         <div class="card shots">
           <div class="shotGrid">
             <div class="shot">
-              <img src="./assets/screen-list.png" alt="MetHere venue list showing grouped venues and people" />
-              <div class="caption">Venues organize your connections — each place holds the people you met there.</div>
+              <img src="./assets/screen-list.png" alt="Venue list with people grouped by location" />
+              <div class="caption">
+                Venues organize your connections — each place holds the people you met there.
+              </div>
             </div>
 
             <div class="shot">
-              <img src="./assets/screen-edit.png" alt="Edit person screen with venue and place tools" />
-              <div class="caption">Attach a venue and optionally add a map pin for quick location tools.</div>
+              <img src="./assets/screen-edit.png" alt="Edit person screen with venue and map tools" />
+              <div class="caption">
+                Attach a venue and optionally add a map pin for quick location tools.
+              </div>
             </div>
 
             <div class="shot">
-              <img src="./assets/screen-insights.png" alt="Insights screen showing counts and highlights" />
-              <div class="caption">Insights give you a lightweight overview — no overthinking, just clarity.</div>
+              <img src="./assets/screen-insights.png" alt="Insights screen showing activity overview" />
+              <div class="caption">
+                Insights give you a lightweight overview — no overthinking, just clarity.
+              </div>
             </div>
           </div>
 
-          <div class="footer">© <span id="year"></span> MetHere</div>
+          <div class="footer">
+            © <span id="year"></span> MetHere
+          </div>
         </div>
       </div>
     </div>
