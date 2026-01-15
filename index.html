@@ -54,14 +54,24 @@
         gap:10px;
         font-weight:800;
         letter-spacing:-0.02em;
+        text-decoration:none;
+        color: var(--ink);
       }
 
-      .brand-dot{
-        width: 10px;
-        height: 10px;
-        border-radius: 999px;
-        background: var(--blue);
-        box-shadow: 0 0 0 6px rgba(37,99,235,0.12);
+      /* NEW: brand logo images */
+      .brand-mark{
+        width: 26px;
+        height: 26px;
+        border-radius: 8px;
+        object-fit: contain;
+        box-shadow: 0 0 0 6px rgba(37,99,235,0.10);
+      }
+
+      .brand-wordmark{
+        height: 22px;
+        width: auto;
+        object-fit: contain;
+        display:block;
       }
 
       .navlinks{
@@ -89,6 +99,20 @@
 
       .hero{
         padding: 28px 28px 26px;
+        position: relative; /* NEW for watermark */
+        overflow: hidden;
+      }
+
+      /* NEW: subtle hero watermark logo */
+      .hero-watermark{
+        position:absolute;
+        top: 18px;
+        right: 18px;
+        width: 130px;
+        height: auto;
+        opacity: 0.08;
+        pointer-events: none;
+        filter: saturate(0.9);
       }
 
       h1{
@@ -208,6 +232,7 @@
       @media (max-width: 900px){
         .grid{ grid-template-columns: 1fr; }
         h1{ font-size: 38px; }
+        .hero-watermark{ width: 110px; }
       }
     </style>
   </head>
@@ -215,10 +240,20 @@
   <body>
     <div class="wrap">
       <div class="topbar">
-        <div class="brand">
-          <span class="brand-dot" aria-hidden="true"></span>
-          <span>MetHere</span>
-        </div>
+        <!-- UPDATED: use real logos instead of dot + text -->
+        <a class="brand" href="./">
+          <img
+            class="brand-mark"
+            src="./assets/MetHere-ios-appLogo-Current.png"
+            alt="MetHere logo mark"
+          />
+          <img
+            class="brand-wordmark"
+            src="./assets/MetHere-inline-clean-white-tight.png"
+            alt="MetHere"
+          />
+        </a>
+
         <div class="navlinks">
           <a href="./privacy.html">Privacy Policy</a>
           <a href="./support.html">Support</a>
@@ -227,6 +262,14 @@
 
       <div class="grid">
         <div class="card hero">
+          <!-- NEW: subtle watermark -->
+          <img
+            class="hero-watermark"
+            src="./assets/MetHere-ios-splash-Current.png"
+            alt=""
+            aria-hidden="true"
+          />
+
           <h1>Remember the people you meet — and where you met them.</h1>
           <p class="lead">
             MetHere helps you capture real-world connections by linking people to places.
