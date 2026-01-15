@@ -32,56 +32,16 @@
         min-height:100vh;
       }
 
-      a{
-        color:var(--blue);
-        text-decoration:none;
-        font-weight:600;
-      }
-
+      a{ color:var(--blue); text-decoration:none; font-weight:700; }
       a:hover{ text-decoration:underline; }
 
       .wrap{
         max-width:1120px;
         margin:0 auto;
-        padding:44px 18px 60px;
+        padding:36px 18px 60px;
       }
 
-      /* Top bar */
-      .topbar{
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        gap:16px;
-        margin-bottom:24px;
-      }
-
-      .brand{
-        display:flex;
-        align-items:center;
-      }
-
-      .brand img{
-        height:24px;
-        width:auto;
-        display:block;
-        opacity:0.95;
-      }
-
-      .navlinks{
-        display:flex;
-        gap:16px;
-        flex-wrap:wrap;
-        font-size:14px;
-      }
-
-      /* Layout */
-      .grid{
-        display:grid;
-        grid-template-columns:1.05fr 0.95fr;
-        gap:22px;
-        align-items:start;
-      }
-
+      /* Shared glass card style */
       .card{
         background:var(--card);
         border:1px solid var(--stroke);
@@ -91,10 +51,60 @@
         -webkit-backdrop-filter:blur(14px);
       }
 
-      /* Hero */
-      .hero{
-        padding:28px 28px 26px;
+      /* Header (this is what fixes the “ridiculous” look) */
+      .header{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:14px;
+        padding:14px 16px;
+        margin-bottom:18px;
+        border-radius:18px; /* slightly tighter than main cards */
       }
+
+      .brand{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        text-decoration:none;
+      }
+
+      .brand img{
+        height:30px;   /* BIGGER = intentional */
+        width:auto;
+        display:block;
+        opacity:0.95;
+      }
+
+      .navlinks{
+        display:flex;
+        gap:10px;
+        flex-wrap:wrap;
+      }
+
+      .navlinks a{
+        font-size:14px;
+        padding:10px 12px;
+        border-radius:12px;
+        border:1px solid rgba(37,99,235,0.18);
+        background:rgba(37,99,235,0.08);
+        text-decoration:none;
+      }
+
+      .navlinks a:hover{
+        background:rgba(37,99,235,0.12);
+      }
+
+      /* Main grid */
+      .grid{
+        display:grid;
+        grid-template-columns:1.05fr 0.95fr;
+        gap:22px;
+        align-items:start;
+      }
+
+      /* Hero */
+      .hero{ padding:28px 28px 26px; }
 
       h1{
         margin:0 0 12px;
@@ -139,7 +149,6 @@
         flex:0 0 18px;
         margin-top:2px;
       }
-
       .check:before{
         content:"";
         width:8px;
@@ -165,14 +174,11 @@
         border:1px solid rgba(37,99,235,0.22);
         background:rgba(37,99,235,0.10);
         color:var(--blue);
-        font-weight:700;
+        font-weight:800;
         font-size:14px;
-      }
-
-      .btn:hover{
-        background:rgba(37,99,235,0.14);
         text-decoration:none;
       }
+      .btn:hover{ background:rgba(37,99,235,0.14); text-decoration:none; }
 
       .note{
         margin-top:14px;
@@ -181,14 +187,9 @@
       }
 
       /* Screenshots */
-      .shots{
-        padding:18px;
-      }
+      .shots{ padding:18px; }
 
-      .shotGrid{
-        display:grid;
-        gap:14px;
-      }
+      .shotGrid{ display:grid; gap:14px; }
 
       .shot{
         border-radius:22px;
@@ -198,11 +199,7 @@
         box-shadow:0 14px 35px rgba(2,6,23,0.10);
       }
 
-      .shot img{
-        width:100%;
-        height:auto;
-        display:block;
-      }
+      .shot img{ width:100%; height:auto; display:block; }
 
       .caption{
         padding:10px 12px 12px;
@@ -223,19 +220,21 @@
       @media (max-width:900px){
         .grid{ grid-template-columns:1fr; }
         h1{ font-size:38px; }
-        .brand img{ height:22px; }
+      }
+
+      @media (max-width:520px){
+        .header{ padding:12px 12px; }
+        .brand img{ height:26px; }
+        .navlinks a{ padding:9px 10px; font-size:13px; }
       }
     </style>
   </head>
 
   <body>
     <div class="wrap">
-      <div class="topbar">
+      <div class="card header">
         <a class="brand" href="./" aria-label="MetHere home">
-          <img
-            src="./assets/MetHere-inline-clean-white-tight.png"
-            alt="MetHere"
-          />
+          <img src="./assets/logos/MetHere-inline-clean-white-tight.png" alt="MetHere" />
         </a>
 
         <div class="navlinks">
@@ -275,29 +274,21 @@
           <div class="shotGrid">
             <div class="shot">
               <img src="./assets/screen-list.png" alt="Venue list with people grouped by location" />
-              <div class="caption">
-                Venues organize your connections — each place holds the people you met there.
-              </div>
+              <div class="caption">Venues organize your connections — each place holds the people you met there.</div>
             </div>
 
             <div class="shot">
               <img src="./assets/screen-edit.png" alt="Edit person screen with venue and map tools" />
-              <div class="caption">
-                Attach a venue and optionally add a map pin for quick location tools.
-              </div>
+              <div class="caption">Attach a venue and optionally add a map pin for quick location tools.</div>
             </div>
 
             <div class="shot">
               <img src="./assets/screen-insights.png" alt="Insights screen showing activity overview" />
-              <div class="caption">
-                Insights give you a lightweight overview — no overthinking, just clarity.
-              </div>
+              <div class="caption">Insights give you a lightweight overview — no overthinking, just clarity.</div>
             </div>
           </div>
 
-          <div class="footer">
-            © <span id="year"></span> MetHere
-          </div>
+          <div class="footer">© <span id="year"></span> MetHere</div>
         </div>
       </div>
     </div>
