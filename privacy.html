@@ -100,7 +100,7 @@
         <p>
           MetHere is a local-first iOS app. Your people, venues, and notes are stored on your device.
           We do not operate a backend for user content. Some data is sent to third-party services
-          for analytics and purchases, and to Apple system services to provide core functionality
+          for analytics, crash reporting, and purchases, and to Apple system services to provide core functionality
           (maps, iCloud, location, notifications, speech recognition, and Photos).
         </p>
 
@@ -150,6 +150,23 @@
           We do not sell analytics data and do not use it for advertising.
         </p>
 
+        <h3>Crash reporting (Firebase Crashlytics)</h3>
+        <p>
+          MetHere uses <strong>Google Firebase Crashlytics</strong> to monitor app stability and diagnose crashes.
+          If the app crashes or encounters a critical error, diagnostic information may be sent to Crashlytics,
+          including device model, operating system version, app version, timestamp, and technical crash logs
+          (such as stack traces).
+        </p>
+        <ul>
+          <li>Crash reports help us fix bugs and improve reliability</li>
+          <li>We do <strong>not</strong> intentionally include the names, notes, tags, or venue information you enter in crash reports</li>
+          <li>Crash data may be associated with a device or app instance identifier</li>
+        </ul>
+        <p>
+          Crash data is processed by Google according to their privacy policies and is used solely
+          to improve the stability and performance of MetHere.
+        </p>
+
         <h3>Purchases (RevenueCat + Apple)</h3>
         <p>
           MetHere offers in-app purchases and/or subscriptions. Purchases are processed by Apple and validated with RevenueCat.
@@ -174,6 +191,7 @@
           <li>Enable location-based alerts you choose to turn on</li>
           <li>Enable optional backups, exports, and share cards</li>
           <li>Understand app usage and improve features (analytics)</li>
+          <li>Monitor stability and fix bugs (crash reporting)</li>
           <li>Process and validate in-app purchases and subscription status</li>
         </ul>
 
@@ -183,6 +201,7 @@
         </p>
         <ul>
           <li><strong>Firebase Analytics (Google)</strong> for usage analytics</li>
+          <li><strong>Firebase Crashlytics (Google)</strong> for crash reporting</li>
           <li><strong>RevenueCat and Apple</strong> for purchases and subscription status</li>
           <li><strong>Apple MapKit</strong> for place search and map snapshots</li>
           <li><strong>Apple iCloud Drive</strong> for backups you choose to export or auto-backup</li>
@@ -197,7 +216,7 @@
           <li>Your people/venue data is stored locally on your device until you delete it or uninstall the app</li>
           <li>You can reset the app from Settings to delete all local data</li>
           <li>iCloud backup files remain in your iCloud Drive until you delete them</li>
-          <li>Analytics data is retained by Firebase according to Google’s policies</li>
+          <li>Analytics and crash reporting data is retained by Firebase according to Google’s policies</li>
         </ul>
 
         <h2>Your Choices and Controls</h2>
@@ -205,7 +224,7 @@
           <li>You can disable permissions (location, notifications, microphone, photos) at any time in iOS Settings</li>
           <li>You can reset the app to remove all local data</li>
           <li>You can delete backups from Files/iCloud Drive</li>
-          <li>You can request help with deletion of analytics data associated with your device by contacting us</li>
+          <li>You can request help with deletion of analytics or crash data associated with your device by contacting us</li>
         </ul>
 
         <h2>Legal Basis for Processing</h2>
@@ -215,7 +234,7 @@
         <ul>
           <li><strong>Your consent</strong> (location, notifications, microphone, Photos permissions)</li>
           <li><strong>Contractual necessity</strong> (processing and validating purchases and subscription status)</li>
-          <li><strong>Legitimate interests</strong> (understanding feature usage and improving reliability through analytics)</li>
+          <li><strong>Legitimate interests</strong> (understanding feature usage and improving reliability through analytics and crash reporting)</li>
         </ul>
 
         <h2>International Transfers</h2>
