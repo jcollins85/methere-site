@@ -3,304 +3,599 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MetHere</title>
-    <meta name="description" content="MetHere helps you remember the people you meet — and where you met them." />
-
+    <title>MetHere | Remember who you met and where</title>
+    <meta
+      name="description"
+      content="MetHere is a local-first iOS app to remember who you met and where. Organize people by venue, get nearby reminders, and keep context when it matters."
+    />
+    <!-- TODO: Replace placeholder launch URLs before going live. -->
     <style>
-      :root{
-        --bg1:#eef3ff;
-        --bg2:#f7f9ff;
-        --ink:#0f172a;
-        --muted:#475569;
-        --card:rgba(255,255,255,0.78);
-        --stroke:rgba(15,23,42,0.08);
-        --shadow: 0 18px 50px rgba(2,6,23,0.12);
-        --blue:#2563eb;
+      :root {
+        --bg: #e9eef7;
+        --ink: #0f172a;
+        --muted: #475569;
+        --panel: rgba(255, 255, 255, 0.8);
+        --stroke: rgba(15, 23, 42, 0.1);
+        --blue: #2f66df;
+        --blue-strong: #2558c8;
+        --soft: #dce5f8;
+        --shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+        --radius-xl: 26px;
+        --radius-lg: 18px;
       }
 
-      * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
 
-      body{
-        margin:0;
-        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-        color:var(--ink);
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
         background:
-          radial-gradient(1100px 700px at 20% 10%, rgba(37,99,235,0.16), transparent 60%),
-          radial-gradient(900px 600px at 85% 25%, rgba(56,189,248,0.14), transparent 55%),
-          radial-gradient(900px 700px at 50% 90%, rgba(37,99,235,0.10), transparent 55%),
-          linear-gradient(180deg, var(--bg1), var(--bg2));
-        min-height:100vh;
+          radial-gradient(900px 700px at 10% 0%, rgba(185, 202, 234, 0.55), transparent 62%),
+          radial-gradient(800px 700px at 100% 20%, rgba(207, 216, 238, 0.55), transparent 58%),
+          radial-gradient(900px 800px at 20% 100%, rgba(198, 209, 236, 0.45), transparent 60%),
+          linear-gradient(180deg, #edf2fb, var(--bg));
+        min-height: 100vh;
       }
 
-      a{ color:var(--blue); text-decoration:none; font-weight:700; }
-      a:hover{ text-decoration:underline; }
-
-      .wrap{
-        max-width:1120px;
-        margin:0 auto;
-        padding:36px 18px 60px;
+      a {
+        color: var(--blue);
+        text-decoration: none;
       }
 
-      /* Shared glass card style */
-      .card{
-        background:var(--card);
-        border:1px solid var(--stroke);
-        border-radius:26px;
-        box-shadow:var(--shadow);
-        backdrop-filter:blur(14px);
-        -webkit-backdrop-filter:blur(14px);
+      a:hover {
+        text-decoration: underline;
       }
 
-      /* Header */
-      .header{
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        gap:14px;
-        padding:12px 16px; /* slightly tighter */
-        margin-bottom:18px;
-        border-radius:18px;
+      .wrap {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 28px 18px 56px;
       }
 
-      .brand{
-        display:flex;
-        align-items:center;
-        gap:8px; /* optically tighter */
-        text-decoration:none;
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--stroke);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
       }
 
-      .brand img{
-        height:30px;
-        width:auto;
-        display:block;
-        opacity:0.95;
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 12px 16px;
+        border-radius: var(--radius-lg);
       }
 
-      .navlinks{
-        display:flex;
-        gap:10px;
-        flex-wrap:wrap;
+      .brand {
+        display: inline-flex;
+        align-items: center;
       }
 
-      /* 🔽 Toned-down header buttons */
-      .navlinks a{
-        font-size:14px;
-        font-weight:500;
-        padding:6px 12px;
-        border-radius:999px;
-        background:rgba(255,255,255,0.55);
-        border:1px solid rgba(15,23,42,0.08);
-        color:#475569; /* slate-600 */
-        text-decoration:none;
-        backdrop-filter:blur(10px);
+      .brand img {
+        height: 30px;
+        width: auto;
+        display: block;
       }
 
-      .navlinks a:hover{
-        background:rgba(255,255,255,0.75);
-        color:#0f172a;
-        text-decoration:none;
+      .navlinks {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
       }
 
-      /* Main grid */
-      .grid{
-        display:grid;
-        grid-template-columns:1.05fr 0.95fr;
-        gap:22px;
-        align-items:start;
+      .navlinks a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 600;
+        color: #334155;
+        padding: 7px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(15, 23, 42, 0.1);
+        background: rgba(255, 255, 255, 0.74);
       }
 
-      /* Hero */
-      .hero{ padding:28px 28px 26px; }
-
-      h1{
-        margin:0 0 12px;
-        font-size:44px;
-        line-height:1.06;
-        letter-spacing:-0.03em;
+      .navlinks a.active,
+      .navlinks a:hover {
+        color: #0f172a;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.95);
       }
 
-      .lead{
-        margin:0 0 18px;
-        font-size:18px;
-        line-height:1.55;
-        color:var(--muted);
+      .hero {
+        margin-top: 18px;
+        padding: 26px;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 22px;
       }
 
-      .bullets{
-        margin:14px 0 0;
-        padding:0;
-        list-style:none;
-        display:grid;
-        gap:10px;
+      .kicker {
+        margin: 0 0 8px;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #52627b;
+        font-weight: 700;
       }
 
-      .bullets li{
-        display:flex;
-        gap:10px;
-        align-items:flex-start;
-        color:var(--muted);
-        font-size:15px;
-        line-height:1.45;
+      h1 {
+        margin: 0;
+        font-size: 48px;
+        line-height: 1.02;
+        letter-spacing: -0.03em;
       }
 
-      .check{
-        width:18px;
-        height:18px;
-        border-radius:999px;
-        background:rgba(37,99,235,0.12);
-        border:1px solid rgba(37,99,235,0.18);
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        flex:0 0 18px;
-        margin-top:2px;
+      .lead {
+        margin: 14px 0 0;
+        font-size: 18px;
+        line-height: 1.55;
+        color: var(--muted);
       }
 
-      .check:before{
-        content:"";
-        width:8px;
-        height:8px;
-        background:var(--blue);
-        clip-path:polygon(14% 52%, 0 66%, 39% 100%, 100% 28%, 86% 14%, 39% 72%);
+      .ctaRow {
+        margin-top: 18px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
       }
 
-      .ctaRow{
-        margin-top:20px;
-        display:flex;
-        gap:12px;
-        flex-wrap:wrap;
-        align-items:center;
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 10px 16px;
+        border-radius: 12px;
+        border: 1px solid transparent;
+        font-size: 14px;
+        font-weight: 700;
       }
 
-      .btn{
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-        padding:12px 16px;
-        border-radius:14px;
-        border:1px solid rgba(37,99,235,0.22);
-        background:rgba(37,99,235,0.10);
-        color:var(--blue);
-        font-weight:800;
-        font-size:14px;
-        text-decoration:none;
+      .btn.primary {
+        background: var(--blue);
+        border-color: var(--blue);
+        color: #ffffff;
       }
 
-      .btn:hover{
-        background:rgba(37,99,235,0.14);
-        text-decoration:none;
+      .btn.primary:hover {
+        background: var(--blue-strong);
+        text-decoration: none;
       }
 
-      .note{
-        margin-top:14px;
-        font-size:13px;
-        color:rgba(71,85,105,0.9);
+      .btn.secondary {
+        color: #24456f;
+        background: #eef3ff;
+        border-color: #d0dcf5;
       }
 
-      /* Screenshots */
-      .shots{ padding:18px; }
-
-      .shotGrid{ display:grid; gap:14px; }
-
-      .shot{
-        border-radius:22px;
-        overflow:hidden;
-        border:1px solid var(--stroke);
-        background:rgba(255,255,255,0.55);
-        box-shadow:0 14px 35px rgba(2,6,23,0.10);
+      .btn.secondary:hover {
+        background: #e5edff;
+        text-decoration: none;
       }
 
-      .shot img{ width:100%; height:auto; display:block; }
-
-      .caption{
-        padding:10px 12px 12px;
-        font-size:13px;
-        color:rgba(71,85,105,0.95);
-        border-top:1px solid rgba(15,23,42,0.06);
-        background:rgba(255,255,255,0.55);
+      .heroNote {
+        margin: 14px 0 0;
+        font-size: 13px;
+        line-height: 1.5;
+        color: #51627b;
       }
 
-      .footer{
-        margin-top:18px;
-        text-align:center;
-        color:rgba(71,85,105,0.8);
-        font-size:13px;
+      .trustPills {
+        margin-top: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
       }
 
-      /* Responsive */
-      @media (max-width:900px){
-        .grid{ grid-template-columns:1fr; }
-        h1{ font-size:38px; }
+      .trustPills span {
+        display: inline-flex;
+        font-size: 12px;
+        color: #30405e;
+        border: 1px solid #cad7f3;
+        background: #edf3ff;
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-weight: 700;
       }
 
-      @media (max-width:520px){
-        .header{ padding:10px 12px; }
-        .brand img{ height:26px; }
-        .navlinks a{ padding:6px 10px; font-size:13px; }
+      .shotWrap {
+        border: 1px solid var(--stroke);
+        border-radius: 22px;
+        overflow: hidden;
+        background: #f4f7fd;
+      }
+
+      .shotWrap img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .shotCaption {
+        margin: 0;
+        padding: 10px 12px 12px;
+        font-size: 13px;
+        color: #4e5d75;
+        border-top: 1px solid var(--stroke);
+        background: rgba(255, 255, 255, 0.8);
+      }
+
+      .section {
+        margin-top: 18px;
+        padding: 22px;
+      }
+
+      .section h2 {
+        margin: 0;
+        font-size: 28px;
+        letter-spacing: -0.02em;
+      }
+
+      .sectionLead {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      .featureGrid {
+        margin-top: 14px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .featureCard {
+        border: 1px solid #d3def4;
+        border-radius: 16px;
+        background: #f4f8ff;
+        padding: 14px;
+      }
+
+      .featureCard h3 {
+        margin: 0;
+        font-size: 17px;
+      }
+
+      .featureCard p {
+        margin: 7px 0 0;
+        color: #4a5a73;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .whyRow {
+        margin-top: 14px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .whyRow span {
+        display: inline-flex;
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 13px;
+        background: #edf3ff;
+        border: 1px solid #cad7f3;
+        color: #2f4361;
+      }
+
+      .planGrid {
+        margin-top: 14px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .planCard {
+        border: 1px solid #d4dff5;
+        border-radius: 16px;
+        background: #f7f9ff;
+        padding: 16px;
+      }
+
+      .planCard h3 {
+        margin: 0;
+        font-size: 20px;
+      }
+
+      .planCard p {
+        margin: 8px 0 0;
+        font-size: 14px;
+        color: #4b5b75;
+        line-height: 1.52;
+      }
+
+      .plansNote {
+        margin: 12px 0 0;
+        color: #53627c;
+        font-size: 13px;
+      }
+
+      .shotGrid {
+        margin-top: 14px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .finalCta {
+        text-align: center;
+      }
+
+      .finalCta p {
+        margin: 10px auto 0;
+        max-width: 650px;
+        color: #4a5b75;
+        line-height: 1.55;
+      }
+
+      .siteFooter {
+        margin-top: 18px;
+        padding: 16px;
+        border-radius: var(--radius-lg);
+        text-align: center;
+      }
+
+      .siteFooter p {
+        margin: 0;
+        color: #4c5c74;
+        font-size: 13px;
+      }
+
+      .footLinks {
+        margin-top: 8px;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .footLinks a {
+        display: inline-flex;
+        font-size: 12px;
+        font-weight: 700;
+        color: #3c4f6e;
+        border: 1px solid rgba(15, 23, 42, 0.1);
+        border-radius: 999px;
+        padding: 6px 10px;
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      @media (max-width: 980px) {
+        h1 {
+          font-size: 40px;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .shotGrid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .featureGrid,
+        .planGrid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .brand img {
+          height: 28px;
+        }
+
+        h1 {
+          font-size: 35px;
+        }
+
+        .wrap {
+          padding: 16px 14px 40px;
+        }
+
+        .hero,
+        .section {
+          padding: 16px;
+          border-radius: 20px;
+        }
+
+        .navlinks a,
+        .footLinks a {
+          font-size: 12px;
+        }
       }
     </style>
   </head>
-
   <body>
     <div class="wrap">
-      <div class="card header">
-        <a class="brand" href="./" aria-label="MetHere home">
+      <header class="card header">
+        <a class="brand" href="./index.html" aria-label="MetHere home">
           <img src="./assets/MetHere-inline-clean-white-tight.png" alt="MetHere" />
         </a>
 
-        <div class="navlinks">
-          <a href="./privacy.html">Privacy Policy</a>
+        <nav class="navlinks" aria-label="Primary">
+          <a class="active" href="./index.html">Home</a>
           <a href="./support.html">Support</a>
-        </div>
-      </div>
+          <a href="./privacy.html">Privacy</a>
+          <a href="./terms.html">Terms</a>
+          <a href="https://x.com/MetHereApp" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+        </nav>
+      </header>
 
-      <div class="grid">
-        <div class="card hero">
-          <h1>Remember the people you meet — and where you met them.</h1>
-
+      <section class="card hero">
+        <div>
+          <p class="kicker">iOS app</p>
+          <h1>Remember who you met and where.</h1>
           <p class="lead">
-            MetHere helps you remember real-world connections by linking people to places. Save where you met someone, and find it again when it matters.
+            MetHere helps you save real-world connections with context. Add people,
+            link them to venues, and recall details later when they matter.
           </p>
 
-          <ul class="bullets">
-            <li><span class="check"></span>Organize people by where you met them.</li>
-            <li><span class="check"></span>Find people quickly with search, sorts, tags and favourites.</li>
-            <li><span class="check"></span>Optional reminders when you’re back near a place.</li>
-            <li><span class="check"></span>Your data stays local, with simple backup options.</li>
-          </ul>
-
           <div class="ctaRow">
-            <a class="btn" href="./support.html">Get help</a>
-            <a class="btn" href="./privacy.html">Privacy</a>
+            <a
+              class="btn primary"
+              href="https://apps.apple.com/app/id0000000000"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Download on the App Store</a>
+            <a class="btn secondary" href="./support.html">Support</a>
+            <a class="btn secondary" href="./privacy.html">Privacy</a>
           </div>
 
-          <div class="note">
-            MetHere is currently in development/testing.
-            For help, reach us at <strong>metherecontact@gmail.com</strong>.
+          <p class="heroNote">
+            Local-first data storage with optional cloud/file backups. Third-party processors are used for
+            analytics, crash reporting, and purchases. <a href="./privacy.html">Read the full privacy policy</a>.
+          </p>
+
+          <div class="trustPills" aria-label="Why MetHere">
+            <span>No feed</span>
+            <span>No social network</span>
+            <span>No ads</span>
           </div>
         </div>
 
-        <div class="card shots">
-          <div class="shotGrid">
-            <div class="shot">
-              <img src="./assets/screen-list.png" alt="Venue list with people grouped by location" />
-              <div class="caption">Venues organize your connections — each place holds the people you met there.</div>
-            </div>
+        <figure class="shotWrap">
+          <img
+            src="./assets/screen-list.png"
+            alt="MetHere app showing venues grouped by where you met people"
+          />
+          <figcaption class="shotCaption">
+            See people grouped by venue, distance, and favorites.
+          </figcaption>
+        </figure>
+      </section>
 
-            <div class="shot">
-              <img src="./assets/screen-edit.png" alt="Edit person screen with venue and map tools" />
-              <div class="caption">Attach a venue and optionally add a map pin for quick location tools.</div>
-            </div>
+      <section class="card section">
+        <h2>What you can do</h2>
+        <p class="sectionLead">
+          MetHere is built for practical recall, not social feeds.
+        </p>
 
-            <div class="shot">
-              <img src="./assets/screen-insights.png" alt="Insights screen showing activity overview" />
-              <div class="caption">Insights give you a lightweight overview — no overthinking, just clarity.</div>
-            </div>
-          </div>
+        <div class="featureGrid">
+          <article class="featureCard">
+            <h3>Save people with context</h3>
+            <p>Add names, notes, tags, date met, and favorite status for fast recall.</p>
+          </article>
 
-          <div class="footer">© <span id="year"></span> MetHere</div>
+          <article class="featureCard">
+            <h3>Organize by place</h3>
+            <p>Attach people to venues and keep unplaced contacts in a clear fallback group.</p>
+          </article>
+
+          <article class="featureCard">
+            <h3>Search and filter fast</h3>
+            <p>Search names, notes, tags, and venue names. Sort and filter by favorites.</p>
+          </article>
+
+          <article class="featureCard">
+            <h3>Get nearby reminders</h3>
+            <p>Turn on per-venue alerts to get local notifications when you are nearby.</p>
+          </article>
         </div>
-      </div>
+      </section>
+
+      <section class="card section">
+        <h2>Plans</h2>
+        <p class="sectionLead">
+          Start free, then unlock Pro when you need higher limits and advanced usage.
+        </p>
+
+        <div class="planGrid">
+          <article class="planCard">
+            <h3>Free</h3>
+            <p>
+              Great for getting started. Core contact memory flow with local-first storage,
+              plus export/import and CSV support.
+            </p>
+          </article>
+
+          <article class="planCard">
+            <h3>Pro</h3>
+            <p>
+              Higher limits and full feature access for power usage. Available as monthly,
+              yearly, or lifetime.
+            </p>
+          </article>
+        </div>
+
+        <p class="plansNote">
+          Billing and subscription management are handled by Apple. Purchase restore is available in-app.
+        </p>
+      </section>
+
+      <section class="card section">
+        <h2>In the app</h2>
+        <p class="sectionLead">
+          Real app screens focused on memory, context, and place-based recall.
+        </p>
+
+        <div class="shotGrid">
+          <figure class="shotWrap">
+            <img src="./assets/screen-list.png" alt="Venue list view with grouped people" />
+            <figcaption class="shotCaption">Track everyone you met at each place.</figcaption>
+          </figure>
+
+          <figure class="shotWrap">
+            <img src="./assets/screen-edit.png" alt="Edit person view with location tools" />
+            <figcaption class="shotCaption">Pin locations and manage per-venue nearby alerts.</figcaption>
+          </figure>
+
+          <figure class="shotWrap">
+            <img src="./assets/screen-insights.png" alt="Insights view for usage and milestones" />
+            <figcaption class="shotCaption">Review milestones and lightweight profile insights.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="card section finalCta">
+        <h2>Keep every connection in context</h2>
+        <p>
+          Remember names, places, and details that matter without joining another social network.
+        </p>
+
+        <div class="ctaRow" style="justify-content:center;">
+          <a
+            class="btn primary"
+            href="https://apps.apple.com/app/id0000000000"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Download on the App Store</a>
+          <a class="btn secondary" href="./support.html">Get support</a>
+        </div>
+      </section>
+
+      <footer class="card siteFooter">
+        <p>Copyright <span id="year"></span> MetHere</p>
+        <nav class="footLinks" aria-label="Footer">
+          <a href="./index.html">Home</a>
+          <a href="./support.html">Support</a>
+          <a href="./privacy.html">Privacy</a>
+          <a href="./terms.html">Terms</a>
+          <a href="mailto:metherecontact@gmail.com">Email</a>
+          <a href="https://x.com/MetHereApp" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+        </nav>
+      </footer>
     </div>
 
     <script>
