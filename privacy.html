@@ -5,213 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MetHere | Privacy Policy</title>
     <meta name="description" content="MetHere Privacy Policy" />
-    <style>
-      :root {
-        --bg: #e9eef7;
-        --ink: #0f172a;
-        --muted: #4a5a73;
-        --panel: rgba(255, 255, 255, 0.82);
-        --stroke: rgba(15, 23, 42, 0.1);
-        --blue: #2f66df;
-        --shadow: 0 14px 40px rgba(15, 23, 42, 0.11);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        color: var(--ink);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-        background:
-          radial-gradient(900px 700px at 8% 0%, rgba(185, 202, 234, 0.5), transparent 62%),
-          radial-gradient(800px 700px at 100% 26%, rgba(207, 216, 238, 0.52), transparent 58%),
-          linear-gradient(180deg, #edf2fb, var(--bg));
-        min-height: 100vh;
-      }
-
-      a {
-        color: var(--blue);
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      .wrap {
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 28px 18px 56px;
-      }
-
-      .card {
-        background: var(--panel);
-        border: 1px solid var(--stroke);
-        border-radius: 22px;
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-      }
-
-      .header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-        padding: 12px 16px;
-        border-radius: 18px;
-      }
-
-      .brand img {
-        height: 30px;
-        display: block;
-      }
-
-      .navlinks {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
-
-      .navlinks a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 13px;
-        font-weight: 600;
-        color: #334155;
-        padding: 7px 12px;
-        border-radius: 999px;
-        border: 1px solid rgba(15, 23, 42, 0.1);
-        background: rgba(255, 255, 255, 0.74);
-      }
-
-      .navlinks a.active,
-      .navlinks a:hover {
-        color: #0f172a;
-        text-decoration: none;
-        background: rgba(255, 255, 255, 0.95);
-      }
-
-      .content {
-        margin-top: 18px;
-        padding: 24px;
-      }
-
-      h1 {
-        margin: 0;
-        font-size: 34px;
-        letter-spacing: -0.02em;
-      }
-
-      h2 {
-        margin: 24px 0 8px;
-        font-size: 21px;
-      }
-
-      h3 {
-        margin: 18px 0 8px;
-        font-size: 16px;
-      }
-
-      p,
-      li {
-        line-height: 1.58;
-        color: var(--muted);
-      }
-
-      ul {
-        margin-top: 8px;
-      }
-
-      .meta {
-        margin-top: 10px;
-      }
-
-      .meta p {
-        margin: 5px 0;
-      }
-
-      .pill {
-        display: inline-flex;
-        font-size: 12px;
-        font-weight: 700;
-        background: #edf3ff;
-        border: 1px solid #cad7f3;
-        color: #2f4361;
-        border-radius: 999px;
-        padding: 6px 10px;
-      }
-
-      .hr {
-        height: 1px;
-        background: #d9e2f5;
-        margin: 26px 0;
-      }
-
-      .siteFooter {
-        margin-top: 18px;
-        padding: 16px;
-        border-radius: 18px;
-        text-align: center;
-      }
-
-      .siteFooter p {
-        margin: 0;
-        color: #4c5c74;
-        font-size: 13px;
-      }
-
-      .footLinks {
-        margin-top: 8px;
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-
-      .footLinks a {
-        display: inline-flex;
-        font-size: 12px;
-        font-weight: 700;
-        color: #3c4f6e;
-        border: 1px solid rgba(15, 23, 42, 0.1);
-        border-radius: 999px;
-        padding: 6px 10px;
-        background: rgba(255, 255, 255, 0.72);
-      }
-
-      @media (max-width: 680px) {
-        .header {
-          align-items: flex-start;
-          flex-direction: column;
-        }
-
-        h1 {
-          font-size: 29px;
-        }
-
-        .content {
-          padding: 18px;
-        }
-
-        .wrap {
-          padding: 16px 14px 40px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
-    <div class="wrap">
-      <header class="card header">
-        <a class="brand" href="./index.html" aria-label="MetHere home">
+  <body class="page-privacy">
+    <div class="site-shell">
+      <header class="site-header panel reveal" data-delay="30ms">
+        <a class="site-brand" href="./index.html" aria-label="MetHere home">
           <img src="./assets/MetHere-inline-clean-white-tight.png" alt="MetHere" />
         </a>
 
-        <nav class="navlinks" aria-label="Primary">
+        <nav class="site-nav" aria-label="Primary">
           <a href="./index.html">Home</a>
           <a href="./support.html">Support</a>
           <a class="active" href="./privacy.html">Privacy</a>
@@ -220,188 +23,192 @@
         </nav>
       </header>
 
-      <main class="card content">
-        <h1>Privacy Policy</h1>
+      <main>
+        <section class="section panel utility-hero reveal" data-delay="80ms">
+          <p class="eyebrow">Privacy</p>
+          <h1>Privacy Policy</h1>
+          <div class="legal-meta">
+            <p><span class="badge">Effective date</span> February 11, 2026</p>
+            <p><strong>Owner/Operator:</strong> Julian Collins (Ontario, Canada)</p>
+            <p><strong>Contact:</strong> <a href="mailto:metherecontact@gmail.com">metherecontact@gmail.com</a></p>
+          </div>
 
-        <div class="meta">
-          <p><span class="pill">Effective date</span> February 11, 2026</p>
-          <p><strong>Owner/Operator:</strong> Julian Collins (Ontario, Canada)</p>
-          <p><strong>Contact:</strong> <a href="mailto:metherecontact@gmail.com">metherecontact@gmail.com</a></p>
-        </div>
+          <div class="legal-content">
+            <h2>Overview</h2>
+            <p>
+              MetHere is a local-first iOS app. Your people, venues, and notes are stored on your device.
+              We do not operate a backend for user content. Some data is sent to third-party services
+              for analytics, crash reporting, and purchases, and to Apple system services to provide core functionality
+              (maps, iCloud, location, notifications, speech recognition, and Photos).
+            </p>
 
-        <h2>Overview</h2>
-        <p>
-          MetHere is a local-first iOS app. Your people, venues, and notes are stored on your device.
-          We do not operate a backend for user content. Some data is sent to third-party services
-          for analytics, crash reporting, and purchases, and to Apple system services to provide core functionality
-          (maps, iCloud, location, notifications, speech recognition, and Photos).
-        </p>
+            <h2>Information We Collect and Store</h2>
 
-        <h2>Information We Collect and Store</h2>
+            <h3>Information you enter (stored on your device)</h3>
+            <ul>
+              <li>People details you create (name, position, notes/description, tags, favorite status, dates)</li>
+              <li>Venues you create (name, address/label, coordinates, favorites, proximity alert settings)</li>
+              <li>Tags and related metadata</li>
+              <li>Notification history inside the app</li>
+            </ul>
 
-        <h3>Information you enter (stored on your device)</h3>
-        <ul>
-          <li>People details you create (name, position, notes/description, tags, favorite status, dates)</li>
-          <li>Venues you create (name, address/label, coordinates, favorites, proximity alert settings)</li>
-          <li>Tags and related metadata</li>
-          <li>Notification history inside the app</li>
-        </ul>
+            <h3>Location data</h3>
+            <ul>
+              <li><strong>Precise location</strong> when you capture a venue pin or use place search (if you grant permission)</li>
+              <li><strong>Background location</strong> if you enable nearby venue alerts (geofencing)</li>
+              <li>Venue coordinates and optional timestamps are stored on your device</li>
+            </ul>
+            <p>
+              MetHere does not transmit your precise location coordinates for advertising or cross-app tracking.
+            </p>
 
-        <h3>Location data</h3>
-        <ul>
-          <li><strong>Precise location</strong> when you capture a venue pin or use place search (if you grant permission)</li>
-          <li><strong>Background location</strong> if you enable nearby venue alerts (geofencing)</li>
-          <li>Venue coordinates and optional timestamps are stored on your device</li>
-        </ul>
-        <p>
-          MetHere does not transmit your precise location coordinates for advertising or cross-app tracking.
-        </p>
+            <h3>Audio / Speech (optional dictation)</h3>
+            <p>
+              If you use dictation, iOS microphone and speech recognition are used to transcribe your speech into text.
+              MetHere does not store audio recordings. Apple speech services may process audio to provide transcription.
+            </p>
 
-        <h3>Audio / Speech (optional dictation)</h3>
-        <p>
-          If you use dictation, iOS microphone and speech recognition are used to transcribe your speech into text.
-          MetHere does not store audio recordings. Apple speech services may process audio to provide transcription.
-        </p>
+            <h3>Photos and Files (optional)</h3>
+            <ul>
+              <li>If you save a share card, the image is saved to your Photos library (if you grant permission)</li>
+              <li>If you export or auto-backup, a backup file is written to your device and/or iCloud Drive</li>
+            </ul>
 
-        <h3>Photos and Files (optional)</h3>
-        <ul>
-          <li>If you save a share card, the image is saved to your Photos library (if you grant permission)</li>
-          <li>If you export or auto-backup, a backup file is written to your device and/or iCloud Drive</li>
-        </ul>
+            <h3>Usage and analytics data (Firebase Analytics)</h3>
+            <p>
+              MetHere uses <strong>Google Firebase Analytics</strong> to understand feature usage and improve reliability.
+              We log app usage events (for example: feature usage, errors, counts, toggles).
+            </p>
+            <ul>
+              <li>Event parameters may include counts, booleans, and internal IDs (for example, a venue ID)</li>
+              <li>We do <strong>not</strong> intentionally send the names, notes, tags, or addresses you enter to analytics</li>
+            </ul>
+            <p>
+              Analytics data may be associated with a device or app instance identifier and is used for product improvement.
+              We do not sell analytics data and do not use it for advertising.
+            </p>
 
-        <h3>Usage and analytics data (Firebase Analytics)</h3>
-        <p>
-          MetHere uses <strong>Google Firebase Analytics</strong> to understand feature usage and improve reliability.
-          We log app usage events (for example: feature usage, errors, counts, toggles).
-        </p>
-        <ul>
-          <li>Event parameters may include counts, booleans, and internal IDs (for example, a venue ID)</li>
-          <li>We do <strong>not</strong> intentionally send the names, notes, tags, or addresses you enter to analytics</li>
-        </ul>
-        <p>
-          Analytics data may be associated with a device or app instance identifier and is used for product improvement.
-          We do not sell analytics data and do not use it for advertising.
-        </p>
+            <h3>Crash reporting (Firebase Crashlytics)</h3>
+            <p>
+              MetHere uses <strong>Google Firebase Crashlytics</strong> to monitor app stability and diagnose crashes.
+              If the app crashes or encounters a critical error, diagnostic information may be sent to Crashlytics,
+              including device model, operating system version, app version, timestamp, and technical crash logs
+              (such as stack traces).
+            </p>
+            <ul>
+              <li>Crash reports help us fix bugs and improve reliability</li>
+              <li>We do <strong>not</strong> intentionally include the names, notes, tags, or venue information you enter in crash reports</li>
+              <li>Crash data may be associated with a device or app instance identifier</li>
+            </ul>
+            <p>
+              Crash data is processed by Google according to their privacy policies and is used solely
+              to improve the stability and performance of MetHere.
+            </p>
 
-        <h3>Crash reporting (Firebase Crashlytics)</h3>
-        <p>
-          MetHere uses <strong>Google Firebase Crashlytics</strong> to monitor app stability and diagnose crashes.
-          If the app crashes or encounters a critical error, diagnostic information may be sent to Crashlytics,
-          including device model, operating system version, app version, timestamp, and technical crash logs
-          (such as stack traces).
-        </p>
-        <ul>
-          <li>Crash reports help us fix bugs and improve reliability</li>
-          <li>We do <strong>not</strong> intentionally include the names, notes, tags, or venue information you enter in crash reports</li>
-          <li>Crash data may be associated with a device or app instance identifier</li>
-        </ul>
-        <p>
-          Crash data is processed by Google according to their privacy policies and is used solely
-          to improve the stability and performance of MetHere.
-        </p>
+            <h3>Purchases (RevenueCat + Apple)</h3>
+            <p>
+              MetHere offers in-app purchases and/or subscriptions. Purchases are processed by Apple and validated with RevenueCat.
+              We receive subscription and entitlement information (for example: Pro/free status), plan name, and renewal/expiration details.
+              We do not receive your full payment details.
+            </p>
+            <p>
+              RevenueCat and Apple may process device identifiers and transaction identifiers to validate purchases and manage subscription status.
+            </p>
 
-        <h3>Purchases (RevenueCat + Apple)</h3>
-        <p>
-          MetHere offers in-app purchases and/or subscriptions. Purchases are processed by Apple and validated with RevenueCat.
-          We receive subscription and entitlement information (for example: Pro/free status), plan name, and renewal/expiration details.
-          We do not receive your full payment details.
-        </p>
-        <p>
-          RevenueCat and Apple may process device identifiers and transaction identifiers to validate purchases and manage subscription status.
-        </p>
+            <h2>Information We Do Not Collect</h2>
+            <ul>
+              <li>We do not require accounts</li>
+              <li>We do not collect your contacts, call logs, or camera data</li>
+              <li>We do not sell your data and do not use it for advertising</li>
+              <li>We do not track you across apps or websites owned by other companies</li>
+            </ul>
 
-        <h2>Information We Do Not Collect</h2>
-        <ul>
-          <li>We do not require accounts</li>
-          <li>We do not collect your contacts, call logs, or camera data</li>
-          <li>We do not sell your data and do not use it for advertising</li>
-          <li>We do not track you across apps or websites owned by other companies</li>
-        </ul>
+            <h2>How We Use Information</h2>
+            <ul>
+              <li>Provide core app features (people/venue tracking, tags, insights)</li>
+              <li>Enable location-based alerts you choose to turn on</li>
+              <li>Enable optional backups, exports, and share cards</li>
+              <li>Understand app usage and improve features (analytics)</li>
+              <li>Monitor stability and fix bugs (crash reporting)</li>
+              <li>Process and validate in-app purchases and subscription status</li>
+            </ul>
 
-        <h2>How We Use Information</h2>
-        <ul>
-          <li>Provide core app features (people/venue tracking, tags, insights)</li>
-          <li>Enable location-based alerts you choose to turn on</li>
-          <li>Enable optional backups, exports, and share cards</li>
-          <li>Understand app usage and improve features (analytics)</li>
-          <li>Monitor stability and fix bugs (crash reporting)</li>
-          <li>Process and validate in-app purchases and subscription status</li>
-        </ul>
+            <h2>Sharing and Disclosure</h2>
+            <p>
+              We do not sell your personal data. We only share data as needed to provide the app:
+            </p>
+            <ul>
+              <li><strong>Firebase Analytics (Google)</strong> for usage analytics</li>
+              <li><strong>Firebase Crashlytics (Google)</strong> for crash reporting</li>
+              <li><strong>RevenueCat and Apple</strong> for purchases and subscription status</li>
+              <li><strong>Apple MapKit</strong> for place search and map snapshots</li>
+              <li><strong>Apple iCloud Drive</strong> for backups you choose to export or auto-backup</li>
+              <li><strong>Apple system services</strong> for location, notifications, speech recognition, and Photos</li>
+            </ul>
+            <p>
+              If you export a backup or share an image, you control where it goes and who receives it.
+            </p>
 
-        <h2>Sharing and Disclosure</h2>
-        <p>
-          We do not sell your personal data. We only share data as needed to provide the app:
-        </p>
-        <ul>
-          <li><strong>Firebase Analytics (Google)</strong> for usage analytics</li>
-          <li><strong>Firebase Crashlytics (Google)</strong> for crash reporting</li>
-          <li><strong>RevenueCat and Apple</strong> for purchases and subscription status</li>
-          <li><strong>Apple MapKit</strong> for place search and map snapshots</li>
-          <li><strong>Apple iCloud Drive</strong> for backups you choose to export or auto-backup</li>
-          <li><strong>Apple system services</strong> for location, notifications, speech recognition, and Photos</li>
-        </ul>
-        <p>
-          If you export a backup or share an image, you control where it goes and who receives it.
-        </p>
+            <h2>Data Storage and Retention</h2>
+            <ul>
+              <li>Your people/venue data is stored locally on your device until you delete it or uninstall the app</li>
+              <li>You can reset the app from Settings to delete all local data</li>
+              <li>iCloud backup files remain in your iCloud Drive until you delete them</li>
+              <li>Analytics and crash reporting data is retained by Firebase according to Google policies</li>
+            </ul>
 
-        <h2>Data Storage and Retention</h2>
-        <ul>
-          <li>Your people/venue data is stored locally on your device until you delete it or uninstall the app</li>
-          <li>You can reset the app from Settings to delete all local data</li>
-          <li>iCloud backup files remain in your iCloud Drive until you delete them</li>
-          <li>Analytics and crash reporting data is retained by Firebase according to Google policies</li>
-        </ul>
+            <h2>Your Choices and Controls</h2>
+            <ul>
+              <li>You can disable permissions (location, notifications, microphone, photos) at any time in iOS Settings</li>
+              <li>You can reset the app to remove all local data</li>
+              <li>You can delete backups from Files/iCloud Drive</li>
+              <li>You can request help with deletion of analytics or crash data associated with your device by contacting us</li>
+            </ul>
 
-        <h2>Your Choices and Controls</h2>
-        <ul>
-          <li>You can disable permissions (location, notifications, microphone, photos) at any time in iOS Settings</li>
-          <li>You can reset the app to remove all local data</li>
-          <li>You can delete backups from Files/iCloud Drive</li>
-          <li>You can request help with deletion of analytics or crash data associated with your device by contacting us</li>
-        </ul>
+            <h2>Legal Basis for Processing</h2>
+            <p>We process information based on:</p>
+            <ul>
+              <li><strong>Your consent</strong> (location, notifications, microphone, Photos permissions)</li>
+              <li><strong>Contractual necessity</strong> (processing and validating purchases and subscription status)</li>
+              <li><strong>Legitimate interests</strong> (understanding feature usage and improving reliability through analytics and crash reporting)</li>
+            </ul>
 
-        <h2>Legal Basis for Processing</h2>
-        <p>We process information based on:</p>
-        <ul>
-          <li><strong>Your consent</strong> (location, notifications, microphone, Photos permissions)</li>
-          <li><strong>Contractual necessity</strong> (processing and validating purchases and subscription status)</li>
-          <li><strong>Legitimate interests</strong> (understanding feature usage and improving reliability through analytics and crash reporting)</li>
-        </ul>
+            <h2>International Transfers</h2>
+            <p>
+              Your information may be processed in the United States or other jurisdictions where our service providers operate
+              (for example, Google/Firebase, Apple, and RevenueCat). These jurisdictions may have different data protection laws
+              than your region.
+            </p>
 
-        <h2>International Transfers</h2>
-        <p>
-          Your information may be processed in the United States or other jurisdictions where our service providers operate
-          (for example, Google/Firebase, Apple, and RevenueCat). These jurisdictions may have different data protection laws
-          than your region.
-        </p>
+            <h2>Children's Privacy</h2>
+            <p>
+              MetHere is not intended for children under 13. We do not knowingly collect personal information from children.
+            </p>
 
-        <h2>Children's Privacy</h2>
-        <p>
-          MetHere is not intended for children under 13. We do not knowingly collect personal information from children.
-        </p>
+            <h2>Changes to This Policy</h2>
+            <p>
+              We may update this policy from time to time. We will update the effective date at the top of this page.
+            </p>
 
-        <h2>Changes to This Policy</h2>
-        <p>
-          We may update this policy from time to time. We will update the effective date at the top of this page.
-        </p>
+            <h2>Contact</h2>
+            <p>
+              If you have questions or requests about this Privacy Policy or MetHere data practices, contact:
+            </p>
+            <p><strong><a href="mailto:metherecontact@gmail.com">metherecontact@gmail.com</a></strong></p>
 
-        <h2>Contact</h2>
-        <p>
-          If you have questions or requests about this Privacy Policy or MetHere data practices, contact:
-        </p>
-        <p><strong><a href="mailto:metherecontact@gmail.com">metherecontact@gmail.com</a></strong></p>
+            <div class="divider"></div>
 
-        <div class="hr"></div>
-
-        <p>
-          Third-party services referenced above have their own privacy policies, including
-          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.
-        </p>
+            <p>
+              Third-party services referenced above have their own privacy policies, including
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.
+            </p>
+          </div>
+        </section>
       </main>
 
-      <footer class="card siteFooter">
+      <footer class="site-footer panel reveal" data-delay="130ms">
         <p>Copyright <span id="year"></span> MetHere</p>
-        <nav class="footLinks" aria-label="Footer">
+        <nav class="footer-links" aria-label="Footer">
           <a href="./index.html">Home</a>
           <a href="./support.html">Support</a>
           <a href="./privacy.html">Privacy</a>
@@ -412,6 +219,7 @@
       </footer>
     </div>
 
+    <script src="./site.js"></script>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>

@@ -5,198 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MetHere | Terms of Service</title>
     <meta name="description" content="MetHere Terms of Service" />
-    <style>
-      :root {
-        --bg: #e9eef7;
-        --ink: #0f172a;
-        --muted: #4a5a73;
-        --panel: rgba(255, 255, 255, 0.82);
-        --stroke: rgba(15, 23, 42, 0.1);
-        --blue: #2f66df;
-        --shadow: 0 14px 40px rgba(15, 23, 42, 0.11);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        color: var(--ink);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-        background:
-          radial-gradient(900px 700px at 8% 0%, rgba(185, 202, 234, 0.5), transparent 62%),
-          radial-gradient(800px 700px at 100% 26%, rgba(207, 216, 238, 0.52), transparent 58%),
-          linear-gradient(180deg, #edf2fb, var(--bg));
-        min-height: 100vh;
-      }
-
-      a {
-        color: var(--blue);
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      .wrap {
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 28px 18px 56px;
-      }
-
-      .card {
-        background: var(--panel);
-        border: 1px solid var(--stroke);
-        border-radius: 22px;
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-      }
-
-      .header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-        padding: 12px 16px;
-        border-radius: 18px;
-      }
-
-      .brand img {
-        height: 30px;
-        display: block;
-      }
-
-      .navlinks {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
-
-      .navlinks a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 13px;
-        font-weight: 600;
-        color: #334155;
-        padding: 7px 12px;
-        border-radius: 999px;
-        border: 1px solid rgba(15, 23, 42, 0.1);
-        background: rgba(255, 255, 255, 0.74);
-      }
-
-      .navlinks a.active,
-      .navlinks a:hover {
-        color: #0f172a;
-        text-decoration: none;
-        background: rgba(255, 255, 255, 0.95);
-      }
-
-      .content {
-        margin-top: 18px;
-        padding: 24px;
-      }
-
-      h1 {
-        margin: 0;
-        font-size: 34px;
-        letter-spacing: -0.02em;
-      }
-
-      h2 {
-        margin: 24px 0 8px;
-        font-size: 21px;
-      }
-
-      p,
-      li {
-        line-height: 1.58;
-        color: var(--muted);
-      }
-
-      .meta {
-        margin-top: 10px;
-      }
-
-      .meta p {
-        margin: 5px 0;
-      }
-
-      .pill {
-        display: inline-flex;
-        font-size: 12px;
-        font-weight: 700;
-        background: #edf3ff;
-        border: 1px solid #cad7f3;
-        color: #2f4361;
-        border-radius: 999px;
-        padding: 6px 10px;
-      }
-
-      .siteFooter {
-        margin-top: 18px;
-        padding: 16px;
-        border-radius: 18px;
-        text-align: center;
-      }
-
-      .siteFooter p {
-        margin: 0;
-        color: #4c5c74;
-        font-size: 13px;
-      }
-
-      .footLinks {
-        margin-top: 8px;
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-
-      .footLinks a {
-        display: inline-flex;
-        font-size: 12px;
-        font-weight: 700;
-        color: #3c4f6e;
-        border: 1px solid rgba(15, 23, 42, 0.1);
-        border-radius: 999px;
-        padding: 6px 10px;
-        background: rgba(255, 255, 255, 0.72);
-      }
-
-      @media (max-width: 680px) {
-        .header {
-          align-items: flex-start;
-          flex-direction: column;
-        }
-
-        h1 {
-          font-size: 29px;
-        }
-
-        .content {
-          padding: 18px;
-        }
-
-        .wrap {
-          padding: 16px 14px 40px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
-    <div class="wrap">
-      <header class="card header">
-        <a class="brand" href="./index.html" aria-label="MetHere home">
+  <body class="page-terms">
+    <div class="site-shell">
+      <header class="site-header panel reveal" data-delay="30ms">
+        <a class="site-brand" href="./index.html" aria-label="MetHere home">
           <img src="./assets/MetHere-inline-clean-white-tight.png" alt="MetHere" />
         </a>
 
-        <nav class="navlinks" aria-label="Primary">
+        <nav class="site-nav" aria-label="Primary">
           <a href="./index.html">Home</a>
           <a href="./support.html">Support</a>
           <a href="./privacy.html">Privacy</a>
@@ -205,101 +23,105 @@
         </nav>
       </header>
 
-      <main class="card content">
-        <h1>Terms of Service</h1>
+      <main>
+        <section class="section panel utility-hero reveal" data-delay="80ms">
+          <p class="eyebrow">Legal</p>
+          <h1>Terms of Service</h1>
+          <div class="legal-meta">
+            <p><span class="badge">Effective date</span> February 11, 2026</p>
+            <p><strong>Operator:</strong> Julian Collins (Ontario, Canada)</p>
+          </div>
 
-        <div class="meta">
-          <p><span class="pill">Effective date</span> February 11, 2026</p>
-          <p><strong>Operator:</strong> Julian Collins (Ontario, Canada)</p>
-        </div>
+          <div class="legal-content">
+            <h2>1. Acceptance of Terms</h2>
+            <p>
+              By downloading or using MetHere (the App), you agree to these Terms of Service.
+              If you do not agree, please do not use the App.
+            </p>
 
-        <h2>1. Acceptance of Terms</h2>
-        <p>
-          By downloading or using MetHere (the App), you agree to these Terms of Service.
-          If you do not agree, please do not use the App.
-        </p>
+            <h2>2. Description of the Service</h2>
+            <p>
+              MetHere is a local-first iOS application that allows users to save information
+              about people, venues, and related notes. User content is stored locally on the device.
+              We do not operate a user account system or backend for personal content.
+            </p>
 
-        <h2>2. Description of the Service</h2>
-        <p>
-          MetHere is a local-first iOS application that allows users to save information
-          about people, venues, and related notes. User content is stored locally on the device.
-          We do not operate a user account system or backend for personal content.
-        </p>
+            <h2>3. User Content</h2>
+            <p>
+              You are solely responsible for the information you enter into the App.
+              You agree not to use the App for unlawful, harmful, or abusive purposes.
+            </p>
+            <p>
+              You are responsible for maintaining backups of your data.
+              We are not responsible for loss of data due to device failure,
+              deletion, operating system updates, or other technical issues.
+            </p>
 
-        <h2>3. User Content</h2>
-        <p>
-          You are solely responsible for the information you enter into the App.
-          You agree not to use the App for unlawful, harmful, or abusive purposes.
-        </p>
-        <p>
-          You are responsible for maintaining backups of your data.
-          We are not responsible for loss of data due to device failure,
-          deletion, operating system updates, or other technical issues.
-        </p>
+            <h2>4. Location-Based Features</h2>
+            <p>
+              MetHere may use precise and background location permissions
+              to provide proximity-based reminders if you enable those features.
+              You can disable location permissions at any time in iOS Settings.
+            </p>
 
-        <h2>4. Location-Based Features</h2>
-        <p>
-          MetHere may use precise and background location permissions
-          to provide proximity-based reminders if you enable those features.
-          You can disable location permissions at any time in iOS Settings.
-        </p>
+            <h2>5. Purchases and Subscriptions</h2>
+            <p>
+              MetHere may offer paid features through in-app purchases or subscriptions.
+              All payments are processed by Apple through the App Store.
+            </p>
+            <ul>
+              <li>Subscriptions renew automatically unless canceled.</li>
+              <li>You can manage or cancel subscriptions in your Apple ID settings.</li>
+              <li>We do not store or process payment details.</li>
+            </ul>
 
-        <h2>5. Purchases and Subscriptions</h2>
-        <p>
-          MetHere may offer paid features through in-app purchases or subscriptions.
-          All payments are processed by Apple through the App Store.
-        </p>
-        <ul>
-          <li>Subscriptions renew automatically unless canceled.</li>
-          <li>You can manage or cancel subscriptions in your Apple ID settings.</li>
-          <li>We do not store or process payment details.</li>
-        </ul>
+            <h2>6. Intellectual Property</h2>
+            <p>
+              The App, including its design, branding, and software, is owned by Julian Collins.
+              You may not copy, distribute, or reverse engineer the App except as permitted by law.
+            </p>
 
-        <h2>6. Intellectual Property</h2>
-        <p>
-          The App, including its design, branding, and software, is owned by Julian Collins.
-          You may not copy, distribute, or reverse engineer the App except as permitted by law.
-        </p>
+            <h2>7. No Warranty</h2>
+            <p>
+              The App is provided as-is without warranties of any kind.
+              We do not guarantee uninterrupted or error-free operation.
+            </p>
 
-        <h2>7. No Warranty</h2>
-        <p>
-          The App is provided as-is without warranties of any kind.
-          We do not guarantee uninterrupted or error-free operation.
-        </p>
+            <h2>8. Limitation of Liability</h2>
+            <p>
+              To the maximum extent permitted by law, Julian Collins shall not be liable
+              for any indirect, incidental, special, consequential, or punitive damages,
+              including loss of data or loss of profits, arising from your use of the App.
+            </p>
 
-        <h2>8. Limitation of Liability</h2>
-        <p>
-          To the maximum extent permitted by law, Julian Collins shall not be liable
-          for any indirect, incidental, special, consequential, or punitive damages,
-          including loss of data or loss of profits, arising from your use of the App.
-        </p>
+            <h2>9. Termination</h2>
+            <p>
+              You may stop using the App at any time by uninstalling it.
+              We reserve the right to update, modify, or discontinue features at any time.
+            </p>
 
-        <h2>9. Termination</h2>
-        <p>
-          You may stop using the App at any time by uninstalling it.
-          We reserve the right to update, modify, or discontinue features at any time.
-        </p>
+            <h2>10. Governing Law</h2>
+            <p>
+              These Terms are governed by the laws of Ontario, Canada,
+              without regard to conflict of law principles.
+            </p>
 
-        <h2>10. Governing Law</h2>
-        <p>
-          These Terms are governed by the laws of Ontario, Canada,
-          without regard to conflict of law principles.
-        </p>
+            <h2>11. Changes to These Terms</h2>
+            <p>
+              We may update these Terms from time to time.
+              Continued use of the App after updates constitutes acceptance of the revised Terms.
+            </p>
 
-        <h2>11. Changes to These Terms</h2>
-        <p>
-          We may update these Terms from time to time.
-          Continued use of the App after updates constitutes acceptance of the revised Terms.
-        </p>
-
-        <h2>12. Contact</h2>
-        <p>If you have questions about these Terms, contact:</p>
-        <p><strong><a href="mailto:metherecontact@gmail.com">metherecontact@gmail.com</a></strong></p>
+            <h2>12. Contact</h2>
+            <p>If you have questions about these Terms, contact:</p>
+            <p><strong><a href="mailto:metherecontact@gmail.com">metherecontact@gmail.com</a></strong></p>
+          </div>
+        </section>
       </main>
 
-      <footer class="card siteFooter">
+      <footer class="site-footer panel reveal" data-delay="130ms">
         <p>Copyright <span id="year"></span> MetHere</p>
-        <nav class="footLinks" aria-label="Footer">
+        <nav class="footer-links" aria-label="Footer">
           <a href="./index.html">Home</a>
           <a href="./support.html">Support</a>
           <a href="./privacy.html">Privacy</a>
@@ -310,6 +132,7 @@
       </footer>
     </div>
 
+    <script src="./site.js"></script>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
