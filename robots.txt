@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://methere.app/sitemap.xml
