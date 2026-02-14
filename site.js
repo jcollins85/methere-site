@@ -1,19 +1,226 @@
 (function () {
-  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var GA_MEASUREMENT_ID = "G-N3Y7VGTFWX";
+  var CONSENT_KEY = "methere_analytics_consent_v1";
+  var CONSENT_GRANTED = "granted";
+  var CONSENT_DENIED = "denied";
+  var gaInitialized = false;
+  var gaLoading = false;
+  var preferencesButton = null;
+  var consentBannerId = "analytics-consent-banner";
 
-  if (reduceMotion) {
+  function getStoredConsent() {
+    try {
+      return window.localStorage.getItem(CONSENT_KEY);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function setStoredConsent(value) {
+    try {
+      window.localStorage.setItem(CONSENT_KEY, value);
+    } catch (error) {
+      return;
+    }
+  }
+
+  function hasAnalyticsConsent() {
+    return getStoredConsent() === CONSENT_GRANTED;
+  }
+
+  function initializeAnalytics() {
+    if (!hasAnalyticsConsent() || gaInitialized || gaLoading) {
+      return;
+    }
+
+    gaLoading = true;
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag =
+      window.gtag ||
+      function () {
+        window.dataLayer.push(arguments);
+      };
+
+    window.gtag("js", new Date());
+    window.gtag("config", GA_MEASUREMENT_ID, {
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false
+    });
+
+    var analyticsScript = document.createElement("script");
+    analyticsScript.async = true;
+    analyticsScript.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_MEASUREMENT_ID;
+    analyticsScript.onload = function () {
+      gaInitialized = true;
+      gaLoading = false;
+    };
+    analyticsScript.onerror = function () {
+      gaLoading = false;
+    };
+
+    document.head.appendChild(analyticsScript);
+  }
+
+  function setPreferencesButtonVisibility(isVisible) {
+    if (!preferencesButton) {
+      return;
+    }
+    preferencesButton.hidden = !isVisible;
+  }
+
+  function hideConsentBanner() {
+    var banner = document.getElementById(consentBannerId);
+    if (!banner) {
+      return;
+    }
+    banner.hidden = true;
+    setPreferencesButtonVisibility(true);
+  }
+
+  function openConsentBanner() {
+    var banner = document.getElementById(consentBannerId);
+    if (!banner) {
+      banner = document.createElement("aside");
+      banner.id = consentBannerId;
+      banner.className = "analytics-consent panel";
+      banner.setAttribute("role", "dialog");
+      banner.setAttribute("aria-live", "polite");
+
+      var title = document.createElement("h2");
+      title.textContent = "Privacy choices";
+
+      var message = document.createElement("p");
+      message.innerHTML =
+        'We use optional analytics to understand site usage and App Store/support clicks. You can accept or decline. See our <a href="./privacy.html">Privacy Policy</a>.';
+
+      var actions = document.createElement("div");
+      actions.className = "analytics-consent-actions";
+
+      var acceptButton = document.createElement("button");
+      acceptButton.type = "button";
+      acceptButton.className = "btn btn-primary";
+      acceptButton.textContent = "Accept analytics";
+      acceptButton.addEventListener("click", function () {
+        setStoredConsent(CONSENT_GRANTED);
+        initializeAnalytics();
+        trackEvent("analytics_consent_updated", {
+          status: CONSENT_GRANTED,
+          page_path: window.location.pathname
+        });
+        hideConsentBanner();
+      });
+
+      var declineButton = document.createElement("button");
+      declineButton.type = "button";
+      declineButton.className = "btn btn-secondary";
+      declineButton.textContent = "Decline";
+      declineButton.addEventListener("click", function () {
+        setStoredConsent(CONSENT_DENIED);
+        hideConsentBanner();
+      });
+
+      actions.appendChild(acceptButton);
+      actions.appendChild(declineButton);
+      banner.appendChild(title);
+      banner.appendChild(message);
+      banner.appendChild(actions);
+      document.body.appendChild(banner);
+    }
+
+    banner.hidden = false;
+    setPreferencesButtonVisibility(false);
+  }
+
+  function ensurePreferencesButton() {
+    if (preferencesButton) {
+      return;
+    }
+
+    preferencesButton = document.createElement("button");
+    preferencesButton.type = "button";
+    preferencesButton.className = "analytics-prefs-btn";
+    preferencesButton.textContent = "Privacy choices";
+    preferencesButton.addEventListener("click", openConsentBanner);
+    document.body.appendChild(preferencesButton);
+  }
+
+  function trackEvent(name, params) {
+    if (!name || !hasAnalyticsConsent() || typeof window.gtag !== "function") {
+      return;
+    }
+    window.gtag("event", name, params || {});
+  }
+
+  ensurePreferencesButton();
+
+  if (hasAnalyticsConsent()) {
+    initializeAnalytics();
+  } else if (getStoredConsent() !== CONSENT_DENIED) {
+    openConsentBanner();
+  }
+
+  document.addEventListener("click", function (event) {
+    if (!(event.target instanceof Element)) {
+      return;
+    }
+    var target = event.target.closest("[data-analytics-event]");
+    if (!target) {
+      return;
+    }
+
+    trackEvent(target.getAttribute("data-analytics-event"), {
+      placement: target.getAttribute("data-analytics-placement") || "unspecified",
+      link_text: (target.textContent || "").trim().slice(0, 80),
+      link_url: target.getAttribute("href") || "",
+      page_path: window.location.pathname
+    });
+  });
+
+  var sectionItems = document.querySelectorAll("section[id]");
+  if ("IntersectionObserver" in window && sectionItems.length) {
+    var seenSections = {};
+    var sectionObserver = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) {
+            return;
+          }
+          var sectionId = entry.target.getAttribute("id");
+          if (!sectionId || seenSections[sectionId]) {
+            return;
+          }
+          seenSections[sectionId] = true;
+          trackEvent("section_view", {
+            section_id: sectionId,
+            page_path: window.location.pathname
+          });
+          obs.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.45
+      }
+    );
+
+    sectionItems.forEach(function (item) {
+      sectionObserver.observe(item);
+    });
+  }
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion || !("IntersectionObserver" in window)) {
     return;
   }
 
   document.documentElement.classList.add("js-enabled");
 
   var revealItems = document.querySelectorAll(".reveal");
-
   if (!revealItems.length) {
     return;
   }
 
-  var observer = new IntersectionObserver(
+  var revealObserver = new IntersectionObserver(
     function (entries, obs) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -30,7 +237,6 @@
 
   revealItems.forEach(function (item) {
     var explicitDelay = item.getAttribute("data-delay");
-
     if (explicitDelay) {
       item.style.transitionDelay = explicitDelay;
     } else {
@@ -42,7 +248,6 @@
         item.style.transitionDelay = String(index * step) + "ms";
       }
     }
-
-    observer.observe(item);
+    revealObserver.observe(item);
   });
 })();

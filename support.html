@@ -20,11 +20,16 @@
         </a>
 
         <nav class="site-nav" aria-label="Primary">
-          <a href="./index.html">Home</a>
-          <a class="active" href="./support.html">Support</a>
-          <a href="./privacy.html">Privacy</a>
-          <a href="./terms.html">Terms</a>
-          <a href="https://x.com/MetHereApp" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="./index.html" data-analytics-event="nav_home_click" data-analytics-placement="header">Home</a>
+          <a class="active" href="./support.html" data-analytics-event="nav_support_click" data-analytics-placement="header">Support</a>
+          <a href="./privacy.html" data-analytics-event="nav_privacy_click" data-analytics-placement="header">Privacy</a>
+          <a href="./terms.html" data-analytics-event="nav_terms_click" data-analytics-placement="header">Terms</a>
+          <a href="https://x.com/MetHereApp" target="_blank" rel="noopener noreferrer" data-analytics-event="x_click" data-analytics-placement="header" class="social-link-x" aria-label="MetHere on X (Twitter)">
+            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M18.901 1.153h3.68l-8.039 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.598-9.828L0 1.154h7.594l5.243 6.932 6.064-6.932Zm-1.291 19.49h2.04L6.486 3.24H4.298l13.312 17.403Z" />
+            </svg>
+            <span class="sr-only">X (Twitter)</span>
+          </a>
         </nav>
       </header>
 
@@ -34,10 +39,10 @@
           <h1>Help with backups, purchases, and reminders.</h1>
           <p>If you run into an issue, send us the details and we'll work through it with you.</p>
           <p>
-            Contact: <a class="contact-link" href="mailto:metherecontact@gmail.com">metherecontact@gmail.com</a>
+            Contact: <a class="contact-link" href="mailto:metherecontact@gmail.com" data-analytics-event="support_email_click" data-analytics-placement="support-hero">metherecontact@gmail.com</a>
           </p>
           <div class="btn-row">
-            <a class="btn btn-primary" href="https://apps.apple.com/app/id0000000000" target="_blank" rel="noopener noreferrer"
+            <a class="btn btn-primary" href="https://apps.apple.com/app/id0000000000" target="_blank" rel="noopener noreferrer" data-analytics-event="app_store_click_support" data-analytics-placement="support-hero"
               >Download on the App Store</a
             >
           </div>
@@ -89,12 +94,17 @@
       <footer class="site-footer panel reveal" data-delay="140ms">
         <p>&copy; <span id="year"></span> MetHere</p>
         <nav class="footer-links" aria-label="Footer">
-          <a href="./index.html">Home</a>
-          <a href="./support.html">Support</a>
-          <a href="./privacy.html">Privacy</a>
-          <a href="./terms.html">Terms</a>
-          <a href="mailto:metherecontact@gmail.com">Email</a>
-          <a href="https://x.com/MetHereApp" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="./index.html" data-analytics-event="nav_home_click" data-analytics-placement="footer">Home</a>
+          <a href="./support.html" data-analytics-event="nav_support_click" data-analytics-placement="footer">Support</a>
+          <a href="./privacy.html" data-analytics-event="nav_privacy_click" data-analytics-placement="footer">Privacy</a>
+          <a href="./terms.html" data-analytics-event="nav_terms_click" data-analytics-placement="footer">Terms</a>
+          <a href="mailto:metherecontact@gmail.com" data-analytics-event="support_email_click" data-analytics-placement="footer">Email</a>
+          <a href="https://x.com/MetHereApp" target="_blank" rel="noopener noreferrer" data-analytics-event="x_click" data-analytics-placement="footer" class="social-link-x" aria-label="MetHere on X (Twitter)">
+            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M18.901 1.153h3.68l-8.039 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.598-9.828L0 1.154h7.594l5.243 6.932 6.064-6.932Zm-1.291 19.49h2.04L6.486 3.24H4.298l13.312 17.403Z" />
+            </svg>
+            <span class="sr-only">X (Twitter)</span>
+          </a>
         </nav>
       </footer>
     </div>
