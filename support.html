@@ -8,248 +8,16 @@
       name="description"
       content="MetHere support for backup and restore, subscriptions, purchases, permissions, and troubleshooting."
     />
-    <style>
-      :root {
-        --bg: #e9eef7;
-        --ink: #0f172a;
-        --muted: #4a5a73;
-        --panel: rgba(255, 255, 255, 0.82);
-        --stroke: rgba(15, 23, 42, 0.1);
-        --blue: #2f66df;
-        --blue-strong: #2558c8;
-        --shadow: 0 14px 40px rgba(15, 23, 42, 0.11);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        color: var(--ink);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-        background:
-          radial-gradient(900px 700px at 8% 0%, rgba(185, 202, 234, 0.5), transparent 62%),
-          radial-gradient(800px 700px at 100% 26%, rgba(207, 216, 238, 0.52), transparent 58%),
-          linear-gradient(180deg, #edf2fb, var(--bg));
-        min-height: 100vh;
-      }
-
-      a {
-        color: var(--blue);
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      .wrap {
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 28px 18px 56px;
-      }
-
-      .card {
-        background: var(--panel);
-        border: 1px solid var(--stroke);
-        border-radius: 22px;
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-      }
-
-      .header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-        padding: 12px 16px;
-        border-radius: 18px;
-      }
-
-      .brand img {
-        height: 30px;
-        display: block;
-      }
-
-      .navlinks {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
-
-      .navlinks a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 13px;
-        font-weight: 600;
-        color: #334155;
-        padding: 7px 12px;
-        border-radius: 999px;
-        border: 1px solid rgba(15, 23, 42, 0.1);
-        background: rgba(255, 255, 255, 0.74);
-      }
-
-      .navlinks a.active,
-      .navlinks a:hover {
-        color: #0f172a;
-        text-decoration: none;
-        background: rgba(255, 255, 255, 0.95);
-      }
-
-      .content {
-        margin-top: 18px;
-        padding: 24px;
-      }
-
-      h1 {
-        margin: 0;
-        font-size: 36px;
-        letter-spacing: -0.02em;
-      }
-
-      .lead {
-        margin: 12px 0 0;
-        color: var(--muted);
-        line-height: 1.58;
-        font-size: 16px;
-      }
-
-      .email {
-        margin-top: 14px;
-        font-size: 16px;
-      }
-
-      .email a {
-        display: inline-flex;
-        font-weight: 700;
-      }
-
-      .cta {
-        margin-top: 14px;
-      }
-
-      .cta a {
-        display: inline-flex;
-        min-height: 42px;
-        align-items: center;
-        justify-content: center;
-        border-radius: 12px;
-        padding: 10px 16px;
-        background: var(--blue);
-        border: 1px solid var(--blue);
-        color: #fff;
-        font-size: 14px;
-        font-weight: 700;
-      }
-
-      .cta a:hover {
-        background: var(--blue-strong);
-        text-decoration: none;
-      }
-
-      h2 {
-        margin: 24px 0 10px;
-        font-size: 22px;
-      }
-
-      .faq {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 10px;
-      }
-
-      .faq li {
-        border: 1px solid #d4def5;
-        background: #f6f9ff;
-        border-radius: 14px;
-        padding: 14px;
-      }
-
-      .faq strong {
-        display: block;
-        margin-bottom: 6px;
-        font-size: 15px;
-      }
-
-      .faq p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.55;
-      }
-
-      .note {
-        margin-top: 14px;
-        color: #586882;
-        font-size: 14px;
-        line-height: 1.5;
-      }
-
-      .siteFooter {
-        margin-top: 18px;
-        padding: 16px;
-        border-radius: 18px;
-        text-align: center;
-      }
-
-      .siteFooter p {
-        margin: 0;
-        color: #4c5c74;
-        font-size: 13px;
-      }
-
-      .footLinks {
-        margin-top: 8px;
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-
-      .footLinks a {
-        display: inline-flex;
-        font-size: 12px;
-        font-weight: 700;
-        color: #3c4f6e;
-        border: 1px solid rgba(15, 23, 42, 0.1);
-        border-radius: 999px;
-        padding: 6px 10px;
-        background: rgba(255, 255, 255, 0.72);
-      }
-
-      @media (max-width: 680px) {
-        .header {
-          align-items: flex-start;
-          flex-direction: column;
-        }
-
-        h1 {
-          font-size: 30px;
-        }
-
-        .content {
-          padding: 18px;
-        }
-
-        .wrap {
-          padding: 16px 14px 40px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
-    <div class="wrap">
-      <header class="card header">
-        <a class="brand" href="./index.html" aria-label="MetHere home">
+  <body class="page-support">
+    <div class="site-shell">
+      <header class="site-header panel reveal" data-delay="30ms">
+        <a class="site-brand" href="./index.html" aria-label="MetHere home">
           <img src="./assets/MetHere-inline-clean-white-tight.png" alt="MetHere" />
         </a>
 
-        <nav class="navlinks" aria-label="Primary">
+        <nav class="site-nav" aria-label="Primary">
           <a href="./index.html">Home</a>
           <a class="active" href="./support.html">Support</a>
           <a href="./privacy.html">Privacy</a>
@@ -258,78 +26,70 @@
         </nav>
       </header>
 
-      <main class="card content">
-        <h1>Support</h1>
-        <p class="lead">
-          Need help with MetHere? Send us a message and we will help troubleshoot backup,
-          subscriptions, permissions, and data workflows.
-        </p>
+      <main>
+        <section class="section panel utility-hero reveal" data-delay="80ms">
+          <p class="eyebrow">Support</p>
+          <h1>Help with backups, purchases, and reminders.</h1>
+          <p>
+            If you run into an issue, send us details and we will work through it with you.
+            Support is best-effort.
+          </p>
+          <p>
+            Contact: <a class="contact-link" href="mailto:metherecontact@gmail.com">metherecontact@gmail.com</a>
+          </p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://apps.apple.com/app/id0000000000" target="_blank" rel="noopener noreferrer"
+              >Download on the App Store</a
+            >
+          </div>
+        </section>
 
-        <p class="email">
-          Contact: <a href="mailto:metherecontact@gmail.com">metherecontact@gmail.com</a>
-        </p>
-
-        <p class="note">
-          Support is best-effort. Include your iOS version, app version, and a short description of the issue.
-        </p>
-
-        <p class="cta">
-          <a href="https://apps.apple.com/app/id0000000000" target="_blank" rel="noopener noreferrer"
-            >Download on the App Store</a>
-        </p>
-
-        <h2>Frequently Asked Questions</h2>
-        <ul class="faq">
-          <li>
-            <strong>How do I back up my data?</strong>
-            <p>
-              Go to Settings and use Export / Backup to create a JSON backup file. You can save it to Files
-              or iCloud Drive.
-            </p>
-          </li>
-
-          <li>
-            <strong>How do I restore my data?</strong>
-            <p>
-              Go to Settings and choose Import, then select a previously exported backup file.
-            </p>
-          </li>
-
-          <li>
-            <strong>How do I restore purchases?</strong>
-            <p>
-              Open Settings in MetHere and use Restore Purchases. Make sure you are signed into the same
-              Apple ID used for purchase.
-            </p>
-          </li>
-
-          <li>
-            <strong>How do I manage or cancel my subscription?</strong>
-            <p>
-              Subscriptions are managed by Apple. Open iOS Settings, tap your Apple ID, then Subscriptions.
-            </p>
-          </li>
-
-          <li>
-            <strong>Nearby reminders are not triggering. What should I check?</strong>
-            <p>
-              Confirm Location is allowed (including background), Notifications are enabled, and nearby alert
-              toggles are on for the venues you want monitored.
-            </p>
-          </li>
-
-          <li>
-            <strong>How do I reset app data?</strong>
-            <p>
-              Use the reset option in Settings to clear local data. Export a backup first if you may need to recover data.
-            </p>
-          </li>
-        </ul>
+        <section class="section panel reveal" data-delay="110ms">
+          <h2 class="section-subtitle">Frequently Asked Questions</h2>
+          <ul class="faq-list" data-stagger data-stagger-step="60">
+            <li class="faq-item reveal">
+              <h3>How do I back up my data?</h3>
+              <p>
+                Go to Settings and use Export / Backup to create a JSON backup file. You can save it to Files or iCloud Drive.
+              </p>
+            </li>
+            <li class="faq-item reveal">
+              <h3>How do I restore my data?</h3>
+              <p>
+                Go to Settings and choose Import, then select a previously exported backup file.
+              </p>
+            </li>
+            <li class="faq-item reveal">
+              <h3>How do I restore purchases?</h3>
+              <p>
+                Open Settings in MetHere and use Restore Purchases. Make sure you are signed into the same Apple ID used for purchase.
+              </p>
+            </li>
+            <li class="faq-item reveal">
+              <h3>How do I manage or cancel my subscription?</h3>
+              <p>
+                Subscriptions are managed by Apple. Open iOS Settings, tap your Apple ID, then Subscriptions.
+              </p>
+            </li>
+            <li class="faq-item reveal">
+              <h3>Nearby reminders are not triggering. What should I check?</h3>
+              <p>
+                Confirm Location is allowed (including background), Notifications are enabled, and nearby alert toggles are on for the venues you want monitored.
+              </p>
+            </li>
+            <li class="faq-item reveal">
+              <h3>How do I reset app data?</h3>
+              <p>
+                Use the reset option in Settings to clear local data. Export a backup first if you may need to recover data.
+              </p>
+            </li>
+          </ul>
+        </section>
       </main>
 
-      <footer class="card siteFooter">
+      <footer class="site-footer panel reveal" data-delay="140ms">
         <p>Copyright <span id="year"></span> MetHere</p>
-        <nav class="footLinks" aria-label="Footer">
+        <nav class="footer-links" aria-label="Footer">
           <a href="./index.html">Home</a>
           <a href="./support.html">Support</a>
           <a href="./privacy.html">Privacy</a>
@@ -340,6 +100,7 @@
       </footer>
     </div>
 
+    <script src="./site.js"></script>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
