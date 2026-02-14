@@ -17,11 +17,16 @@
         </a>
 
         <nav class="site-nav" aria-label="Primary">
-          <a href="./index.html">Home</a>
-          <a href="./support.html">Support</a>
-          <a class="active" href="./privacy.html">Privacy</a>
-          <a href="./terms.html">Terms</a>
-          <a href="https://x.com/MetHereApp" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="./index.html" data-analytics-event="nav_home_click" data-analytics-placement="header">Home</a>
+          <a href="./support.html" data-analytics-event="nav_support_click" data-analytics-placement="header">Support</a>
+          <a class="active" href="./privacy.html" data-analytics-event="nav_privacy_click" data-analytics-placement="header">Privacy</a>
+          <a href="./terms.html" data-analytics-event="nav_terms_click" data-analytics-placement="header">Terms</a>
+          <a href="https://x.com/MetHereApp" target="_blank" rel="noopener noreferrer" data-analytics-event="x_click" data-analytics-placement="header" class="social-link-x" aria-label="MetHere on X (Twitter)">
+            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M18.901 1.153h3.68l-8.039 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.598-9.828L0 1.154h7.594l5.243 6.932 6.064-6.932Zm-1.291 19.49h2.04L6.486 3.24H4.298l13.312 17.403Z" />
+            </svg>
+            <span class="sr-only">X (Twitter)</span>
+          </a>
         </nav>
       </header>
 
@@ -32,7 +37,7 @@
           <div class="legal-meta">
             <p><span class="badge">Effective date</span> February 11, 2026</p>
             <p><strong>Owner/Operator:</strong> Julian Collins (Ontario, Canada)</p>
-            <p><strong>Contact:</strong> <a href="mailto:metherecontact@gmail.com">metherecontact@gmail.com</a></p>
+            <p><strong>Contact:</strong> <a href="mailto:metherecontact@gmail.com" data-analytics-event="support_email_click" data-analytics-placement="privacy-meta">metherecontact@gmail.com</a></p>
           </div>
 
           <div class="legal-content">
@@ -90,6 +95,23 @@
               We do not sell analytics data and do not use it for advertising.
             </p>
 
+            <h3>Website analytics (Google Analytics)</h3>
+            <p>
+              The MetHere marketing website at <strong>methere.app</strong> uses <strong>Google Analytics 4</strong> to measure page views,
+              navigation usage, and App Store/support link clicks.
+            </p>
+            <ul>
+              <li>This helps us understand website performance and improve site content and conversion paths</li>
+              <li>GA4 may use first-party cookies or similar browser storage to measure repeat visits and engagement</li>
+              <li>Where required by law, we ask for consent before enabling website analytics</li>
+              <li>We configure GA4 with advertising personalization disabled and Google Signals disabled</li>
+              <li>Website analytics does not include the names, notes, tags, or venue content entered inside the app</li>
+            </ul>
+            <p>
+              Google may process analytics data according to its own privacy policies. You can reduce tracking through browser
+              controls or Google's Analytics opt-out tools.
+            </p>
+
             <h3>Crash reporting (Firebase Crashlytics)</h3>
             <p>
               MetHere uses <strong>Google Firebase Crashlytics</strong> to monitor app stability and diagnose crashes.
@@ -141,6 +163,7 @@
             </p>
             <ul>
               <li><strong>Firebase Analytics (Google)</strong> for usage analytics</li>
+              <li><strong>Google Analytics (Google)</strong> for website analytics on methere.app</li>
               <li><strong>Firebase Crashlytics (Google)</strong> for crash reporting</li>
               <li><strong>RevenueCat and Apple</strong> for purchases and subscription status</li>
               <li><strong>Apple MapKit</strong> for place search and map snapshots</li>
@@ -196,13 +219,13 @@
             <p>
               If you have questions or requests about this Privacy Policy or MetHere data practices, contact:
             </p>
-            <p><strong><a href="mailto:metherecontact@gmail.com">metherecontact@gmail.com</a></strong></p>
+            <p><strong><a href="mailto:metherecontact@gmail.com" data-analytics-event="support_email_click" data-analytics-placement="privacy-content">metherecontact@gmail.com</a></strong></p>
 
             <div class="divider"></div>
 
             <p>
               Third-party services referenced above have their own privacy policies, including
-              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" data-analytics-event="external_policy_click" data-analytics-placement="privacy-content">Google Privacy Policy</a>.
             </p>
           </div>
         </section>
@@ -211,12 +234,17 @@
       <footer class="site-footer panel reveal" data-delay="130ms">
         <p>&copy; <span id="year"></span> MetHere</p>
         <nav class="footer-links" aria-label="Footer">
-          <a href="./index.html">Home</a>
-          <a href="./support.html">Support</a>
-          <a href="./privacy.html">Privacy</a>
-          <a href="./terms.html">Terms</a>
-          <a href="mailto:metherecontact@gmail.com">Email</a>
-          <a href="https://x.com/MetHereApp" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="./index.html" data-analytics-event="nav_home_click" data-analytics-placement="footer">Home</a>
+          <a href="./support.html" data-analytics-event="nav_support_click" data-analytics-placement="footer">Support</a>
+          <a href="./privacy.html" data-analytics-event="nav_privacy_click" data-analytics-placement="footer">Privacy</a>
+          <a href="./terms.html" data-analytics-event="nav_terms_click" data-analytics-placement="footer">Terms</a>
+          <a href="mailto:metherecontact@gmail.com" data-analytics-event="support_email_click" data-analytics-placement="footer">Email</a>
+          <a href="https://x.com/MetHereApp" target="_blank" rel="noopener noreferrer" data-analytics-event="x_click" data-analytics-placement="footer" class="social-link-x" aria-label="MetHere on X (Twitter)">
+            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M18.901 1.153h3.68l-8.039 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.598-9.828L0 1.154h7.594l5.243 6.932 6.064-6.932Zm-1.291 19.49h2.04L6.486 3.24H4.298l13.312 17.403Z" />
+            </svg>
+            <span class="sr-only">X (Twitter)</span>
+          </a>
         </nav>
       </footer>
     </div>
