@@ -109,7 +109,7 @@ Status values:
 | Implemented | Eyebrow | Support |  |  |
 | Implemented | H1 | Help with backups, purchases, and reminders. |  |  |
 | Implemented | Lead | If you run into an issue, send us details and we will work through it with you. Support is best-effort. |  |  |
-| Implemented | Contact line | Contact: metherecontact@gmail.com |  |  |
+| Implemented | Contact line | Contact: support@methere.app |  |  |
 | Implemented | CTA | Download on the App Store |  |  |
 
 ### FAQ
