@@ -85,7 +85,7 @@ Excluded: `privacy.html` and `terms.html` page body copy.
 - Support
 - Help with backups, purchases, and reminders.
 - If you run into an issue, send us details and we will work through it with you. Support is best-effort.
-- Contact: metherecontact@gmail.com
+- Contact: support@methere.app
 - Download on the App Store
 
 ### FAQ
