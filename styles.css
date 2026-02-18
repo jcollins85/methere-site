@@ -215,6 +215,23 @@ img {
   text-decoration: none;
 }
 
+.app-store-badge-link {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 10px;
+  line-height: 0;
+}
+
+.app-store-badge-link:hover {
+  text-decoration: none;
+}
+
+.app-store-badge {
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+}
+
 .chip-row {
   margin-top: var(--space-16);
   display: flex;
