@@ -9,15 +9,15 @@
     <link rel="canonical" href="https://methere.app/404.html" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="MetHere" />
-    <meta property="og:title" content="MetHere | Page not found" />
-    <meta property="og:description" content="The page you requested could not be found." />
-    <meta property="og:url" content="https://methere.app/404.html" />
-    <meta property="og:image" content="https://methere.app/assets/app-hero-remember.png" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:title" content="MetHere | Open Shared Contact" />
+    <meta property="og:description" content="Someone shared a contact with you via MetHere. Tap to open." />
+    <meta property="og:url" content="https://methere.app/" />
+    <meta property="og:image" content="https://methere.app/assets/MetHere-ios-appLogo-Current.png" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@MetHereApp" />
-    <meta name="twitter:title" content="MetHere | Page not found" />
-    <meta name="twitter:description" content="The page you requested could not be found." />
-    <meta name="twitter:image" content="https://methere.app/assets/app-hero-remember.png" />
+    <meta name="twitter:title" content="MetHere | Open Shared Contact" />
+    <meta name="twitter:description" content="Someone shared a contact with you via MetHere. Tap to open." />
+    <meta name="twitter:image" content="https://methere.app/assets/MetHere-ios-appLogo-Current.png" />
     <link rel="icon" type="image/png" href="./assets/MetHere-ios-appLogo-Current.png" />
     <link rel="apple-touch-icon" href="./assets/MetHere-ios-appLogo-Current.png" />
     <link rel="stylesheet" href="./styles.css" />
@@ -76,6 +76,28 @@
     <script src="./site.js"></script>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+      // If this is a share link (/s/<data>), show share UI instead of 404
+      (function () {
+        var match = window.location.pathname.match(/^\/s\/([A-Za-z0-9_-]+)/);
+        if (!match) return;
+        var data = match[1];
+        var main = document.querySelector('main');
+        if (!main) return;
+        main.innerHTML =
+          '<section class="section panel utility-hero reveal" data-delay="80ms">' +
+          '<img src="./assets/MetHere-ios-appLogo-Current.png" alt="MetHere" ' +
+          'style="width:80px;height:80px;border-radius:18px;margin:0 auto 24px;display:block;box-shadow:0 2px 8px rgba(0,0,0,.12)">' +
+          '<h1>Someone shared a contact with you</h1>' +
+          '<p>Open MetHere to import the shared person or venue.</p>' +
+          '<div class="btn-row">' +
+          '<a class="btn btn-primary" href="methere://share?data=' + encodeURIComponent(data) + '">Open in MetHere</a>' +
+          '</div>' +
+          '<p style="margin-top:16px;font-size:0.875rem;color:var(--ink-500,#666)">' +
+          'Don\u2019t have the app? ' +
+          '<a href="https://apps.apple.com/app/methere/id6742044392">Download on the App Store</a>' +
+          '</p></section>';
+        document.title = 'MetHere | Open Shared Contact';
+      })();
     </script>
   </body>
 </html>
