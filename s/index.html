@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MetHere | Open Shared Contact</title>
+    <meta name="description" content="Someone shared a contact with you via MetHere." />
+    <link rel="icon" type="image/png" href="../assets/MetHere-ios-appLogo-Current.png" />
+    <link rel="apple-touch-icon" href="../assets/MetHere-ios-appLogo-Current.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      .share-card {
+        max-width: 420px;
+        margin: 120px auto 0;
+        text-align: center;
+      }
+      .share-card .app-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: var(--radius-18);
+        margin: 0 auto var(--space-24);
+        box-shadow: var(--shadow-soft);
+      }
+      .share-card h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0 0 var(--space-8);
+      }
+      .share-card p {
+        color: var(--ink-600);
+        margin: 0 0 var(--space-32);
+      }
+      .share-btn {
+        display: inline-block;
+        padding: var(--space-12) var(--space-32);
+        background: var(--brand-500);
+        color: #fff;
+        font-weight: 600;
+        font-size: 1rem;
+        border-radius: var(--radius-12);
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.15s;
+      }
+      .share-btn:hover {
+        background: var(--brand-600);
+        text-decoration: none;
+      }
+      .share-fallback {
+        margin-top: var(--space-16);
+        font-size: 0.875rem;
+        color: var(--ink-500);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-shell">
+      <div class="share-card panel">
+        <img
+          src="../assets/MetHere-ios-appLogo-Current.png"
+          alt="MetHere"
+          class="app-icon"
+        />
+        <h1>Someone shared a contact with you</h1>
+        <p>Open MetHere to import the shared person or venue.</p>
+        <a id="open-btn" class="share-btn" href="#">Open in MetHere</a>
+        <p class="share-fallback">
+          Don't have the app?
+          <a href="https://apps.apple.com/app/methere/id6742044392">Download on the App Store</a>
+        </p>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var data = params.get('d');
+        var btn = document.getElementById('open-btn');
+        if (data) {
+          btn.href = 'methere://share?data=' + encodeURIComponent(data);
+        } else {
+          btn.href = 'https://apps.apple.com/app/methere/id6742044392';
+        }
+      })();
+    </script>
+  </body>
+</html>
