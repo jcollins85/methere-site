@@ -73,8 +73,7 @@
     </div>
     <script>
       (function () {
-        var params = new URLSearchParams(window.location.search);
-        var data = params.get('d');
+        var data = window.location.hash.slice(1);
         var btn = document.getElementById('open-btn');
         if (data) {
           btn.href = 'methere://share?data=' + encodeURIComponent(data);
