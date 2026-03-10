@@ -1,0 +1,35 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      ".git",
+      ".gitignore",
+      "AGENTS.md",
+      "COPY_INVENTORY.md",
+      "COPY_REWRITE_DRAFT.md",
+      "PROJECT_CONTEXT.md",
+      "README.md",
+      "TASK_LOG.md",
+      "node_modules"
+    ],
+    "rewrites": [
+      {
+        "source": "/s/**",
+        "destination": "/s/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "/.well-known/**",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      }
+    ]
+  }
+}

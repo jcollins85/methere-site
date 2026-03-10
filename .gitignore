@@ -3,3 +3,9 @@
 AGENTS.md
 PROJECT_CONTEXT.md
 TASK_LOG.md
+
+# Firebase
+.firebase/
+
+# OS
+.DS_Store
