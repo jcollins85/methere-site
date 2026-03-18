@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Someone shared a contact with you | MetHere</title>
+    <meta name="description" content="Open in MetHere to add them to your people." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MetHere" />
+    <meta property="og:title" content="Someone shared a contact with you" />
+    <meta property="og:description" content="Open in MetHere to add them to your people." />
+    <meta property="og:url" content="https://methere.app/s/" />
+    <meta property="og:image" content="https://methere.app/assets/og-share.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@MetHereApp" />
+    <meta name="twitter:title" content="Someone shared a contact with you" />
+    <meta name="twitter:description" content="Open in MetHere to add them to your people." />
+    <meta name="twitter:image" content="https://methere.app/assets/og-share.png" />
+    <link rel="icon" type="image/png" href="../assets/MetHere-ios-appLogo-Current.png" />
+    <link rel="apple-touch-icon" href="../assets/MetHere-ios-appLogo-Current.png" />
+    <meta name="apple-itunes-app" content="app-id=6757836312">
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      .share-card {
+        max-width: 420px;
+        margin: 120px auto 0;
+        text-align: center;
+      }
+      .share-card .app-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: var(--radius-18);
+        margin: 0 auto var(--space-24);
+        box-shadow: var(--shadow-soft);
+      }
+      .share-card h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0 0 var(--space-8);
+      }
+      .share-card p {
+        color: var(--ink-600);
+        margin: 0 0 var(--space-32);
+      }
+      .share-btn {
+        display: inline-block;
+        padding: var(--space-12) var(--space-32);
+        background: var(--brand-500);
+        color: #fff;
+        font-weight: 600;
+        font-size: 1rem;
+        border-radius: var(--radius-12);
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.15s;
+      }
+      .share-btn:hover {
+        background: var(--brand-600);
+        text-decoration: none;
+      }
+      .share-fallback {
+        margin-top: var(--space-16);
+        font-size: 0.875rem;
+        color: var(--ink-500);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-shell">
+      <div class="share-card panel">
+        <img
+          src="../assets/MetHere-ios-appLogo-Current.png"
+          alt="MetHere"
+          class="app-icon"
+        />
+        <h1>Someone shared a contact with you</h1>
+        <p>Open MetHere to import the shared person or place.</p>
+        <a id="open-btn" class="share-btn" href="#">Open in MetHere</a>
+        <p class="share-fallback">
+          Don't have the app?
+          <a href="https://apps.apple.com/app/methere/id6757836312">Download on the App Store</a>
+        </p>
+        <a href="https://apps.apple.com/app/methere/id6757836312" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store">
+          <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" style="width: 140px; margin-top: 8px;" />
+        </a>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var data = window.location.hash.slice(1);
+        var btn = document.getElementById('open-btn');
+        if (data) {
+          btn.href = 'methere://share?data=' + encodeURIComponent(data);
+        } else {
+          btn.href = 'https://apps.apple.com/app/methere/id6757836312';
+        }
+      })();
+    </script>
+  </body>
+</html>

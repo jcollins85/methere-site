@@ -7,5 +7,9 @@ TASK_LOG.md
 # Firebase
 .firebase/
 
+# Build output
+dist/
+
 # OS
 .DS_Store
+.superpowers/

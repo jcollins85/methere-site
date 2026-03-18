@@ -1,18 +1,9 @@
 {
   "hosting": {
-    "public": ".",
+    "public": "dist",
     "ignore": [
       "firebase.json",
-      ".firebaserc",
-      ".git",
-      ".gitignore",
-      "AGENTS.md",
-      "COPY_INVENTORY.md",
-      "COPY_REWRITE_DRAFT.md",
-      "PROJECT_CONTEXT.md",
-      "README.md",
-      "TASK_LOG.md",
-      "node_modules"
+      ".firebaserc"
     ],
     "rewrites": [
       {
