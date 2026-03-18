@@ -47,7 +47,7 @@ Some issues from the original copy audit have been fixed (venue→place in HTML 
 | `privacy.html` | Carry over | No changes (legal, separate concern) |
 | `terms.html` | Carry over | No changes |
 | `404.html` | Carry over | Update to use shared header/footer partials |
-| `s/index.html` | Minor update | Add "Get MetHere" App Store badge below existing "Don't have the app?" text. Style consistent with homepage CTA. Keep existing deep link button as primary action. |
+| `s/index.html` | Minor update | Fix App Store link (currently uses wrong ID `6742044392`, should be `6757836312`). Add App Store badge below existing "Don't have the app?" text. Keep existing deep link as primary action. This page stays standalone (no shared header/footer) since it's a minimal share-card landing page by design. |
 
 ## Infrastructure: Build Script
 
@@ -85,7 +85,7 @@ methere-site/
 
 1. Each `src/*.html` file contains `<!-- HEADER -->` and `<!-- FOOTER -->` placeholder comments
 2. `build.js` reads each source file, replaces placeholders with partial content, writes to `dist/`
-3. Static assets (`assets/`, `styles.css`, `site.js`, `robots.txt`, `sitemap.xml`) are copied to `dist/` as-is. No `CNAME` file exists (Firebase uses DNS config, not CNAME file).
+3. Static assets (`assets/`, `styles.css`, `site.js`, `robots.txt`, `sitemap.xml`, `CNAME`) are copied to `dist/` as-is. The `CNAME` file exists and contains `methere.app`.
 4. Firebase config updated: `"public": "dist"`. The current `firebase.json` ignore list can be simplified since `dist/` will only contain build output.
 
 ### Workflows
@@ -197,15 +197,17 @@ Group FAQs into categories instead of a flat list. Easier to scan as the questio
 - Is MetHere free?
 - What platforms is MetHere available on?
 
-**Data & Backups (4 total: 1 new, 3 existing)**
+**Data & Backups (5 total: 1 new, 4 existing)**
 - Where is my data stored? (new)
-- How do I back up my data? (existing, clarify Pro-only)
+- How do I back up my data? (existing, already notes Pro)
 - How do I restore my data? (existing)
+- What is the difference between JSON backup and CSV export? (existing)
 - How do I reset app data? (existing)
 
-**Purchases (2 total: 1 existing already correct, 1 existing)**
-- Is Pro a subscription? (existing, already correctly states one-time purchase)
-- How do I restore my purchase? (existing)
+**Purchases (3 total: all existing, already correct)**
+- How do I restore purchases? (existing)
+- Do I need to manage anything after buying Pro? (existing, already states one-time purchase)
+- What are the Free vs Pro limits? (existing, already has correct limits)
 
 **Nearby Alerts (2 total: 1 new, 1 updated)**
 - How do nearby alerts work? (new)
