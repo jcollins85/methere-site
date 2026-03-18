@@ -260,7 +260,7 @@ img {
 
 .hero-note {
   margin-top: var(--space-12);
-  color: var(--ink-600);
+  color: var(--ink-500);
   font-size: 14px;
 }
 
@@ -345,7 +345,7 @@ img {
 .trust-grid {
   margin-top: var(--space-16);
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-12);
 }
 
@@ -395,8 +395,9 @@ img {
 }
 
 .plans-note {
-  margin: var(--space-12) 0 0;
-  color: var(--ink-600);
+  margin-top: var(--space-16);
+  text-align: center;
+  color: var(--ink-500);
   font-size: 14px;
 }
 
@@ -554,6 +555,13 @@ img {
   padding: 6px 10px;
   font-size: 12px;
   font-weight: 700;
+  transition: background 0.15s, color 0.15s;
+}
+
+.footer-links a:hover {
+  background: #ffffff;
+  color: var(--ink-950);
+  text-decoration: none;
 }
 
 .social-icon {
@@ -632,6 +640,239 @@ img {
   display: none;
 }
 
+/* ── Decorative floating shapes ── */
+#hero,
+#the-moment,
+#how-it-works,
+#features,
+#why-methere,
+#plans,
+#final-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+#hero::before,
+#hero::after,
+#the-moment::before,
+#how-it-works::after,
+#features::before,
+#features::after,
+#why-methere::before,
+#why-methere::after,
+#plans::before,
+#final-cta::before,
+#final-cta::after {
+  content: "";
+  position: absolute;
+  border-radius: 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hero — two shapes flanking the content */
+#hero::before {
+  width: 300px;
+  height: 200px;
+  top: -50px;
+  right: -70px;
+  background: rgba(47, 102, 223, 0.07);
+  transform: rotate(18deg);
+}
+
+#hero::after {
+  width: 240px;
+  height: 160px;
+  bottom: 20px;
+  left: -60px;
+  background: rgba(140, 120, 220, 0.06);
+  transform: rotate(-12deg);
+}
+
+/* The Moment — subtle shape top-right */
+#the-moment::before {
+  width: 200px;
+  height: 140px;
+  top: -30px;
+  right: -40px;
+  background: rgba(100, 140, 230, 0.05);
+  transform: rotate(30deg);
+}
+
+/* How It Works — shape bottom-left */
+#how-it-works::after {
+  width: 280px;
+  height: 180px;
+  bottom: -50px;
+  left: -60px;
+  background: rgba(47, 102, 223, 0.05);
+  transform: rotate(-16deg);
+}
+
+/* Features — two shapes, opposite corners */
+#features::before {
+  width: 260px;
+  height: 180px;
+  top: -40px;
+  left: -50px;
+  background: rgba(47, 102, 223, 0.06);
+  transform: rotate(24deg);
+}
+
+#features::after {
+  width: 200px;
+  height: 140px;
+  bottom: -30px;
+  right: -40px;
+  background: rgba(160, 130, 220, 0.05);
+  transform: rotate(-8deg);
+}
+
+/* Why MetHere — two shapes */
+#why-methere::before {
+  width: 180px;
+  height: 120px;
+  top: -20px;
+  right: 10%;
+  background: rgba(100, 140, 230, 0.05);
+  transform: rotate(14deg);
+}
+
+#why-methere::after {
+  width: 260px;
+  height: 180px;
+  bottom: -45px;
+  right: -60px;
+  background: rgba(140, 120, 220, 0.06);
+  transform: rotate(-20deg);
+}
+
+/* Plans — shape top-right */
+#plans::before {
+  width: 220px;
+  height: 150px;
+  top: -35px;
+  right: -50px;
+  background: rgba(47, 102, 223, 0.05);
+  transform: rotate(22deg);
+}
+
+/* Final CTA — two shapes for a warm send-off */
+#final-cta::before {
+  width: 280px;
+  height: 190px;
+  top: -50px;
+  left: -70px;
+  background: rgba(47, 102, 223, 0.06);
+  transform: rotate(-15deg);
+}
+
+#final-cta::after {
+  width: 220px;
+  height: 150px;
+  bottom: -30px;
+  right: -50px;
+  background: rgba(140, 120, 220, 0.05);
+  transform: rotate(26deg);
+}
+
+/* Ensure section content stays above shapes */
+#hero > *,
+#the-moment > *,
+#how-it-works > *,
+#features > *,
+#why-methere > *,
+#plans > *,
+#final-cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+.moment-grid {
+  margin-top: var(--space-16);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-12);
+}
+
+.moment-card {
+  border: 1px solid #d4dff5;
+  border-radius: var(--radius-18);
+  background: #f5f9ff;
+  padding: var(--space-24);
+}
+
+.moment-card p {
+  margin: 0;
+  color: var(--ink-700);
+  font-size: 17px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.feature-grid {
+  margin-top: var(--space-16);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-12);
+}
+
+.feature-card {
+  border: 1px solid #d4dff5;
+  border-radius: var(--radius-18);
+  background: #f5f9ff;
+  padding: var(--space-16);
+}
+
+.feature-card h3 {
+  margin: 0;
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.feature-card p {
+  margin: var(--space-8) 0 0;
+  color: var(--ink-600);
+}
+
+.plan-card ul {
+  margin: var(--space-8) 0 0;
+  padding-left: 1.25rem;
+  color: var(--ink-600);
+}
+
+.plan-card ul li + li {
+  margin-top: 4px;
+}
+
+.plan-label {
+  margin: var(--space-4) 0 0;
+  color: var(--ink-500);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.faq-category {
+  margin-top: var(--space-24);
+}
+
+.faq-category:first-child {
+  margin-top: var(--space-16);
+}
+
+.faq-category-title {
+  margin: 0 0 var(--space-12);
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--ink-950);
+}
+
+.sticky-mobile-cta {
+  display: none;
+}
+
 /* Motion */
 .reveal {
   opacity: 1;
@@ -665,6 +906,11 @@ img {
   .plan-grid,
   .trust-grid {
     grid-template-columns: 1fr;
+  }
+
+  .moment-grid,
+  .trust-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .proof-card.reverse .proof-copy,
@@ -724,5 +970,38 @@ img {
   .analytics-prefs-btn {
     left: 10px;
     bottom: 10px;
+  }
+
+  .moment-grid,
+  .feature-grid,
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sticky-mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--stroke-1);
+    z-index: 40;
+    padding: 0 var(--space-16);
+  }
+
+  .sticky-mobile-cta .app-store-badge {
+    width: 140px;
+  }
+
+  body {
+    padding-bottom: 56px;
   }
 }

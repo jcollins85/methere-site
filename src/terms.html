@@ -28,28 +28,12 @@
     <meta name="twitter:image" content="https://methere.app/assets/app-hero-remember.png" />
     <link rel="icon" type="image/png" href="./assets/MetHere-ios-appLogo-Current.png" />
     <link rel="apple-touch-icon" href="./assets/MetHere-ios-appLogo-Current.png" />
+    <meta name="apple-itunes-app" content="app-id=6757836312">
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body class="page-terms">
     <div class="site-shell">
-      <header class="site-header panel reveal" data-delay="30ms">
-        <a class="site-brand" href="./index.html" aria-label="MetHere home">
-          <img src="./assets/MetHere-inline-clean-white-tight.png" alt="MetHere" />
-        </a>
-
-        <nav class="site-nav" aria-label="Primary">
-          <a href="./index.html" data-analytics-event="nav_home_click" data-analytics-placement="header">Home</a>
-          <a href="./support.html" data-analytics-event="nav_support_click" data-analytics-placement="header">Support</a>
-          <a href="./privacy.html" data-analytics-event="nav_privacy_click" data-analytics-placement="header">Privacy</a>
-          <a class="active" href="./terms.html" data-analytics-event="nav_terms_click" data-analytics-placement="header">Terms</a>
-          <a href="https://x.com/MetHereApp" target="_blank" rel="noopener noreferrer" data-analytics-event="x_click" data-analytics-placement="header" class="social-link-x" aria-label="MetHere on X (Twitter)">
-            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M18.901 1.153h3.68l-8.039 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.598-9.828L0 1.154h7.594l5.243 6.932 6.064-6.932Zm-1.291 19.49h2.04L6.486 3.24H4.298l13.312 17.403Z" />
-            </svg>
-            <span class="sr-only">X (Twitter)</span>
-          </a>
-        </nav>
-      </header>
+      <!-- HEADER -->
 
       <main>
         <section class="section panel utility-hero reveal" data-delay="80ms">
@@ -147,27 +131,7 @@
         </section>
       </main>
 
-      <footer class="site-footer panel reveal" data-delay="130ms">
-        <p>&copy; <span id="year"></span> MetHere</p>
-        <nav class="footer-links" aria-label="Footer">
-          <a href="./index.html" data-analytics-event="nav_home_click" data-analytics-placement="footer">Home</a>
-          <a href="./support.html" data-analytics-event="nav_support_click" data-analytics-placement="footer">Support</a>
-          <a href="./privacy.html" data-analytics-event="nav_privacy_click" data-analytics-placement="footer">Privacy</a>
-          <a href="./terms.html" data-analytics-event="nav_terms_click" data-analytics-placement="footer">Terms</a>
-          <a href="mailto:support@methere.app" data-analytics-event="support_email_click" data-analytics-placement="footer">Email</a>
-          <a href="https://x.com/MetHereApp" target="_blank" rel="noopener noreferrer" data-analytics-event="x_click" data-analytics-placement="footer" class="social-link-x" aria-label="MetHere on X (Twitter)">
-            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M18.901 1.153h3.68l-8.039 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.598-9.828L0 1.154h7.594l5.243 6.932 6.064-6.932Zm-1.291 19.49h2.04L6.486 3.24H4.298l13.312 17.403Z" />
-            </svg>
-            <span class="sr-only">X (Twitter)</span>
-          </a>
-        </nav>
-      </footer>
+      <!-- FOOTER -->
     </div>
-
-    <script src="./site.js"></script>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
   </body>
 </html>

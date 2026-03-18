@@ -29,6 +29,7 @@
     <meta name="twitter:image" content="https://methere.app/assets/app-hero-remember.png" />
     <link rel="icon" type="image/png" href="./assets/MetHere-ios-appLogo-Current.png" />
     <link rel="apple-touch-icon" href="./assets/MetHere-ios-appLogo-Current.png" />
+    <meta name="apple-itunes-app" content="app-id=6757836312">
     <link rel="stylesheet" href="./styles.css" />
     <script type="application/ld+json">
     {
@@ -79,119 +80,110 @@
   </head>
   <body class="page-home">
     <div class="site-shell">
-      <header class="site-header panel reveal" data-delay="30ms">
-        <a class="site-brand" href="./index.html" aria-label="MetHere home">
-          <img src="./assets/MetHere-inline-clean-white-tight.png" alt="MetHere" />
-        </a>
-
-        <nav class="site-nav" aria-label="Primary">
-          <a class="active" href="./index.html" data-analytics-event="nav_home_click" data-analytics-placement="header">Home</a>
-          <a href="./support.html" data-analytics-event="nav_support_click" data-analytics-placement="header">Support</a>
-          <a href="./privacy.html" data-analytics-event="nav_privacy_click" data-analytics-placement="header">Privacy</a>
-          <a href="./terms.html" data-analytics-event="nav_terms_click" data-analytics-placement="header">Terms</a>
-          <a href="https://x.com/MetHereApp" target="_blank" rel="noopener noreferrer" data-analytics-event="x_click" data-analytics-placement="header" class="social-link-x" aria-label="MetHere on X (Twitter)">
-            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M18.901 1.153h3.68l-8.039 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.598-9.828L0 1.154h7.594l5.243 6.932 6.064-6.932Zm-1.291 19.49h2.04L6.486 3.24H4.298l13.312 17.403Z" />
-            </svg>
-            <span class="sr-only">X (Twitter)</span>
-          </a>
-        </nav>
-      </header>
+      <!-- HEADER -->
 
       <main>
         <section id="hero" class="section panel reveal" data-delay="90ms">
           <div class="hero-grid">
             <div>
               <p class="eyebrow">iOS app</p>
-              <h1 class="section-title">Remember the people you meet and where you met them.</h1>
+              <h1 class="section-title">Remember the people you meet, and where you met them.</h1>
               <p class="section-lead">
-                Remember real-world connections. Save people, link them to places,
-                and recall the right name when it matters.
+                You've seen them before. You know the face. The name's gone.
+                MetHere is where you write it down.
               </p>
-
               <div class="btn-row">
                 <a class="app-store-badge-link" href="https://apps.apple.com/app/methere/id6757836312" target="_blank" rel="noopener noreferrer" data-analytics-event="app_store_click_hero" data-analytics-placement="hero" aria-label="Download on the App Store">
                   <img class="app-store-badge" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" />
                 </a>
-                <a class="btn btn-secondary" href="./support.html" data-analytics-event="support_click_hero" data-analytics-placement="hero">Support</a>
+                <a class="btn btn-secondary" href="#how-it-works" data-analytics-event="learn_more_click" data-analytics-placement="hero">Learn more</a>
               </div>
-
-              <p class="hero-note">
-                Your data stays on your device by default. Optional backups and limited service providers are explained in our
-                <a href="./privacy.html" data-analytics-event="privacy_policy_click_home" data-analytics-placement="hero-note">Privacy Policy</a>.
-              </p>
+              <p class="hero-note">Your data stays on your device. No account needed.</p>
             </div>
-
             <figure class="hero-media">
-              <img src="./assets/app-hero-remember.png" alt="MetHere place list screen showing people grouped by where you met them" />
-              <figcaption>Group people by place so context stays clear.</figcaption>
+              <img src="./assets/app-hero-places.png" alt="MetHere place list showing saved places with people counts and distances" />
+              <figcaption>People organized by where you met them.</figcaption>
             </figure>
+          </div>
+        </section>
+
+        <section id="the-moment" class="section panel reveal" data-delay="100ms">
+          <div class="moment-grid" data-stagger data-stagger-step="70">
+            <article class="moment-card reveal">
+              <p>You see them at the gym every week. You've talked twice. You remember the conversation but not the name.</p>
+            </article>
+            <article class="moment-card reveal">
+              <p>The bartender who starts your order before you sit down. You know them. They don't belong in your phone. But they're not a stranger.</p>
+            </article>
+            <article class="moment-card reveal">
+              <p>You're back at the same spot. A familiar face waves. You wave back. You wish you remembered their name.</p>
+            </article>
           </div>
         </section>
 
         <section id="how-it-works" class="section panel reveal" data-delay="120ms">
           <h2 class="section-subtitle">How it works</h2>
           <p class="section-lead">From meeting someone to remembering their name at the right time.</p>
-
           <div class="how-flow" data-stagger data-stagger-step="70">
             <article class="proof-card reveal">
               <div class="proof-copy">
                 <p class="proof-step">Step 1</p>
-                <h3>Add the person</h3>
-                <p>
-                  Add their name and any details you want to remember while it's still fresh.
-                </p>
+                <h3>Save who you met</h3>
+                <p>Name, place, a note if you want. Takes a few seconds.</p>
               </div>
               <figure class="proof-shot">
-                <img src="./assets/app-flow-add-person.png" alt="Add person screen with fields for name, date, role, place, and notes" />
+                <img src="./assets/app-flow-add-person-new.png" alt="Add Person form with name, place, and additional details" />
               </figure>
             </article>
-
             <article class="proof-card reverse reveal">
               <div class="proof-copy">
                 <p class="proof-step">Step 2</p>
-                <h3>Link them to a place</h3>
-                <p>
-                  Attach the place where you met and enable reminders if you want them.
-                </p>
+                <h3>Organize by place</h3>
+                <p>People are grouped by where you met them. Search by name, note, or tag.</p>
               </div>
               <figure class="proof-shot">
-                <img src="./assets/app-flow-location-pin.png" alt="Edit person screen with pinned map location and nearby place alert toggle" />
+                <img src="./assets/app-flow-place-people.png" alt="Place expanded showing people with tags, roles, and notes" />
               </figure>
             </article>
-
             <article class="proof-card reveal">
               <div class="proof-copy">
                 <p class="proof-step">Step 3</p>
-                <h3>See everyone you met there</h3>
-                <p>
-                  Open a place and see everyone connected to it in one list.
-                </p>
+                <h3>Get reminded when you're nearby</h3>
+                <p>Walk past a saved place and the right names come back before the moment gets awkward.</p>
               </div>
               <figure class="proof-shot">
-                <img src="./assets/app-flow-venue-list.png" alt="Place detail list with multiple people and their notes" />
-              </figure>
-            </article>
-
-            <article class="proof-card reverse reveal">
-              <div class="proof-copy">
-                <p class="proof-step">Step 4</p>
-                <h3>Get reminded when you're back</h3>
-                <p>
-                  Reminders can surface the right name when you return to a saved place.
-                </p>
-              </div>
-              <figure class="proof-shot">
-                <img src="./assets/app-flow-nearby-alerts.png" alt="Nearby place reminder preview above grouped place list" />
+                <img src="./assets/app-flow-nearby-alert.png" alt="iOS notification: You're near Harborline Fitness. You know 3 people here." />
               </figure>
             </article>
           </div>
         </section>
 
-        <section id="why-methere" class="section panel reveal" data-delay="130ms">
-          <h2 class="section-subtitle">Why MetHere</h2>
-          <p class="section-lead">Built for memory and context, not feeds.</p>
+        <section id="features" class="section panel reveal" data-delay="130ms">
+          <h2 class="section-subtitle">More to explore</h2>
+          <p class="section-lead">Beyond the basics.</p>
+          <div class="feature-grid" data-stagger data-stagger-step="65">
+            <article class="feature-card reveal">
+              <h3>5 Themes</h3>
+              <p>Pick the palette that suits your vibe. Light, Coral, Pink Pop, Emerald, or Midnight.</p>
+            </article>
+            <article class="feature-card reveal">
+              <h3>Insights and stats</h3>
+              <p>See where you meet most, your top tags, and how your social memory grows. Share a snapshot.</p>
+            </article>
+            <article class="feature-card reveal">
+              <h3>Milestones</h3>
+              <p>Unlock achievements as you remember more people and places.</p>
+            </article>
+            <article class="feature-card reveal">
+              <h3>Search and tags</h3>
+              <p>Find anyone by name, note, place, or tag. Sort and filter however you want.</p>
+            </article>
+          </div>
+        </section>
 
+        <section id="why-methere" class="section panel reveal" data-delay="140ms">
+          <h2 class="section-subtitle">Why MetHere</h2>
+          <p class="section-lead">Not a contacts app. Not a social network. Just your memory, organized by place.</p>
           <div class="trust-grid" data-stagger data-stagger-step="65">
             <article class="trust-card reveal">
               <h3>No feed</h3>
@@ -205,51 +197,46 @@
               <h3>No ads</h3>
               <p>No ads. No ad targeting.</p>
             </article>
+            <article class="trust-card reveal">
+              <h3>Your data stays on your device</h3>
+              <p>No account needed. No cloud required. <a href="./privacy.html" data-analytics-event="privacy_policy_click_home" data-analytics-placement="why-methere">Privacy details</a>.</p>
+            </article>
           </div>
         </section>
 
-        <section id="plans" class="section panel reveal" data-delay="140ms">
+        <section id="plans" class="section panel reveal" data-delay="150ms">
           <h2 class="section-subtitle">Plans</h2>
           <p class="section-lead">Start free. Upgrade if you need more.</p>
-
           <div class="plan-grid" data-stagger data-stagger-step="70">
             <article class="plan-card reveal">
               <h3>Free</h3>
-              <p>
-                Core people-and-place memory, with local storage and backup options.
-              </p>
+              <ul>
+                <li>Up to 15 people</li>
+                <li>Up to 8 places</li>
+                <li>Up to 3 nearby alerts</li>
+                <li>Themes, search, tags, insights</li>
+              </ul>
             </article>
             <article class="plan-card reveal">
               <h3>Pro</h3>
-              <p>
-                Higher limits and full access. One-time purchase.
-              </p>
+              <p class="plan-label">One-time purchase</p>
+              <ul>
+                <li>Unlimited people</li>
+                <li>Unlimited places</li>
+                <li>Unlimited nearby alerts</li>
+                <li>Backup and restore</li>
+                <li>CSV export</li>
+              </ul>
             </article>
           </div>
-
           <p class="plans-note">
-            Purchase restore is available in-app through Apple.
+            Purchases handled by Apple. Restore available in-app.
           </p>
         </section>
 
-        <section id="privacy-trust" class="section panel reveal" data-delay="150ms">
-          <h2 class="section-subtitle">Privacy and control</h2>
-          <p class="section-lead">
-            Your core data stays on your device by default. Optional backups and limited service providers are explained in our
-            <a href="./privacy.html" data-analytics-event="privacy_policy_click_home" data-analytics-placement="privacy-section">Privacy Policy</a>.
-          </p>
-          <div class="chip-row" aria-label="Data principles">
-            <span class="chip">Local-first by default</span>
-            <span class="chip">Export and backup controls</span>
-            <span class="chip">No ad data sales</span>
-          </div>
-        </section>
-
-        <section id="final-cta" class="section panel cta-center reveal" data-delay="170ms">
-          <h2 class="section-subtitle">Keep every connection in context</h2>
-          <p>
-            Remember names and places without joining another social network.
-          </p>
+        <section id="final-cta" class="section panel cta-center reveal" data-delay="160ms">
+          <h2 class="section-subtitle">MetHere lives in the middle ground between "I've met you" and "you're in my phone."</h2>
+          <p>Remember names and places without joining another social network.</p>
           <div class="btn-row" style="justify-content: center;">
             <a class="app-store-badge-link" href="https://apps.apple.com/app/methere/id6757836312" target="_blank" rel="noopener noreferrer" data-analytics-event="app_store_click_final" data-analytics-placement="final-cta" aria-label="Download on the App Store">
               <img class="app-store-badge" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" />
@@ -259,22 +246,7 @@
         </section>
       </main>
 
-      <footer class="site-footer panel reveal" data-delay="180ms">
-        <p>&copy; <span id="year"></span> MetHere</p>
-        <nav class="footer-links" aria-label="Footer">
-          <a href="./index.html" data-analytics-event="nav_home_click" data-analytics-placement="footer">Home</a>
-          <a href="./support.html" data-analytics-event="nav_support_click" data-analytics-placement="footer">Support</a>
-          <a href="./privacy.html" data-analytics-event="nav_privacy_click" data-analytics-placement="footer">Privacy</a>
-          <a href="./terms.html" data-analytics-event="nav_terms_click" data-analytics-placement="footer">Terms</a>
-          <a href="mailto:support@methere.app" data-analytics-event="support_email_click" data-analytics-placement="footer">Email</a>
-          <a href="https://x.com/MetHereApp" target="_blank" rel="noopener noreferrer" data-analytics-event="x_click" data-analytics-placement="footer" class="social-link-x" aria-label="MetHere on X (Twitter)">
-            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M18.901 1.153h3.68l-8.039 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.598-9.828L0 1.154h7.594l5.243 6.932 6.064-6.932Zm-1.291 19.49h2.04L6.486 3.24H4.298l13.312 17.403Z" />
-            </svg>
-            <span class="sr-only">X (Twitter)</span>
-          </a>
-        </nav>
-      </footer>
+      <!-- FOOTER -->
     </div>
 
     <script src="./site.js"></script>

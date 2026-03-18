@@ -1,0 +1,27 @@
+      <header class="site-header panel reveal" data-delay="30ms">
+        <a class="site-brand" href="./index.html" aria-label="MetHere home">
+          <img src="./assets/MetHere-inline-clean-white-tight.png" alt="MetHere" />
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="./index.html" data-analytics-event="nav_home_click" data-analytics-placement="header" data-nav="home">Home</a>
+          <a href="./support.html" data-analytics-event="nav_support_click" data-analytics-placement="header" data-nav="support">Support</a>
+          <a href="./privacy.html" data-analytics-event="nav_privacy_click" data-analytics-placement="header" data-nav="privacy">Privacy</a>
+          <a href="./terms.html" data-analytics-event="nav_terms_click" data-analytics-placement="header" data-nav="terms">Terms</a>
+          <a href="https://x.com/MetHereApp" target="_blank" rel="noopener noreferrer" data-analytics-event="x_click" data-analytics-placement="header" class="social-link-x" aria-label="MetHere on X (Twitter)">
+            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M18.901 1.153h3.68l-8.039 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.598-9.828L0 1.154h7.594l5.243 6.932 6.064-6.932Zm-1.291 19.49h2.04L6.486 3.24H4.298l13.312 17.403Z" />
+            </svg>
+            <span class="sr-only">X (Twitter)</span>
+          </a>
+        </nav>
+      </header>
+      <script>
+      (function(){
+        var page = document.body.className.match(/page-(\w+)/);
+        if (page) {
+          var link = document.querySelector('[data-nav="' + page[1] + '"]');
+          if (link) link.classList.add('active');
+        }
+      })();
+      </script>

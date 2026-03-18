@@ -20,6 +20,7 @@
     <meta name="twitter:image" content="https://methere.app/assets/og-share.png" />
     <link rel="icon" type="image/png" href="../assets/MetHere-ios-appLogo-Current.png" />
     <link rel="apple-touch-icon" href="../assets/MetHere-ios-appLogo-Current.png" />
+    <meta name="apple-itunes-app" content="app-id=6757836312">
     <link rel="stylesheet" href="../styles.css" />
     <style>
       .share-card {
@@ -80,8 +81,11 @@
         <a id="open-btn" class="share-btn" href="#">Open in MetHere</a>
         <p class="share-fallback">
           Don't have the app?
-          <a href="https://apps.apple.com/app/methere/id6742044392">Download on the App Store</a>
+          <a href="https://apps.apple.com/app/methere/id6757836312">Download on the App Store</a>
         </p>
+        <a href="https://apps.apple.com/app/methere/id6757836312" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store">
+          <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" style="width: 140px; margin-top: 8px;" />
+        </a>
       </div>
     </div>
     <script>
@@ -91,7 +95,7 @@
         if (data) {
           btn.href = 'methere://share?data=' + encodeURIComponent(data);
         } else {
-          btn.href = 'https://apps.apple.com/app/methere/id6742044392';
+          btn.href = 'https://apps.apple.com/app/methere/id6757836312';
         }
       })();
     </script>

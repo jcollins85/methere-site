@@ -3,3 +3,13 @@
 AGENTS.md
 PROJECT_CONTEXT.md
 TASK_LOG.md
+
+# Firebase
+.firebase/
+
+# Build output
+dist/
+
+# OS
+.DS_Store
+.superpowers/
