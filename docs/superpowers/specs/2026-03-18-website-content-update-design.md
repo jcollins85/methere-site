@@ -47,7 +47,7 @@ Some issues from the original copy audit have been fixed (venue→place in HTML 
 | `privacy.html` | Carry over | No changes (legal, separate concern) |
 | `terms.html` | Carry over | No changes |
 | `404.html` | Carry over | Update to use shared header/footer partials |
-| `s/index.html` | Minor update | Fix App Store link (currently uses wrong ID `6742044392`, should be `6757836312`). Add App Store badge below existing "Don't have the app?" text. Keep existing deep link as primary action. This page stays standalone (no shared header/footer) since it's a minimal share-card landing page by design. |
+| `s/index.html` | Minor update | Fix App Store link in both the HTML `<a>` tag (line 83) and the JS fallback `btn.href` (line 94) — both currently use wrong ID `6742044392`, should be `6757836312`. Add App Store badge below existing "Don't have the app?" text. Keep existing deep link as primary action. This page stays standalone (no shared header/footer, no `<!-- HEADER -->` / `<!-- FOOTER -->` placeholders) since it's a minimal share-card landing page by design. The build script should copy it to `dist/s/index.html` as-is without partial injection. |
 
 ## Infrastructure: Build Script
 
