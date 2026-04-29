@@ -35,7 +35,14 @@ function processDir(dir) {
 processDir(SRC);
 
 // Copy static assets
-const STATIC = ['assets', 'styles.css', 'site.js', 'robots.txt', 'sitemap.xml', 'CNAME'];
+const STATIC = [
+  'assets', 'styles.css', 'styles.v2.css', 'site.js', 'robots.txt', 'sitemap.xml', 'CNAME',
+  // v2 redesign assets
+  'fonts', 'brand', 'screenshots',
+  'og-image.png',
+  'favicon.ico', 'favicon-32.png', 'apple-touch-icon.png',
+  'android-chrome-192.png', 'android-chrome-512.png',
+];
 function copyRecursive(src, dest) {
   if (fs.statSync(src).isDirectory()) {
     fs.mkdirSync(dest, { recursive: true });

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="MetHere pin glyph">
+  <title>MetHere pin glyph</title>
+  <desc>Dot constellation: coral center + 4 mint satellites.</desc>
+  <g id="glyph">
+    <circle cx="512.00" cy="512.00" r="200.00" fill="#FF8C6A"/>
+    <circle cx="235.00" cy="355.00" r="92.00" fill="#2DD4A8"/>
+    <circle cx="820.00" cy="360.00" r="78.00" fill="#2DD4A8"/>
+    <circle cx="760.00" cy="790.00" r="70.00" fill="#2DD4A8"/>
+    <circle cx="280.00" cy="770.00" r="60.00" fill="#2DD4A8"/>
+  </g>
+</svg>

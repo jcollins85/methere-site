@@ -17,7 +17,9 @@
       content="Read the MetHere Privacy Policy covering local-first data handling, analytics disclosures, purchases, and user controls."
     />
     <meta property="og:url" content="https://methere.app/privacy.html" />
-    <meta property="og:image" content="https://methere.app/assets/app-hero-remember.png" />
+    <meta property="og:image" content="https://methere.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@MetHereApp" />
     <meta name="twitter:title" content="MetHere | Privacy Policy" />
@@ -25,11 +27,14 @@
       name="twitter:description"
       content="See how MetHere handles local-first data, analytics, crash reporting, purchases, and user controls."
     />
-    <meta name="twitter:image" content="https://methere.app/assets/app-hero-remember.png" />
-    <link rel="icon" type="image/png" href="./assets/MetHere-ios-appLogo-Current.png" />
-    <link rel="apple-touch-icon" href="./assets/MetHere-ios-appLogo-Current.png" />
+    <meta name="twitter:image" content="https://methere.app/og-image.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512.png" />
     <meta name="apple-itunes-app" content="app-id=6757836312">
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.v2.css" />
   </head>
   <body class="page-privacy">
     <div class="site-shell">
@@ -37,10 +42,10 @@
 
       <main>
         <section class="section panel utility-hero reveal" data-delay="80ms">
-          <p class="eyebrow">Privacy</p>
-          <h1>Privacy Policy</h1>
+          <p class="eyebrow">Privacy Policy</p>
+          <h1>Your data stays on your device.</h1>
           <div class="legal-meta">
-            <p><span class="badge">Effective date</span> February 11, 2026</p>
+            <p><span class="badge">Effective date</span> April 4, 2026</p>
             <p><strong>Owner/Operator:</strong> Julian Collins (Ontario, Canada)</p>
             <p><strong>Contact:</strong> <a href="mailto:support@methere.app" data-analytics-event="support_email_click" data-analytics-placement="privacy-meta">support@methere.app</a></p>
           </div>
@@ -48,26 +53,37 @@
           <div class="legal-content">
             <h2>Overview</h2>
             <p>
-              MetHere is a local-first iOS app. Your people, places, and notes are stored on your device.
-              We do not operate a backend for user content. Some data is sent to third-party services
+              MetHere is a local-first iOS app. The people, places, tags, and notes you add are stored on your device.
+              We do not operate a backend for your content. Some data is sent to third-party services
               for analytics, crash reporting, and purchases, and to Apple system services to provide core functionality
-              (maps, iCloud, location, notifications, speech recognition, and Photos).
+              (maps, iCloud, location, notifications, microphone, speech recognition, camera, Photos, and StoreKit).
             </p>
+
+            <h2>Information We Do Not Collect</h2>
+            <ul>
+              <li>We do not require accounts</li>
+              <li>We do not access your contacts or call logs</li>
+              <li>Photos you choose to take or attach stay on your device with your other app data</li>
+              <li>We do not sell your data and do not use it for advertising</li>
+              <li>We do not track you across apps or websites owned by other companies</li>
+              <li>We do not display ads in MetHere</li>
+            </ul>
 
             <h2>Information We Collect and Store</h2>
 
             <h3>Information you enter (stored on your device)</h3>
             <ul>
-              <li>People details you create (name, position, notes/description, tags, favorite status, dates)</li>
-              <li>Places you create (name, address/label, coordinates, favorites, proximity alert settings)</li>
+              <li>People you add (name, position, notes, tags, favorite/heart status, photos, dates, and the encounters you've recorded)</li>
+              <li>Places you add (name, nickname, address/label, coordinates, favorites, proximity alert settings, and counts/timestamps for places you've returned to)</li>
               <li>Tags and related metadata</li>
+              <li>Moments and milestones earned through app usage</li>
               <li>Notification history inside the app</li>
             </ul>
 
             <h3>Location data</h3>
             <ul>
               <li><strong>Precise location</strong> when you capture a place pin or use place search (if you grant permission)</li>
-              <li><strong>Background location</strong> if you enable nearby place alerts (geofencing)</li>
+              <li><strong>Background location</strong> if you enable nearby place alerts (geofencing — set to Always)</li>
               <li>Place coordinates and optional timestamps are stored on your device</li>
             </ul>
             <p>
@@ -77,56 +93,63 @@
             <h3>Audio / Speech (optional dictation)</h3>
             <p>
               If you use dictation, iOS microphone and speech recognition are used to transcribe your speech into text.
-              MetHere does not store audio recordings. Apple speech services may process audio to provide transcription.
+              MetHere does not store audio recordings. Apple speech services may process audio to provide transcription
+              (some recognition runs on-device on newer iPhones; some is processed by Apple's servers).
             </p>
 
-            <h3>Photos and Files (optional)</h3>
+            <h3>Camera and Photos (optional)</h3>
             <ul>
+              <li>If you take or pick a photo for a person, the image is resized and saved on your device only — not transmitted to our servers</li>
               <li>If you save a share card, the image is saved to your Photos library (if you grant permission)</li>
-              <li>If you export or auto-backup, a backup file is written to your device and/or iCloud Drive</li>
+              <li>If you export or auto-backup, a backup file is written to your device and/or your iCloud Drive</li>
             </ul>
 
             <h3>Usage and analytics data (Firebase Analytics)</h3>
             <p>
               MetHere uses <strong>Google Firebase Analytics</strong> to understand feature usage and improve reliability.
-              We log app usage events (for example: feature usage, errors, counts, toggles).
+              We log app usage events covering navigation, feature usage, errors, onboarding, purchases, proximity alerts,
+              and similar interactions.
             </p>
             <ul>
-              <li>Event parameters may include counts, booleans, and internal IDs (for example, a place ID)</li>
-              <li>We do <strong>not</strong> intentionally send the names, notes, tags, or addresses you enter to analytics</li>
+              <li>Event parameters are limited to internal UUIDs (such as a venue ID), enum values (such as a venue type), counts, booleans, durations, and timing buckets</li>
+              <li>We do not send the names, notes, tags, or addresses you enter to analytics — this is enforced by an automated check that runs on every code change and blocks any commit that would violate this rule</li>
+              <li>Analytics may include coarse, non-identifying user properties such as your free/Pro tier, install week, and bucketed counts of people and places, used for cohort analysis</li>
+              <li>Analytics data may be associated with a device or app instance identifier</li>
             </ul>
             <p>
-              Analytics data may be associated with a device or app instance identifier and is used for product improvement.
-              We do not sell analytics data and do not use it for advertising.
+              We do not display ads in MetHere and do not use analytics data for advertising on our end. Google may process
+              analytics data according to its own privacy policies.
             </p>
 
             <h3>Website analytics (Google Analytics)</h3>
             <p>
               The MetHere marketing website at <strong>methere.app</strong> uses <strong>Google Analytics 4</strong> to measure page views,
-              navigation usage, and App Store/support link clicks.
+              section views, navigation usage, App Store/support link clicks, and your privacy choice.
             </p>
             <ul>
               <li>This helps us understand website performance and improve site content and conversion paths</li>
               <li>GA4 may use first-party cookies or similar browser storage to measure repeat visits and engagement</li>
-              <li>Where required by law, we ask for consent before enabling website analytics</li>
+              <li>We ask for your consent before enabling website analytics — until you accept, no analytics events are sent</li>
               <li>We configure GA4 with advertising personalization disabled and Google Signals disabled</li>
               <li>Website analytics does not include the names, notes, tags, or place content entered inside the app</li>
             </ul>
             <p>
-              Google may process analytics data according to its own privacy policies. You can reduce tracking through browser
-              controls or Google's Analytics opt-out tools.
+              Google may process analytics data according to its own privacy policies. You can change your choice at any time
+              using the Privacy choices button on the site, and you can also reduce tracking through browser controls or Google's
+              Analytics opt-out tools.
             </p>
 
             <h3>Crash reporting (Firebase Crashlytics)</h3>
             <p>
               MetHere uses <strong>Google Firebase Crashlytics</strong> to monitor app stability and diagnose crashes.
               If the app crashes or encounters a critical error, diagnostic information may be sent to Crashlytics,
-              including device model, operating system version, app version, timestamp, and technical crash logs
-              (such as stack traces).
+              including device model, operating system version, app version, app session details, app start time,
+              timestamp, technical crash logs (such as stack traces), and a Crashlytics-generated installation
+              identifier (this is not your Apple advertising identifier).
             </p>
             <ul>
               <li>Crash reports help us fix bugs and improve reliability</li>
-              <li>We do <strong>not</strong> intentionally include the names, notes, tags, or place information you enter in crash reports</li>
+              <li>For location-related errors specifically, reports may include the name of the place that triggered the error so we can diagnose location bugs. We do not include the names of people you've added, your tags, or your notes.</li>
               <li>Crash data may be associated with a device or app instance identifier</li>
             </ul>
             <p>
@@ -134,27 +157,23 @@
               to improve the stability and performance of MetHere.
             </p>
 
-            <h3>Purchases (RevenueCat + Apple)</h3>
+            <h3>Purchases and Subscriptions (RevenueCat + Apple)</h3>
             <p>
-              MetHere offers a paid Pro unlock through in-app purchase. Purchases are processed by Apple and validated with RevenueCat.
-              We receive entitlement and purchase-state information (for example: Pro/free status and plan name).
-              We do not receive your full payment details.
+              MetHere offers Pro access via monthly subscription ($3.99/mo), annual subscription ($14.99/yr),
+              or a one-time lifetime purchase ($29.99). Subscriptions include a 14-day free trial and auto-renew
+              unless cancelled at least 24 hours before the end of the current period via your Apple ID Account Settings.
             </p>
             <p>
-              RevenueCat and Apple may process device identifiers and transaction identifiers to validate purchases and restore access.
+              Purchases are processed by Apple and validated with RevenueCat. We receive entitlement and
+              subscription status information (for example: Pro/free status, plan type, trial status, and expiration date).
+              We do not receive your full payment details. RevenueCat and Apple may process device identifiers,
+              transaction identifiers, and subscription lifecycle events to validate purchases, manage renewals,
+              and restore access.
             </p>
-
-            <h2>Information We Do Not Collect</h2>
-            <ul>
-              <li>We do not require accounts</li>
-              <li>We do not collect your contacts, call logs, or camera data</li>
-              <li>We do not sell your data and do not use it for advertising</li>
-              <li>We do not track you across apps or websites owned by other companies</li>
-            </ul>
 
             <h2>How We Use Information</h2>
             <ul>
-              <li>Provide core app features (people/place tracking, tags, insights)</li>
+              <li>Provide core app features (people, places, tags, insights, share cards)</li>
               <li>Enable location-based alerts you choose to turn on</li>
               <li>Enable optional backups, exports, and share cards</li>
               <li>Understand app usage and improve features (analytics)</li>
@@ -167,13 +186,14 @@
               We do not sell your personal data. We only share data as needed to provide the app:
             </p>
             <ul>
-              <li><strong>Firebase Analytics (Google)</strong> for usage analytics</li>
+              <li><strong>Firebase Analytics (Google)</strong> for app usage analytics</li>
               <li><strong>Google Analytics (Google)</strong> for website analytics on methere.app</li>
               <li><strong>Firebase Crashlytics (Google)</strong> for crash reporting</li>
               <li><strong>RevenueCat and Apple</strong> for purchases and Pro access validation</li>
               <li><strong>Apple MapKit</strong> for place search and map snapshots</li>
               <li><strong>Apple iCloud Drive</strong> for backups you choose to export or auto-backup</li>
-              <li><strong>Apple system services</strong> for location, notifications, speech recognition, and Photos</li>
+              <li><strong>Apple StoreKit</strong> for in-app review prompts</li>
+              <li><strong>Apple system services</strong> for location, notifications, microphone, speech recognition, camera, and Photos</li>
             </ul>
             <p>
               If you export a backup or share an image, you control where it goes and who receives it.
@@ -181,24 +201,25 @@
 
             <h2>Data Storage and Retention</h2>
             <ul>
-              <li>Your people/place data is stored locally on your device until you delete it or uninstall the app</li>
-              <li>You can reset the app from Settings to delete all local data</li>
-              <li>iCloud backup files remain in your iCloud Drive until you delete them</li>
+              <li>Your people and place data is stored locally on your device. If you enable iCloud Backup, copies are also written to your iCloud Drive</li>
+              <li>You can reset the app from Settings to delete all local data on this device</li>
+              <li>iCloud Drive copies persist after you uninstall MetHere — you can delete them manually from the Files app or iCloud.com</li>
               <li>Analytics and crash reporting data is retained by Firebase according to Google policies</li>
             </ul>
 
             <h2>Your Choices and Controls</h2>
             <ul>
-              <li>You can disable permissions (location, notifications, microphone, photos) at any time in iOS Settings</li>
-              <li>You can reset the app to remove all local data</li>
-              <li>You can delete backups from Files/iCloud Drive</li>
+              <li>You can disable permissions (location, notifications, microphone, camera, photos) at any time in iOS Settings</li>
+              <li>You can reset the app to remove all local data on this device</li>
+              <li>You can delete backups from Files / iCloud Drive at any time</li>
+              <li>You can change your website analytics choice at any time using the Privacy choices button on the site</li>
               <li>You can request help with deletion of analytics or crash data associated with your device by contacting us</li>
             </ul>
 
             <h2>Legal Basis for Processing</h2>
             <p>We process information based on:</p>
             <ul>
-              <li><strong>Your consent</strong> (location, notifications, microphone, Photos permissions)</li>
+              <li><strong>Your consent</strong> (location, notifications, microphone, camera, Photos permissions; website analytics)</li>
               <li><strong>Contractual necessity</strong> (processing and validating purchases and restore requests)</li>
               <li><strong>Legitimate interests</strong> (understanding feature usage and improving reliability through analytics and crash reporting)</li>
             </ul>
@@ -230,7 +251,8 @@
 
             <p>
               Third-party services referenced above have their own privacy policies, including
-              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" data-analytics-event="external_policy_click" data-analytics-placement="privacy-content">Google Privacy Policy</a>.
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" data-analytics-event="external_policy_click" data-analytics-placement="privacy-content">Google Privacy Policy</a> and
+              <a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noopener noreferrer">RevenueCat Privacy Policy</a>.
             </p>
           </div>
         </section>
@@ -238,5 +260,7 @@
 
       <!-- FOOTER -->
     </div>
+
+    <script src="./site.js"></script>
   </body>
 </html>

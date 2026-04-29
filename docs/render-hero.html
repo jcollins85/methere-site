@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Render — Hero (Section 1)</title>
+<!--
+  Verification render for design-spec-v2.md, Section 1 (Hero).
+  This is NOT production code — it's a mockup using Google Fonts hotlink
+  and an absolute-path screenshot reference for brand-strategist review.
+  Production: self-host the font, place screenshot in /screenshots/.
+-->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap');
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #111014;
+  color: #E8E4DF;
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* Section frame */
+.section {
+  padding: 96px 24px;
+}
+.section-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* Type */
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #555060;
+  margin: 0 0 12px;
+}
+h1 {
+  font-size: clamp(48px, 8vw, 88px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -1.5px;
+  color: #FFFFFF;
+  margin: 0;
+}
+h1 .mint { color: #2DD4A8; }
+.lead {
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 500;
+  color: #8A858F;
+  margin: 24px 0 0;
+  line-height: 1.5;
+  max-width: 520px;
+}
+
+/* CTA */
+.cta-row {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.cta-row img {
+  width: 200px;
+  height: auto;
+  display: block;
+}
+.see-link {
+  font-size: 15px;
+  font-weight: 700;
+  color: #2DD4A8;
+  text-decoration: none;
+}
+.see-link:hover { text-decoration: underline; }
+.trust {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555060;
+  margin: 12px 0 0;
+}
+
+/* Device */
+.device {
+  display: flex;
+  justify-content: center;
+}
+.device img {
+  width: 360px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .section-inner { grid-template-columns: 1fr; gap: 48px; }
+  .device img { width: 280px; }
+}
+</style>
+</head>
+<body>
+<section class="section">
+  <div class="section-inner">
+    <div>
+      <p class="eyebrow">iPhone &middot; Social memory</p>
+      <h1>Walk in.<br>Remember <span class="mint">everyone</span>.</h1>
+      <p class="lead">MetHere remembers the people you meet at the places you go back to, and pings you when you're nearby again.</p>
+      <div class="cta-row">
+        <a href="https://apps.apple.com/app/methere/id6757836312">
+          <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+        </a>
+        <a class="see-link" href="#how">See how it works &darr;</a>
+      </div>
+      <p class="trust">On your device. No account.</p>
+    </div>
+    <figure class="device">
+      <img src="../../../../Documents/Projects/remember-me-starter/docs/launch/asc-screenshots/screen-01-proximity.png" alt="MetHere notification on lockscreen: You're near Copper & Vine. You know 3 people here.">
+    </figure>
+  </div>
+</section>
+</body>
+</html>

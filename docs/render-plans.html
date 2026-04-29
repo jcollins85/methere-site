@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Render — Plans (Section 8)</title>
+<!--
+  Verification render for design-spec-v2.md, Section 8 (Plans).
+  Brand-strategist review: 4-tile prose-not-matrix, mint count discipline.
+  Free tier: 15 people / 5 alerts / no places limit (verified vs paywall/config.ts).
+-->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap');
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #111014;
+  color: #E8E4DF;
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+.section { padding: 96px 24px; }
+.section-inner { max-width: 1120px; margin: 0 auto; }
+
+h2 {
+  font-size: clamp(32px, 4.6vw, 48px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.6px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+.plan {
+  background: #1A181E;
+  border: 1px solid #242228;
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.plan--highlight { border-color: #2DD4A8; }
+
+.plan-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 8px;
+}
+.plan-price {
+  font-size: 32px;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.6px;
+  margin: 0;
+}
+.plan-price .period {
+  font-size: 14px;
+  font-weight: 500;
+  color: #8A858F;
+  letter-spacing: 0;
+}
+.plan-trial {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  background: rgba(45, 212, 168, 0.10);
+  color: #2DD4A8;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-top: 8px;
+  align-self: flex-start;
+}
+.plan-savings {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #2DD4A8;
+  margin-top: 8px;
+}
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 16px;
+  flex: 1;
+}
+.plan-features li {
+  font-size: 15px;
+  font-weight: 500;
+  color: #E8E4DF;
+  padding: 6px 0;
+}
+.plan-note {
+  font-size: 13px;
+  font-weight: 500;
+  color: #8A858F;
+  margin: 0;
+}
+
+.cta-cluster {
+  margin-top: 48px;
+  text-align: center;
+}
+.cta-cluster img {
+  width: 180px;
+  height: auto;
+  display: inline-block;
+}
+.cta-cluster .trust {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555060;
+  margin: 12px 0 0;
+}
+.checkout-note {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: #8A858F;
+  margin-top: 24px;
+}
+
+@media (max-width: 1023px) {
+  .plans-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .plans-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<section class="section">
+  <div class="section-inner">
+    <h2>Start free. Upgrade if you need more.</h2>
+    <div class="plans-grid">
+      <article class="plan">
+        <h3 class="plan-name">Free</h3>
+        <p class="plan-price">$0</p>
+        <ul class="plan-features">
+          <li>15 people</li>
+          <li>5 nearby alerts</li>
+          <li>Everything else, unlimited</li>
+        </ul>
+        <p class="plan-note">Always free.</p>
+      </article>
+      <article class="plan">
+        <h3 class="plan-name">Monthly</h3>
+        <p class="plan-price">$3.99<span class="period"> / mo</span></p>
+        <span class="plan-trial">14-day free trial</span>
+        <ul class="plan-features">
+          <li>Unlimited people</li>
+          <li>Unlimited alerts</li>
+          <li>Backup + restore</li>
+        </ul>
+        <p class="plan-note">Cancel anytime.</p>
+      </article>
+      <article class="plan plan--highlight">
+        <h3 class="plan-name">Annual</h3>
+        <p class="plan-price">$14.99<span class="period"> / yr</span></p>
+        <span class="plan-savings">Save 69%</span>
+        <span class="plan-trial">14-day free trial</span>
+        <ul class="plan-features">
+          <li>Unlimited people</li>
+          <li>Unlimited alerts</li>
+          <li>Backup + restore</li>
+        </ul>
+        <p class="plan-note">Best value.</p>
+      </article>
+      <article class="plan">
+        <h3 class="plan-name">Lifetime</h3>
+        <p class="plan-price">$29.99<span class="period"> once</span></p>
+        <ul class="plan-features">
+          <li>Unlimited people</li>
+          <li>Unlimited alerts</li>
+          <li>Backup + restore</li>
+          <li>Yours forever</li>
+        </ul>
+        <p class="plan-note">One-time.</p>
+      </article>
+    </div>
+    <div class="cta-cluster">
+      <a href="https://apps.apple.com/app/methere/id6757836312">
+        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+      </a>
+      <p class="trust">On your device. No account.</p>
+    </div>
+    <p class="checkout-note">Purchases through Apple. Restore in-app any time.</p>
+  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Render — Privacy (Section 7)</title>
+<!--
+  Verification render for design-spec-v2.md, Section 7 (Privacy + anti-positioning).
+  Brand-strategist review: focus on the × mark (kill or keep) and mint discipline.
+-->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap');
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #111014;
+  color: #E8E4DF;
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+.section { padding: 96px 24px; }
+.section-inner { max-width: 1120px; margin: 0 auto; }
+
+h2 {
+  font-size: clamp(32px, 4.6vw, 48px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.6px;
+  color: #FFFFFF;
+  margin: 0;
+}
+h2 .mint { color: #2DD4A8; }
+
+.lead {
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 500;
+  color: #8A858F;
+  margin: 16px 0 0;
+  max-width: 640px;
+}
+
+.refuse-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+.refuse {
+  background: #1A181E;
+  border: 1px solid #242228;
+  border-radius: 24px;
+  padding: 24px;
+}
+.refuse-mark {
+  font-size: 28px;
+  font-weight: 800;
+  color: #2DD4A8;
+  opacity: 0.6;
+  line-height: 1;
+  display: block;
+  margin-bottom: 12px;
+}
+.refuse-head {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: #FFFFFF;
+  margin: 0 0 8px;
+}
+.refuse-body {
+  font-size: 15px;
+  font-weight: 500;
+  color: #E8E4DF;
+  line-height: 1.5;
+  margin: 0;
+}
+.privacy-link {
+  display: inline-block;
+  margin-top: 24px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #2DD4A8;
+  text-decoration: none;
+}
+.privacy-link:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .refuse-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<section class="section">
+  <div class="section-inner">
+    <h2>No account. No social feed. <span class="mint">Nowhere</span> else.</h2>
+    <p class="lead">Everything stays on your phone.</p>
+    <div class="refuse-grid">
+      <article class="refuse">
+        <span class="refuse-mark" aria-hidden="true">&times;</span>
+        <h3 class="refuse-head">No account.</h3>
+        <p class="refuse-body">No sign-in. No email. Open the app and start.</p>
+      </article>
+      <article class="refuse">
+        <span class="refuse-mark" aria-hidden="true">&times;</span>
+        <h3 class="refuse-head">No sync.</h3>
+        <p class="refuse-body">Nothing leaves your device. Nothing to leak.</p>
+      </article>
+      <article class="refuse">
+        <span class="refuse-mark" aria-hidden="true">&times;</span>
+        <h3 class="refuse-head">No cloud.</h3>
+        <p class="refuse-body">Your memories are on your phone, not a server.</p>
+      </article>
+      <article class="refuse">
+        <span class="refuse-mark" aria-hidden="true">&times;</span>
+        <h3 class="refuse-head">No profile.</h3>
+        <p class="refuse-body">No public profile. No handle. No way to find you.</p>
+      </article>
+    </div>
+    <a class="privacy-link" href="./privacy.html">Privacy details &rarr;</a>
+  </div>
+</section>
+</body>
+</html>

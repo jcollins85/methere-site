@@ -141,7 +141,15 @@
     preferencesButton.type = "button";
     preferencesButton.className = "analytics-prefs-btn";
     preferencesButton.textContent = "Privacy choices";
-    preferencesButton.addEventListener("click", openConsentBanner);
+    preferencesButton.addEventListener("click", function () {
+      // Track reopen intent — separate from the consent decision itself
+      // so we can see how often users come back to revisit their choice.
+      trackEvent("privacy_choices_open_click", {
+        page_path: window.location.pathname,
+        current_consent: getStoredConsent() || "unset"
+      });
+      openConsentBanner();
+    });
     document.body.appendChild(preferencesButton);
   }
 
@@ -169,13 +177,44 @@
       return;
     }
 
-    trackEvent(target.getAttribute("data-analytics-event"), {
+    var params = {
       placement: target.getAttribute("data-analytics-placement") || "unspecified",
       link_text: (target.textContent || "").trim().slice(0, 80),
       link_url: target.getAttribute("href") || "",
       page_path: window.location.pathname
-    });
+    };
+    // Carry through any data-analytics-* extras as event params (e.g.
+    // data-analytics-plan="annual" on a plan tile click). Skip the
+    // already-handled `event` and `placement` keys.
+    for (var i = 0; i < target.attributes.length; i++) {
+      var attr = target.attributes[i];
+      if (attr.name.indexOf("data-analytics-") === 0) {
+        var key = attr.name.substring("data-analytics-".length);
+        if (key !== "event" && key !== "placement") {
+          params[key] = attr.value;
+        }
+      }
+    }
+    trackEvent(target.getAttribute("data-analytics-event"), params);
   });
+
+  // Scroll-depth signals — fire once each at 50% and 90% of page height
+  // for engagement / "did they actually reach Plans" measurement on long pages.
+  var scrollDepthFired = { d50: false, d90: false };
+  function checkScrollDepth() {
+    var docH = document.documentElement.scrollHeight - window.innerHeight;
+    if (docH <= 0) return;
+    var pct = window.scrollY / docH;
+    if (!scrollDepthFired.d50 && pct >= 0.5) {
+      scrollDepthFired.d50 = true;
+      trackEvent("scroll_depth_50", { page_path: window.location.pathname });
+    }
+    if (!scrollDepthFired.d90 && pct >= 0.9) {
+      scrollDepthFired.d90 = true;
+      trackEvent("scroll_depth_90", { page_path: window.location.pathname });
+    }
+  }
+  window.addEventListener("scroll", checkScrollDepth, { passive: true });
 
   var sectionItems = document.querySelectorAll("section[id]");
   if ("IntersectionObserver" in window && sectionItems.length) {
@@ -230,8 +269,14 @@
       });
     },
     {
-      threshold: 0.18,
-      rootMargin: "0px 0px -6% 0px"
+      // Threshold 0 fires as soon as ANY pixel of the target enters the viewport
+      // box (after rootMargin). Threshold 0.18 (18% of target visible) is a trap
+      // for tall elements — sections taller than viewport/0.18 (~5x viewport)
+      // can never reach 18% intersection and stay opacity:0 forever. Using 0 +
+      // a negative bottom rootMargin gives a clean "top of element crossed 85%
+      // viewport" trigger that works for any element height.
+      threshold: 0,
+      rootMargin: "0px 0px -15% 0px"
     }
   );
 

@@ -3,33 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MetHere Support | Backups, Purchases, and Reminders</title>
+    <title>MetHere Support — Help, FAQs, and Troubleshooting</title>
     <meta
       name="description"
-      content="Get MetHere support for backups, restore, purchase recovery, and nearby reminder troubleshooting on iOS."
+      content="Help with MetHere on iPhone — backups, purchases, nearby alerts, map view, share cards, voice notes, and more."
     />
     <link rel="canonical" href="https://methere.app/support.html" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="MetHere" />
-    <meta property="og:title" content="MetHere Support | Backups, Purchases, and Reminders" />
+    <meta property="og:title" content="MetHere Support — Help, FAQs, and Troubleshooting" />
     <meta
       property="og:description"
-      content="Get help with MetHere backups, purchase restore, permissions, and nearby reminder troubleshooting."
+      content="Help with MetHere on iPhone — backups, purchases, nearby alerts, map view, share cards, voice notes, and more."
     />
     <meta property="og:url" content="https://methere.app/support.html" />
-    <meta property="og:image" content="https://methere.app/assets/app-hero-remember.png" />
+    <meta property="og:image" content="https://methere.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@MetHereApp" />
-    <meta name="twitter:title" content="MetHere Support | Backups, Purchases, and Reminders" />
+    <meta name="twitter:title" content="MetHere Support — Help, FAQs, and Troubleshooting" />
     <meta
       name="twitter:description"
-      content="Get help with MetHere backups, purchases, permissions, and troubleshooting."
+      content="Help with MetHere on iPhone — backups, purchases, nearby alerts, map view, share cards, voice notes, and more."
     />
-    <meta name="twitter:image" content="https://methere.app/assets/app-hero-remember.png" />
-    <link rel="icon" type="image/png" href="./assets/MetHere-ios-appLogo-Current.png" />
-    <link rel="apple-touch-icon" href="./assets/MetHere-ios-appLogo-Current.png" />
+    <meta name="twitter:image" content="https://methere.app/og-image.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512.png" />
     <meta name="apple-itunes-app" content="app-id=6757836312">
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.v2.css" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -45,18 +50,10 @@
         },
         {
           "@type": "Question",
-          "name": "Is MetHere free?",
+          "name": "Does MetHere work on Android?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Core features are free: save up to 15 people, 8 places, and 3 nearby alerts. Pro is a one-time purchase that removes those limits and unlocks backup and export."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What platforms is MetHere available on?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "MetHere is available on iPhone. Requires iOS 16 or later."
+            "text": "iPhone only for now. iOS 16 or later."
           }
         },
         {
@@ -64,55 +61,95 @@
           "name": "Where is my data stored?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "On your device. MetHere does not require an account or cloud storage. Your people, places, and notes stay local unless you choose to export a backup."
+            "text": "On your device. No account, no cloud, no copy on our end. Your people, places, and notes stay on your phone. If you want a copy elsewhere, you can export a backup yourself, or turn on iCloud Backup with Pro to save it to your own iCloud Drive."
           }
         },
         {
           "@type": "Question",
-          "name": "How do I back up my data?",
+          "name": "How do I add a photo for someone?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Go to Settings and use Export / Backup to create a JSON backup file. You can save it to Files or iCloud Drive."
+            "text": "In QuickAdd or on someone's profile in edit mode, tap the camera icon. Pick from your library or take a new photo. MetHere resizes it down and saves it on your device only. Photos stay on this device. They don't travel with backups, so a fresh install on a new phone won't carry them over. If you tap Don't Allow when iOS asks for camera or photo access, you can flip it back on in iOS Settings under MetHere."
           }
         },
         {
           "@type": "Question",
-          "name": "How do I restore my data?",
+          "name": "Can I add a voice note or photo to a note?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Go to Settings and choose Import, then select a previously exported backup file."
+            "text": "Notes are text only. The microphone icon next to the description field uses iPhone dictation, so you can speak the note and it'll fill in the words. The audio itself isn't saved. For photos, you can set a profile photo on a person, but you can't attach photos inside a note."
           }
         },
         {
           "@type": "Question",
-          "name": "How do I reset app data?",
+          "name": "How do tags work?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Use the reset option in Settings to clear local data. Export a backup first if you may need to recover data."
+            "text": "Tags hold the context: how you met someone, what they do, anything worth remembering. Up to 15 tags per person. Type a new one in the tag field or pick from the suggestions (the suggestions learn what you tend to use at each place). Tap a tag on someone's profile to filter the People tab to everyone who shares it. To rename, merge, or delete tags across all people: open Settings, tap Manage Tags."
           }
         },
         {
           "@type": "Question",
-          "name": "What is the difference between JSON backup and CSV export?",
+          "name": "Why does my place show a nickname like 'Starbucks (Yonge)'?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "JSON backup is a full snapshot (people, places, tags, and favourites) that you can restore in MetHere. CSV export is a people list for spreadsheets and sharing, and it is not a full in-app restore format. Both are available with Pro."
+            "text": "That's a nickname you (or someone before you) set on the place. It's how MetHere handles two locations with the same name, or any spot you want to label your own way: 'Mom's Starbucks,' 'the good one,' whatever helps. To change it: open the place, tap edit, and update the nickname field. The original name stays in the background so search still works."
           }
         },
         {
           "@type": "Question",
-          "name": "How do I restore purchases?",
+          "name": "How do I edit or remove a saved place?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Open Settings in MetHere and use Restore Purchases. Make sure you are signed into the same Apple ID used for purchase."
+            "text": "Open the Spots tab, tap a place, then tap the pencil to edit its name, nickname, or location. To remove a place: scroll to the bottom of the edit screen and tap Delete. The place is gone, but anyone you saved there stays in your People tab. They just won't be linked to a place anymore."
           }
         },
         {
           "@type": "Question",
-          "name": "Do I need to manage anything after buying Pro?",
+          "name": "How do I move a person to a different place?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Pro is a one-time purchase, not a subscription. If you reinstall the app or move to a new device, use Restore Purchases in Settings to recover access."
+            "text": "Open the person, tap the pencil to enter edit mode, tap their place, and pick a different one. Save when you're done."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I see my places on a map?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Open the Spots tab and tap the Map toggle in the top right. Your saved places show as pins with their names visible at every zoom level. Tap a pin to open that spot. The app remembers whether you were last in List or Map view, so it'll come back the way you left it. First time you open the map it might land a little zoomed out. Tap the recenter button at the bottom right to snap it to your pins."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the Regulars tab?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Regulars tab is where you see the people you keep meeting at the places you keep going. Six sections: Today's Receipt (one rendered memory). Your Regulars (people you've seen 2+ times). This Month (shape of your month). Moments (event-based receipts as they happen). Haven't Seen (people worth a hello). Share Your Month (the share card, once you've saved enough people). The first sections show up from your first save. The rest fill in as you go."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are Moments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Moments are receipts for the meaningful beats in your social memory. The third time you see someone (that's a regular). One year since you saved a person. The first person you saved at a brand-new place. A return after a long gap. They show up in the Regulars tab as cards. Each one is locked the moment it's earned, so the wording stays the same as the day you first read it. Moments aren't badges or counts. Every Moment is tied to a specific person, place, or pair."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I share a snapshot of my month?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open the Regulars tab and scroll to Share Your Month at the bottom. Tap it and MetHere renders a 1080x1920 image with your month's archetype and the faces of the people you saved. From there you can save it to Photos, post it, or send it through the share sheet. Share Your Month only appears once you've saved at least 3 people. Before that, MetHere shows a short trailer for what's coming."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is MetHere free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The free version covers 15 people and 5 nearby alerts. Pro lifts those limits and adds backup, CSV export, and iCloud Backup. Monthly is $3.99, Annual is $14.99 (with a 14-day free trial), Lifetime is $29.99."
           }
         },
         {
@@ -120,7 +157,63 @@
           "name": "What are the Free vs Pro limits?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Free includes up to 15 people, 8 places, and 3 nearby alerts. Pro removes those limits and unlocks backup/export tools."
+            "text": "Free: 15 people, 5 nearby alerts. Pro: no caps, plus backup, CSV export, and iCloud Backup. See the previous answer for pricing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What exactly does Pro unlock?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pro lifts the limits and turns on the data tools: no 15-person cap, no 5-nearby-alerts cap, Back up data (full JSON snapshot), Restore backup (load a JSON snapshot), Export CSV (people list for spreadsheets), iCloud Backup (auto-saves to your iCloud Drive). Everything else (Map, Spots, People, Regulars, Moments, share cards, dictation, photos, tags, nicknames, themes) is free for everyone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I back up my data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Settings, tap Backups, tap Back up data. Save the file to Files or iCloud Drive. That's your full backup."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I restore my data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Settings, tap Backups, tap Restore backup. Pick your backup file. Done."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does iCloud Backup work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "With Pro, open Settings, tap Sync, and turn on iCloud Backup. From then on MetHere saves your data to your own iCloud Drive in the background. You'll need to be signed into iCloud on your iPhone. If iCloud isn't available, MetHere disables the toggle and tells you why. To restore from iCloud (say, on a new device), open the same Sync section and tap Restore from iCloud once you've turned the backup on. One thing to know: iCloud Backup isn't live two-device sync. It's a periodic save you can pull back from, not a mirror."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between JSON backup and CSV export?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "JSON is the full backup: people, places, tags, favorites. You can restore it inside MetHere. CSV is a flat list of people for spreadsheets or sharing. CSV won't restore the app. Photos stay on your device either way. Backups carry the text, tags, and favorites. Both are Pro features."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I restore purchases?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Settings in MetHere and tap Restore Purchases. Make sure you're on the same Apple ID you bought it with."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to manage anything after buying Pro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depends which one you picked. Lifetime is one-and-done, nothing to manage. Monthly and Annual auto-renew until you cancel them in your Apple ID settings. Either way: if you reinstall or switch phones, tap Restore Purchases in MetHere Settings."
           }
         },
         {
@@ -128,39 +221,47 @@
           "name": "How do nearby alerts work?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Save a place and turn on nearby alerts for it. When you're within range, MetHere sends a notification with the place name and people you know there. Requires location permission set to Always."
+            "text": "Save a place. Turn on nearby alerts for it. Walk back into range and you'll get a notification, something like 'You're near Copper & Vine. You know 3 people here.' Needs Location set to Always so MetHere can notice when you're back near a saved place."
           }
         },
         {
           "@type": "Question",
-          "name": "Nearby reminders are not triggering. What should I check?",
+          "name": "How do I get a person's name to appear in a nearby alert?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Confirm Location is set to Always, Notifications are enabled, nearby alert toggles are on for the places you want monitored, and the app has not been force-quit. MetHere needs to run in the background for location monitoring to work."
+            "text": "Open the person and tap the heart on their profile. Hearted people get named in nearby alerts. Up to two names per alert. If a place has more than two hearted people, the alert reads something like 'You know 5 people here. Like Alice and Bob.' Without any hearts, the alert still fires and just names the place and how many people you know there."
           }
         },
         {
           "@type": "Question",
-          "name": "Can I customize how the app looks?",
+          "name": "Nearby alerts aren't firing. What should I check?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. MetHere has 5 themes: Light, Coral, Pink Pop, Emerald, and Midnight. All themes are free. Go to Settings to pick one."
+            "text": "Run through this list: Location set to Always (not 'While Using'), Precise Location turned on for MetHere, Notifications turned on, Background App Refresh on for MetHere, nearby alert toggle on for the specific place you're expecting, Low Power Mode off (it can suspend background location), strong-enough GPS signal (alerts can lag indoors or in dense buildings). One more thing: don't force-quit MetHere from the app switcher. iOS won't wake a force-quit app for nearby alerts. It has to be running in the background for nearby alerts to work."
           }
         },
         {
           "@type": "Question",
-          "name": "What are milestones?",
+          "name": "How do I reset everything?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Milestones are achievements you unlock as you use MetHere. Remember more people, save more places, apply more tags. Your progress is tracked in your profile."
+            "text": "Open Settings, scroll to Advanced, tap Erase everything. That wipes every person, place, tag, and note on this device. There's no undo. If you might want any of it back, back up first (Settings, Backups, Back up data)."
           }
         },
         {
           "@type": "Question",
-          "name": "What are insights?",
+          "name": "Can I switch between light and dark mode?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Your profile shows stats about your social memory: where you meet most, your most-used tags, recent activity. You can create a shareable snapshot card from your insights."
+            "text": "Yes. Open Settings, scroll to Appearance, and tap Dark or Light. Both are Mint Social: same brand, different surface tones. Your choice doesn't sync across devices."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I set my own name and photo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Open Settings and tap Edit profile at the top. Set a display name and a profile photo. Both show up on your Home greeting and on share cards, so the receipts feel like yours."
           }
         }
       ]
@@ -172,145 +273,224 @@
       <!-- HEADER -->
 
       <main>
-        <section class="section panel utility-hero reveal" data-delay="80ms">
+        <section class="section utility-hero reveal" data-delay="80ms">
           <p class="eyebrow">Support</p>
-          <h1>Help with backups, purchases, and reminders.</h1>
-          <p>If you run into an issue, send us the details and we'll work through it with you.</p>
+          <h1>Something's off. Let's sort it.</h1>
+          <p>Backups, purchases, nearby alerts. Tell us what's happening and we'll work through it with you.</p>
           <p>
             Contact: <a class="contact-link" href="mailto:support@methere.app" data-analytics-event="support_email_click" data-analytics-placement="support-hero">support@methere.app</a>
           </p>
           <div class="btn-row">
             <a class="app-store-badge-link" href="https://apps.apple.com/app/methere/id6757836312" target="_blank" rel="noopener noreferrer" data-analytics-event="app_store_click_support" data-analytics-placement="support-hero" aria-label="Download on the App Store">
-              <img class="app-store-badge" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" />
+              <img class="app-store-badge" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=500x166" alt="Download on the App Store" />
             </a>
           </div>
         </section>
 
-        <section class="section panel reveal" data-delay="110ms">
-          <h2 class="section-subtitle">Frequently Asked Questions</h2>
-
+        <section class="section" data-delay="110ms">
           <div class="faq-category">
-            <h3 class="faq-category-title">Getting Started</h3>
+            <h2 class="faq-category-title">Purchases &amp; Account</h2>
             <ul class="faq-list" data-stagger data-stagger-step="60">
-              <li class="faq-item reveal">
-                <h3>What is MetHere?</h3>
-                <p>
-                  MetHere is where you save the people you meet and where you met them. Name, place, a note. It's not a contacts app or a social network. It's the space between "I've met you" and "you're in my phone."
-                </p>
-              </li>
-              <li class="faq-item reveal">
-                <h3>Is MetHere free?</h3>
-                <p>
-                  Yes. Core features are free: save up to 15 people, 8 places, and 3 nearby alerts. Pro is a one-time purchase that removes those limits and unlocks backup and export.
-                </p>
-              </li>
-              <li class="faq-item reveal">
-                <h3>What platforms is MetHere available on?</h3>
-                <p>
-                  MetHere is available on iPhone. Requires iOS 16 or later.
-                </p>
-              </li>
-            </ul>
-          </div>
-
-          <div class="faq-category">
-            <h3 class="faq-category-title">Data & Backups</h3>
-            <ul class="faq-list" data-stagger data-stagger-step="60">
-              <li class="faq-item reveal">
-                <h3>Where is my data stored?</h3>
-                <p>
-                  On your device. MetHere does not require an account or cloud storage. Your people, places, and notes stay local unless you choose to export a backup.
-                </p>
-              </li>
-              <li class="faq-item reveal">
-                <h3>How do I back up my data?</h3>
-                <p>
-                  Go to Settings and use Export / Backup to create a JSON backup file. You can save it to Files or iCloud Drive.
-                </p>
-              </li>
-              <li class="faq-item reveal">
-                <h3>How do I restore my data?</h3>
-                <p>
-                  Go to Settings and choose Import, then select a previously exported backup file.
-                </p>
-              </li>
-              <li class="faq-item reveal">
-                <h3>How do I reset app data?</h3>
-                <p>
-                  Use the reset option in Settings to clear local data. Export a backup first if you may need to recover data.
-                </p>
-              </li>
-              <li class="faq-item reveal">
-                <h3>What is the difference between JSON backup and CSV export?</h3>
-                <p>
-                  JSON backup is a full snapshot (people, places, tags, and favourites) that you can restore in MetHere. CSV export is a people list for spreadsheets and sharing, and it is not a full in-app restore format. Both are available with Pro.
-                </p>
-              </li>
-            </ul>
-          </div>
-
-          <div class="faq-category">
-            <h3 class="faq-category-title">Purchases</h3>
-            <ul class="faq-list" data-stagger data-stagger-step="60">
-              <li class="faq-item reveal">
+              <li class="faq-item">
                 <h3>How do I restore purchases?</h3>
-                <p>
-                  Open Settings in MetHere and use Restore Purchases. Make sure you are signed into the same Apple ID used for purchase.
-                </p>
+                <p>Open Settings in MetHere and tap Restore Purchases. Make sure you're on the same Apple ID you bought it with.</p>
               </li>
-              <li class="faq-item reveal">
+              <li class="faq-item">
                 <h3>Do I need to manage anything after buying Pro?</h3>
-                <p>
-                  No. Pro is a one-time purchase, not a subscription. If you reinstall the app or move to a new device, use Restore Purchases in Settings to recover access.
-                </p>
+                <p>Depends which one you picked. Lifetime is one-and-done, nothing to manage. Monthly and Annual auto-renew until you cancel them in your Apple ID settings. Either way: if you reinstall or switch phones, tap Restore Purchases in MetHere Settings.</p>
               </li>
-              <li class="faq-item reveal">
+            </ul>
+          </div>
+
+          <div class="faq-category">
+            <h2 class="faq-category-title">Pro, Pricing &amp; Backups</h2>
+            <ul class="faq-list" data-stagger data-stagger-step="60">
+              <li class="faq-item">
+                <h3>Is MetHere free?</h3>
+                <p>Yes. The free version covers 15 people and 5 nearby alerts. Pro lifts those limits and adds backup, CSV export, and iCloud Backup. Monthly is $3.99, Annual is $14.99 (with a 14-day free trial), Lifetime is $29.99.</p>
+              </li>
+              <li class="faq-item">
                 <h3>What are the Free vs Pro limits?</h3>
-                <p>
-                  Free includes up to 15 people, 8 places, and 3 nearby alerts. Pro removes those limits and unlocks backup/export tools.
-                </p>
+                <p>Free: 15 people, 5 nearby alerts. Pro: no caps, plus backup, CSV export, and iCloud Backup. See the previous answer for pricing.</p>
+              </li>
+              <li class="faq-item">
+                <h3>What exactly does Pro unlock?</h3>
+                <p>Pro lifts the limits and turns on the data tools:</p>
+                <ul>
+                  <li>No 15-person cap</li>
+                  <li>No 5-nearby-alerts cap</li>
+                  <li>Back up data (full JSON snapshot)</li>
+                  <li>Restore backup (load a JSON snapshot)</li>
+                  <li>Export CSV (people list for spreadsheets)</li>
+                  <li>iCloud Backup (auto-saves to your iCloud Drive)</li>
+                </ul>
+                <p>Everything else (Map, Spots, People, Regulars, Moments, share cards, dictation, photos, tags, nicknames, themes) is free for everyone.</p>
+              </li>
+              <li class="faq-item">
+                <h3>How do I back up my data?</h3>
+                <p>Open Settings, tap Backups, tap Back up data. Save the file to Files or iCloud Drive. That's your full backup.</p>
+              </li>
+              <li class="faq-item">
+                <h3>How do I restore my data?</h3>
+                <p>Open Settings, tap Backups, tap Restore backup. Pick your backup file. Done.</p>
+              </li>
+              <li class="faq-item">
+                <h3>How does iCloud Backup work?</h3>
+                <p>With Pro, open Settings, tap Sync, and turn on iCloud Backup. From then on MetHere saves your data to your own iCloud Drive in the background.</p>
+                <p>You'll need to be signed into iCloud on your iPhone. If iCloud isn't available, MetHere disables the toggle and tells you why.</p>
+                <p>To restore from iCloud (say, on a new device), open the same Sync section and tap Restore from iCloud once you've turned the backup on.</p>
+                <p>One thing to know: iCloud Backup isn't live two-device sync. It's a periodic save you can pull back from, not a mirror.</p>
+              </li>
+              <li class="faq-item">
+                <h3>What's the difference between JSON backup and CSV export?</h3>
+                <p>JSON is the full backup: people, places, tags, favorites. You can restore it inside MetHere.</p>
+                <p>CSV is a flat list of people for spreadsheets or sharing. CSV won't restore the app.</p>
+                <p>Photos stay on your device either way. Backups carry the text, tags, and favorites.</p>
+                <p>Both are Pro features.</p>
               </li>
             </ul>
           </div>
 
           <div class="faq-category">
-            <h3 class="faq-category-title">Nearby Alerts</h3>
+            <h2 class="faq-category-title">Nearby Alerts &amp; Troubleshooting</h2>
             <ul class="faq-list" data-stagger data-stagger-step="60">
-              <li class="faq-item reveal">
+              <li class="faq-item">
                 <h3>How do nearby alerts work?</h3>
-                <p>
-                  Save a place and turn on nearby alerts for it. When you're within range, MetHere sends a notification with the place name and people you know there. Requires location permission set to Always.
-                </p>
+                <p>Save a place. Turn on nearby alerts for it. Walk back into range and you'll get a notification, something like "You're near Copper &amp; Vine. You know 3 people here."</p>
+                <p>Needs Location set to Always so MetHere can notice when you're back near a saved place.</p>
               </li>
-              <li class="faq-item reveal">
-                <h3>Nearby reminders are not triggering. What should I check?</h3>
-                <p>
-                  Confirm Location is set to Always, Notifications are enabled, nearby alert toggles are on for the places you want monitored, and the app has not been force-quit. MetHere needs to run in the background for location monitoring to work.
-                </p>
+              <li class="faq-item">
+                <h3>How do I get a person's name to appear in a nearby alert?</h3>
+                <p>Open the person and tap the heart on their profile. Hearted people get named in nearby alerts.</p>
+                <p>Up to two names per alert. If a place has more than two hearted people, the alert reads something like "You know 5 people here. Like Alice and Bob."</p>
+                <p>Without any hearts, the alert still fires and just names the place and how many people you know there.</p>
+              </li>
+              <li class="faq-item">
+                <h3>Nearby alerts aren't firing. What should I check?</h3>
+                <p>Run through this list:</p>
+                <ul>
+                  <li><strong>Location</strong> set to <strong>Always</strong> (not "While Using")</li>
+                  <li><strong>Precise Location</strong> turned on for MetHere</li>
+                  <li><strong>Notifications</strong> turned on</li>
+                  <li><strong>Background App Refresh</strong> on for MetHere</li>
+                  <li><strong>Nearby alert toggle</strong> on for the specific place you're expecting</li>
+                  <li><strong>Low Power Mode</strong> off (it can suspend background location)</li>
+                  <li><strong>Strong-enough GPS signal</strong> (alerts can lag indoors or in dense buildings)</li>
+                </ul>
+                <p>One more thing: don't force-quit MetHere from the app switcher. iOS won't wake a force-quit app for nearby alerts. It has to be running in the background for nearby alerts to work.</p>
+              </li>
+              <li class="faq-item">
+                <h3>How do I reset everything?</h3>
+                <p>Open Settings, scroll to Advanced, tap Erase everything. That wipes every person, place, tag, and note on this device. There's no undo.</p>
+                <p>If you might want any of it back, back up first (Settings, Backups, Back up data).</p>
               </li>
             </ul>
           </div>
 
           <div class="faq-category">
-            <h3 class="faq-category-title">Features</h3>
+            <h2 class="faq-category-title">Capturing People &amp; Spots</h2>
             <ul class="faq-list" data-stagger data-stagger-step="60">
-              <li class="faq-item reveal">
-                <h3>Can I customize how the app looks?</h3>
-                <p>
-                  Yes. MetHere has 5 themes: Light, Coral, Pink Pop, Emerald, and Midnight. All themes are free. Go to Settings to pick one.
-                </p>
+              <li class="faq-item">
+                <h3>How do I add a photo for someone?</h3>
+                <p>In QuickAdd or on someone's profile in edit mode, tap the camera icon. Pick from your library or take a new photo. MetHere resizes it down and saves it on your device only.</p>
+                <p>Photos stay on this device. They don't travel with backups, so a fresh install on a new phone won't carry them over.</p>
+                <p>If you tap Don't Allow when iOS asks for camera or photo access, you can flip it back on in iOS Settings under MetHere.</p>
               </li>
-              <li class="faq-item reveal">
-                <h3>What are milestones?</h3>
-                <p>
-                  Milestones are achievements you unlock as you use MetHere. Remember more people, save more places, apply more tags. Your progress is tracked in your profile.
-                </p>
+              <li class="faq-item">
+                <h3>Can I add a voice note or photo to a note?</h3>
+                <p>Notes are text only. The microphone icon next to the description field uses iPhone dictation, so you can speak the note and it'll fill in the words. The audio itself isn't saved.</p>
+                <p>For photos, you can set a profile photo on a person (see above), but you can't attach photos inside a note.</p>
               </li>
-              <li class="faq-item reveal">
-                <h3>What are insights?</h3>
-                <p>
-                  Your profile shows stats about your social memory: where you meet most, your most-used tags, recent activity. You can create a shareable snapshot card from your insights.
-                </p>
+              <li class="faq-item">
+                <h3>How do tags work?</h3>
+                <p>Tags hold the context: how you met someone, what they do, anything worth remembering. Up to 15 tags per person.</p>
+                <p>Type a new one in the tag field or pick from the suggestions (the suggestions learn what you tend to use at each place). Tap a tag on someone's profile to filter the People tab to everyone who shares it.</p>
+                <p>To rename, merge, or delete tags across all people: open Settings, tap Manage Tags.</p>
+              </li>
+              <li class="faq-item">
+                <h3>Why does my place show a nickname like "Starbucks (Yonge)"?</h3>
+                <p>That's a nickname you (or someone before you) set on the place. It's how MetHere handles two locations with the same name, or any spot you want to label your own way: "Mom's Starbucks," "the good one," whatever helps.</p>
+                <p>To change it: open the place, tap edit, and update the nickname field. The original name stays in the background so search still works.</p>
+              </li>
+              <li class="faq-item">
+                <h3>How do I edit or remove a saved place?</h3>
+                <p>Open the Spots tab, tap a place, then tap the pencil to edit its name, nickname, or location.</p>
+                <p>To remove a place: scroll to the bottom of the edit screen and tap Delete. The place is gone, but anyone you saved there stays in your People tab. They just won't be linked to a place anymore.</p>
+              </li>
+              <li class="faq-item">
+                <h3>How do I move a person to a different place?</h3>
+                <p>Open the person, tap the pencil to enter edit mode, tap their place, and pick a different one. Save when you're done.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="faq-category">
+            <h2 class="faq-category-title">Map, Regulars &amp; Receipts</h2>
+            <ul class="faq-list" data-stagger data-stagger-step="60">
+              <li class="faq-item">
+                <h3>Can I see my places on a map?</h3>
+                <p>Yes. Open the Spots tab and tap the Map toggle in the top right. Your saved places show as pins with their names visible at every zoom level.</p>
+                <p>Tap a pin to open that spot. The app remembers whether you were last in List or Map view, so it'll come back the way you left it.</p>
+                <p>First time you open the map it might land a little zoomed out. Tap the recenter button at the bottom right to snap it to your pins.</p>
+              </li>
+              <li class="faq-item">
+                <h3>What's the Regulars tab?</h3>
+                <p>The Regulars tab is where you see the people you keep meeting at the places you keep going. Six sections:</p>
+                <ul>
+                  <li><strong>Today's Receipt</strong> — one rendered memory like "You met Sarah at Copper &amp; Vine in November"</li>
+                  <li><strong>Your Regulars</strong> — people you've seen 2+ times</li>
+                  <li><strong>This Month</strong> — the shape of your month</li>
+                  <li><strong>Moments</strong> — event-based receipts as they happen</li>
+                  <li><strong>Haven't Seen</strong> — people worth a hello</li>
+                  <li><strong>Share Your Month</strong> — the share card, once you've saved enough people</li>
+                </ul>
+                <p>The first sections show up from your first save. The rest fill in as you go.</p>
+              </li>
+              <li class="faq-item">
+                <h3>What are Moments?</h3>
+                <p>Moments are receipts for the meaningful beats in your social memory. The third time you see someone (that's a regular). One year since you saved a person. The first person you saved at a brand-new place. A return after a long gap.</p>
+                <p>They show up in the Regulars tab as cards. Each one is locked the moment it's earned, so the wording stays the same as the day you first read it.</p>
+                <p>Moments aren't badges or counts. Every Moment is tied to a specific person, place, or pair.</p>
+              </li>
+              <li class="faq-item">
+                <h3>How do I share a snapshot of my month?</h3>
+                <p>Open the Regulars tab and scroll to Share Your Month at the bottom. Tap it and MetHere renders a 1080×1920 image with your month's archetype and the faces of the people you saved.</p>
+                <p>From there you can save it to Photos, post it, or send it through the share sheet.</p>
+                <p>Share Your Month only appears once you've saved at least 3 people. Before that, MetHere shows a short trailer for what's coming.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="faq-category">
+            <h2 class="faq-category-title">About MetHere</h2>
+            <ul class="faq-list" data-stagger data-stagger-step="60">
+              <li class="faq-item">
+                <h3>What is MetHere?</h3>
+                <p>MetHere is where you save the people you meet and where you met them. Name, place, a note. It's not a contacts app or a social network. It's the space between "I've met you" and "you're in my phone."</p>
+              </li>
+              <li class="faq-item">
+                <h3>Does MetHere work on Android?</h3>
+                <p>iPhone only for now. iOS 16 or later.</p>
+              </li>
+              <li class="faq-item">
+                <h3>Where is my data stored?</h3>
+                <p>On your device. No account, no cloud, no copy on our end. Your people, places, and notes stay on your phone. If you want a copy elsewhere, you can export a backup yourself, or turn on iCloud Backup with Pro to save it to your own iCloud Drive.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="faq-category">
+            <h2 class="faq-category-title">Personalization</h2>
+            <ul class="faq-list" data-stagger data-stagger-step="60">
+              <li class="faq-item">
+                <h3>Can I switch between light and dark mode?</h3>
+                <p>Yes. Open Settings, scroll to Appearance, and tap Dark or Light.</p>
+                <p>Both are Mint Social: same brand, different surface tones. Your choice doesn't sync across devices.</p>
+              </li>
+              <li class="faq-item">
+                <h3>Can I set my own name and photo?</h3>
+                <p>Yes. Open Settings and tap Edit profile at the top. Set a display name and a profile photo.</p>
+                <p>Both show up on your Home greeting and on share cards, so the receipts feel like yours.</p>
               </li>
             </ul>
           </div>
@@ -321,8 +501,5 @@
     </div>
 
     <script src="./site.js"></script>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
   </body>
 </html>

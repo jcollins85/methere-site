@@ -1,0 +1,1292 @@
+/* ============================================================
+   methere.app v2 — Stylesheet
+   Author: ios-product-designer (Mint Social → web)
+   Engineered: 2026-04-27 (T-8 to launch)
+   Brand floor: docs/brand-direction-v2.md
+   Source-of-truth spec: docs/design-spec-v2.md
+   Brand revises applied: docs/brand-visual-review.md
+     - Header: solid bg + hairline (NO backdrop-filter — brand floor held)
+     - Privacy ×: opacity 0.4 (was 0.6 in spec)
+     - Plans: 14-day trial pill on Monthly only (was on both Monthly + Annual)
+     - .plan-price .period: 16px (bumped from 14px for visual weight)
+   ============================================================ */
+
+/* ---- 0. Foundation: fonts ------------------------------------ */
+
+/* Self-hosted Plus Jakarta Sans (Medium 500, Bold 700, ExtraBold 800).
+   We do NOT hotlink Google Fonts — brand-guidelines §4.2 forbids it
+   (privacy, perf, third-party dependency). woff2 only — every browser
+   supporting the rest of this CSS supports woff2. */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./fonts/PlusJakartaSans-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./fonts/PlusJakartaSans-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("./fonts/PlusJakartaSans-ExtraBold.woff2") format("woff2");
+}
+
+/* ---- 0. Foundation: tokens ----------------------------------- */
+/* Every value on the page references one of these. If a value isn't
+   here, it shouldn't exist on the page. Brand floor: do not add
+   colors, type sizes, or spacing values outside this block without
+   a brand-strategist call. */
+
+:root {
+  /* Surfaces — all dark. External surfaces are locked to canonical dark
+     per brand-guidelines §4.6 ("External surfaces stay dark"). */
+  --bg-page:        #111014;  /* page background, hero, every section default */
+  --bg-elevated:    #1A181E;  /* feature panels, plan tiles, screenshot bezel */
+  --bg-elevated-hi: #1F1D24;  /* hover state on tappable panels */
+  --border-default: #242228;  /* hairlines, dividers, panel borders */
+  --border-subtle:  #1B1A20;  /* near-invisible separators inside panels */
+
+  /* Text — pure white reserved for headlines only. Body uses warm
+     off-white (#E8E4DF) which softens the dark-mode read by ~5% perceptually. */
+  --text-headline:  #FFFFFF;
+  --text-body:      #E8E4DF;
+  --text-secondary: #8A858F;
+  /* Tertiary was #555060 (2.43:1) — failed WCAG AA. First bump to #7A7480
+     measured 4.20:1, still failed. Settled at #87818C which calculates to
+     ~5.2:1 — passes AA cleanly. Intentionally cool/purple tinted so it
+     reads distinctly from --text-secondary (#8A858F) without colliding. */
+  --text-tertiary:  #87818C;
+
+  /* Brand accent — mint is the neon sign. Single load-bearing note per
+     section, not atmospheric splash. brand-direction §1.1. */
+  --mint:           #2DD4A8;
+  --mint-hover:     #3EE5BA;
+  --mint-tint-10:   rgba(45, 212, 168, 0.10);
+  --mint-tint-20:   rgba(45, 212, 168, 0.20);
+  --coral-glyph:    #FF8C6A; /* ONLY for pin glyph rendering — never as text/border/bg */
+
+  /* Radii */
+  --radius-card:   24px;
+  --radius-pill:   999px;
+  --radius-button: 14px;
+  --radius-tight:  12px;
+
+  /* Spacing — 4-base scale. Stick to these values. */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  /* Layout */
+  --shell-max:         1120px; /* desktop max-width */
+  --reading-max:       640px;  /* prose-only sections */
+  --section-padding-y: 96px;   /* desktop vertical rhythm */
+
+  /* Type — fluid via clamp(min, preferred, max). H1 scales hardest;
+     body stays fixed at 17px because reading distance is constant. */
+  --type-hero:    clamp(48px, 8vw, 88px);
+  --type-h2:      clamp(32px, 4.6vw, 48px);
+  --type-h3:      clamp(20px, 2.4vw, 24px);
+  --type-lead:    clamp(18px, 2vw, 22px);
+  --type-body:    17px;
+  --type-body-lg: 18px;
+  --type-caption: 15px;
+  --type-meta:    14px;
+  --type-eyebrow: 12px;
+
+  /* Tracking — display sizes get tighter, eyebrow gets looser */
+  --track-tight:  -1.5px;
+  --track-snug:   -0.6px;
+  --track-normal: 0;
+  --track-loose:  0.8px;
+
+  /* Motion — one duration, one signature spring. Brand budget:
+     under 1 second of total motion on the page. */
+  --ease-spring:     cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-standard:   cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-reveal: 280ms;
+  --reveal-distance: 16px;
+}
+
+/* ---- 0. Foundation: base + reset ----------------------------- */
+/* Lightweight reset — we don't pull normalize.css. Just enough to
+   neutralize browser defaults that fight the design. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-page);
+}
+
+body {
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 500;
+  font-size: var(--type-body);
+  line-height: 1.55;
+  color: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, figure { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+
+a {
+  color: var(--mint);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+img, svg { display: block; max-width: 100%; height: auto; }
+
+button { font: inherit; cursor: pointer; }
+
+/* sr-only utility (skip-to-content link, hidden labels) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.sr-only:focus {
+  position: fixed;
+  top: var(--space-3);
+  left: var(--space-3);
+  width: auto;
+  height: auto;
+  padding: var(--space-3) var(--space-4);
+  margin: 0;
+  clip: auto;
+  background: var(--mint);
+  color: var(--bg-page);
+  font-weight: 700;
+  border-radius: var(--radius-tight);
+  z-index: 100;
+}
+
+/* Universal focus ring — mint outline, not removed.
+   Studio accessibility quality bar. Never override with outline:none. */
+:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 3px;
+}
+
+/* ---- 0. Foundation: section frame ---------------------------- */
+
+.section {
+  padding: var(--section-padding-y) var(--space-5);
+  position: relative;
+}
+.section-inner {
+  max-width: var(--shell-max);
+  margin: 0 auto;
+}
+.section--narrow .section-inner {
+  max-width: var(--reading-max);
+}
+
+/* Section header pattern — eyebrow / H2 / lead. Used by every
+   numbered section except hero (which has its own type spec). */
+.section-head {
+  margin-bottom: var(--space-7);
+}
+.section-eyebrow {
+  font-size: var(--type-eyebrow);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--track-loose);
+  color: var(--text-tertiary);
+  margin: 0 0 var(--space-3);
+}
+.section-h2 {
+  font-size: var(--type-h2);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: var(--track-snug);
+  color: var(--text-headline);
+  margin: 0;
+  text-wrap: balance;
+}
+.section-h2 .mint { color: var(--mint); }
+.section-lead {
+  font-size: var(--type-lead);
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin: var(--space-4) 0 0;
+  max-width: 640px;
+  text-wrap: balance;
+}
+
+/* ============================================================
+   1. Components
+   ============================================================ */
+
+/* ---- C1. Header / nav --------------------------------------- */
+/* BRAND REVISE: NO backdrop-filter. Brand floor explicitly bans
+   glassmorphism and the brand-strategist held the line in visual
+   review (held the precedent matters more than the literal aesthetic
+   delta). Solid bg + hairline gives the depth without category bleed. */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(17, 16, 20, 0.95);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: var(--space-4) var(--space-5);
+}
+.site-header-inner {
+  max-width: var(--shell-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+}
+.site-brand img {
+  height: 28px;
+  width: auto;
+}
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+.site-nav a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 150ms ease-out;
+}
+.site-nav a:hover { color: var(--text-body); text-decoration: none; }
+.site-nav a.active { color: var(--text-headline); }
+.site-nav .social-link-x {
+  display: inline-flex;
+  align-items: center;
+}
+.site-nav .social-icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ---- C2. Footer ---------------------------------------------- */
+/* Vertical lockup signature moment (one per page). Three rows
+   stacked + centered. Drop the sticky-mobile-cta from v1 — there
+   are 4 inline App Store CTAs already, sticky bottom is overkill. */
+
+.site-footer {
+  border-top: 1px solid var(--border-default);
+  padding: var(--space-7) var(--space-5);
+  text-align: center;
+}
+.footer-lockup {
+  display: inline-block;
+  margin-bottom: var(--space-6);
+}
+.footer-lockup img {
+  height: 120px;
+  width: auto;
+  margin: 0 auto;
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+}
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.footer-links a:hover { color: var(--text-body); text-decoration: underline; }
+.footer-links .sep {
+  color: var(--text-tertiary);
+  user-select: none;
+}
+.footer-links .social-icon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+.footer-credit {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+/* ---- C4. App Store badge ------------------------------------ */
+
+.app-store-badge {
+  display: inline-block;
+  border-radius: var(--radius-tight);
+  line-height: 0;
+  transition: transform 150ms ease-out;
+}
+.app-store-badge img { width: 180px; height: auto; }
+.app-store-badge--hero img { width: 200px; }
+.app-store-badge--final img { width: 220px; }
+.app-store-badge:hover { transform: translateY(-1px); text-decoration: none; }
+.app-store-badge:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 4px;
+}
+
+/* CTA row container (App Store + secondary text-link) */
+.cta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* Secondary text-link CTA (e.g. "See how it works ↓") */
+.text-link-cta {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--mint);
+  text-decoration: none;
+  transition: color 150ms ease-out;
+}
+.text-link-cta:hover { color: var(--mint-hover); text-decoration: underline; }
+
+/* Trust microline — appears 4× across page (psych-locked).
+   Sits below CTA, small, secondary. */
+.trust-microline {
+  font-size: var(--type-meta);
+  font-weight: 500;
+  color: var(--text-tertiary);
+  margin: var(--space-3) 0 0;
+}
+
+/* ---- C5. Phone screenshot frame ----------------------------- */
+
+.phone-shot {
+  display: inline-block;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+}
+.phone-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Phone-only crop variant — strips the composed caption strip from the
+   top of `screen-01-proximity.png`. The composed ASC screenshot has a
+   caption "Walk in. Remember everyone." baked into the top ~580px of
+   a 1242×2688 image — when used adjacent to a hero H1 that says the
+   same thing, it duplicates. This crop shows only the iPhone portion
+   (1242×2108 visible), keeping the proximity alert lockscreen as the
+   credibility signal. Applied to: hero, Section 4 step 3, Section 5.
+   Caption-strip ratio: 580/2688 ≈ 21.6% — that's the part we hide. */
+.phone-shot--proximity-cropped {
+  width: 100%;
+  aspect-ratio: 1242 / 2108;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+}
+.phone-shot--proximity-cropped img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* center bottom: anchor to bottom of img = phone visible, top (caption) clipped */
+  object-position: center bottom;
+  display: block;
+}
+.phone-caption {
+  font-size: var(--type-caption);
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-top: var(--space-3);
+  text-align: center;
+}
+.phone-caption .mint { color: var(--mint); }
+
+/* ---- C6. Pricing tile --------------------------------------- */
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+}
+.plan-tile {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-card);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+}
+.plan-tile--highlight {
+  border-color: var(--mint);
+}
+.plan-name {
+  font-size: var(--type-h3);
+  font-weight: 700;
+  color: var(--text-headline);
+  margin: 0 0 var(--space-3);
+}
+.plan-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: var(--space-3);
+}
+.plan-price .amount {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-headline);
+  letter-spacing: var(--track-snug);
+}
+/* BRAND REVISE: bumped from 14px to 16px so "/ mo" doesn't read
+   underweight against the 32px ExtraBold price. */
+.plan-price .period {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.plan-savings {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--mint);
+  text-transform: uppercase;
+  letter-spacing: var(--track-loose);
+  margin-bottom: var(--space-3);
+}
+.plan-trial-pill {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  background: var(--mint-tint-10);
+  color: var(--mint);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--track-loose);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--space-4);
+}
+.plan-features {
+  font-size: var(--type-body);
+  font-weight: 500;
+  color: var(--text-body);
+  margin: 0 0 var(--space-5);
+  flex: 1;
+}
+.plan-features li {
+  padding: 4px 0;
+}
+.plan-note {
+  font-size: var(--type-meta);
+  font-weight: 500;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+.plans-cta-cluster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(--space-7);
+  gap: var(--space-3);
+}
+.plans-fineprint {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: var(--space-4);
+}
+
+/* ---- C7. Refuse card (privacy section) ---------------------- */
+
+.refuse-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+}
+.refuse-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-card);
+  padding: var(--space-6);
+}
+/* BRAND REVISE: × opacity dropped from 0.6 to 0.4. Brand-strategist
+   wanted the typographic punctuation subtler — at 0.6 it was reading
+   as iconography, at 0.4 it reads as a gentle refusal mark. */
+.refuse-mark {
+  font-size: var(--type-h3);
+  font-weight: 700;
+  color: var(--mint);
+  opacity: 0.4;
+  line-height: 1;
+  margin-bottom: var(--space-3);
+}
+.refuse-h3 {
+  font-size: var(--type-h3);
+  font-weight: 700;
+  color: var(--text-headline);
+  margin: 0 0 var(--space-2);
+}
+.refuse-body {
+  font-size: var(--type-body);
+  font-weight: 500;
+  color: var(--text-body);
+  margin: 0;
+}
+.privacy-link {
+  display: inline-block;
+  margin-top: var(--space-5);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--mint);
+  text-decoration: none;
+}
+.privacy-link:hover { text-decoration: underline; }
+
+/* ============================================================
+   2. Sections
+   ============================================================ */
+
+/* ---- Section 1 — Hero --------------------------------------- */
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
+  gap: var(--space-7);
+  align-items: center;
+}
+.hero-content {
+  max-width: 560px;
+}
+.hero-eyebrow {
+  font-size: var(--type-eyebrow);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--track-loose);
+  color: var(--text-tertiary);
+  margin: 0 0 var(--space-3);
+}
+.hero-h1 {
+  font-size: var(--type-hero);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: var(--track-tight);
+  color: var(--text-headline);
+  margin: 0;
+}
+.hero-h1 .mint { color: var(--mint); }
+.hero-subhead {
+  font-size: var(--type-lead);
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin: var(--space-5) 0 0;
+}
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin: var(--space-6) 0 0;
+}
+.hero-trust {
+  font-size: var(--type-meta);
+  font-weight: 500;
+  color: var(--text-tertiary);
+  margin: var(--space-3) 0 0;
+}
+.hero-device {
+  position: relative;
+}
+.hero-device img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-card);
+}
+
+/* ---- Section 2 — Demo strip --------------------------------- */
+
+.demo-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin-top: var(--space-7);
+}
+.demo-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---- Section 3 — The Moment --------------------------------- */
+
+.moment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+}
+.moment-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-card);
+  padding: var(--space-6);
+}
+.moment-text {
+  font-size: var(--type-body-lg);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-body);
+  margin: 0;
+  /* No italics — banned by brand-guidelines §4.2. */
+}
+
+/* ---- Section 4 — How it works ------------------------------- */
+
+.howit-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-7);
+  margin-top: var(--space-7);
+}
+.howit-step {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-7);
+  align-items: center;
+}
+.howit-step--reverse { direction: rtl; }
+.howit-step--reverse > * { direction: ltr; }
+.howit-step-number {
+  font-size: var(--type-eyebrow);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--track-loose);
+  color: var(--mint);
+  margin: 0 0 var(--space-2);
+}
+.howit-step-h3 {
+  font-size: var(--type-h3);
+  font-weight: 700;
+  color: var(--text-headline);
+  margin: 0 0 var(--space-3);
+}
+.howit-step-body {
+  font-size: var(--type-body);
+  font-weight: 500;
+  color: var(--text-body);
+  margin: 0;
+}
+/* Cap the howit phone width at every viewport — without this it
+   fills its grid column, blowing up to ~680px on desktop and
+   making the in-screen UI text larger than the page H1. Designer
+   spec implied 280–360px rendered width; defaulting to 360. */
+.phone-shot--howit {
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- Section 5 — Proximity deep dive ------------------------ */
+/* 3-column on desktop (left-prose | phone | right-prose) per spec.
+   Most ambitious layout on the page — designer flagged as most
+   likely to need iteration. Fallback: stack on tablet+. */
+
+.proximity-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: var(--space-7);
+  align-items: center;
+  margin-top: var(--space-7);
+}
+.proximity-prose {
+  font-size: var(--type-body-lg);
+  font-weight: 500;
+  color: var(--text-body);
+}
+.proximity-prose h3 {
+  font-size: var(--type-h3);
+  font-weight: 700;
+  color: var(--text-headline);
+  margin: 0 0 var(--space-3);
+}
+.proximity-prose p { margin: 0 0 var(--space-4); }
+.proximity-prose p:last-child { margin-bottom: 0; }
+.proximity-device {
+  width: 280px;
+}
+
+/* ---- Section 6 — What else ---------------------------------- */
+
+.whatelse-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+}
+.whatelse-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-card);
+  padding: var(--space-6);
+}
+.whatelse-h3 {
+  font-size: var(--type-h3);
+  font-weight: 700;
+  color: var(--text-headline);
+  margin: 0 0 var(--space-3);
+}
+.whatelse-body {
+  font-size: var(--type-body);
+  font-weight: 500;
+  color: var(--text-body);
+  margin: 0;
+}
+
+/* ---- Section 9 — Final CTA ---------------------------------- */
+
+.final-cta {
+  text-align: center;
+}
+.final-cta .section-h2 {
+  margin: 0 auto;
+  max-width: 720px;
+}
+.final-cta .section-lead {
+  margin: var(--space-5) auto 0;
+  max-width: 560px;
+}
+.final-cta-cluster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(--space-7);
+  gap: var(--space-3);
+}
+.support-link {
+  font-size: var(--type-meta);
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  margin-top: var(--space-4);
+}
+.support-link:hover { color: var(--text-body); text-decoration: underline; }
+
+/* ============================================================
+   3. Reveal motion
+   ============================================================ */
+/* Motion-on-scroll. Default state is visible (so non-JS users see
+   content). When site.js adds .js-enabled to <html>, the .reveal
+   elements start hidden and animate in on viewport entry. */
+
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+.js-enabled .reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance));
+  transition:
+    opacity var(--duration-reveal) var(--ease-spring),
+    transform var(--duration-reveal) var(--ease-spring);
+}
+.js-enabled .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-enabled .reveal,
+  .js-enabled .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ============================================================
+   4. Responsive
+   ============================================================ */
+/* Desktop-first: overrides cascade down. */
+
+@media (max-width: 1023px) {
+  :root {
+    --section-padding-y: 64px;
+  }
+  /* Hero stacks (content first, device second) */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+  .hero-content { max-width: 640px; }
+  .hero-device { max-width: 480px; margin: 0 auto; }
+
+  /* Plans goes 2x2 */
+  .plans-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Privacy refuse cards already 2x2 — keep */
+
+  /* What else 4-up shrinks to 2x2 */
+  .whatelse-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Proximity 3-column collapses to stacked */
+  .proximity-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .proximity-device { margin: 0 auto; }
+
+  /* How it works step alternation flattens. Phone needs explicit
+     max-width or it scales to viewport (designer ship-blocker fix). */
+  .howit-step { gap: var(--space-5); }
+  .phone-shot--howit {
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding-y: 48px;
+  }
+
+  /* Tighter site shell padding on small screens */
+  .section { padding: var(--section-padding-y) var(--space-4); }
+
+  /* Header smaller */
+  .site-header { padding: var(--space-3) var(--space-4); }
+  .site-brand img { height: 24px; }
+  .site-nav { gap: var(--space-3); }
+  .site-nav a { font-size: 12px; }
+
+  /* Demo strip → horizontal scroll snap */
+  .demo-strip {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 240px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: var(--space-3);
+    margin-left: calc(var(--space-4) * -1);
+    margin-right: calc(var(--space-4) * -1);
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+  .demo-frame { scroll-snap-align: start; }
+
+  /* Moment cards stack */
+  .moment-grid { grid-template-columns: 1fr; }
+
+  /* How it works steps stack content + visual */
+  .howit-step {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  .howit-step--reverse { direction: ltr; }
+
+  /* Plans stack */
+  .plans-grid { grid-template-columns: 1fr; }
+
+  /* Privacy refuse cards stack */
+  .refuse-grid { grid-template-columns: 1fr; }
+
+  /* What else stack */
+  .whatelse-grid { grid-template-columns: 1fr; }
+
+  /* Footer lockup smaller */
+  .footer-lockup img { height: 96px; }
+}
+
+@media (max-width: 480px) {
+  /* iPhone SE / extra small. Hero must stay readable. */
+  :root {
+    --type-hero: clamp(40px, 11vw, 56px);
+  }
+  .site-nav a { font-size: 11px; }
+}
+
+/* ============================================================
+   4b. Utility pages (privacy / terms / support / 404)
+   ============================================================ */
+/* Single-page sites pulling double duty. Same dark canvas as homepage,
+   simple type hierarchy, no panel chrome. Each utility page uses the
+   shared header/footer partials so they inherit v2 brand chrome. */
+
+.utility-hero {
+  padding-top: var(--space-9);
+  padding-bottom: var(--space-7);
+}
+.utility-hero .section-inner {
+  max-width: 760px;
+}
+/* (centering rule moved below — must come after .utility-hero h1
+   element rules to win source-order priority on equal specificity) */
+.utility-hero .eyebrow {
+  font-size: var(--type-eyebrow);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--track-loose);
+  color: var(--text-tertiary);
+  margin: 0 0 var(--space-3);
+}
+.utility-hero h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: var(--track-snug);
+  color: var(--text-headline);
+  margin: 0 0 var(--space-5);
+}
+/* Center the utility-hero content column on desktop. Utility pages
+   don't wrap content in `.section-inner`, so direct children stuck
+   left at 1440px+ ("looks like a mobile site"). max-width 760px = ~70
+   character column for prose readability. Placed AFTER the per-element
+   rules above so source-order wins on equal specificity. */
+.utility-hero > .eyebrow,
+.utility-hero > h1,
+.utility-hero > p,
+.utility-hero > .legal-meta,
+.utility-hero > .legal-lede,
+.utility-hero > .legal-content,
+.utility-hero > .btn-row {
+  max-width: 760px;
+  margin-inline: auto;
+}
+/* Same treatment for the FAQ section that follows the hero on
+   support.html — its `.section` wrapper has no inner div so direct
+   children float left at desktop. */
+.section > .faq-category,
+.section > .section-subtitle {
+  max-width: 760px;
+  margin-inline: auto;
+}
+.legal-meta {
+  font-size: var(--type-body);
+  color: var(--text-body);
+  margin-bottom: var(--space-7);
+}
+.legal-meta p { margin: var(--space-2) 0; }
+.legal-meta .badge {
+  display: inline-block;
+  padding: 3px 10px;
+  background: var(--mint-tint-10);
+  color: var(--mint);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--track-loose);
+  border-radius: var(--radius-pill);
+  margin-right: var(--space-2);
+}
+.legal-meta strong { color: var(--text-headline); }
+
+/* Plain-language lede above the legal walls. Friend voice in quieter register —
+   sits between the meta block and the formal content. Used on terms; could be
+   used on privacy too if we want parallel pattern there. */
+.legal-lede {
+  font-size: 18px;
+  line-height: 1.55;
+  font-weight: 500;
+  color: var(--text-headline);
+  margin: 0 0 var(--space-7);
+  padding: var(--space-4) var(--space-5);
+  background: var(--mint-tint-10);
+  border-left: 2px solid var(--mint);
+  border-radius: var(--radius-card);
+  max-width: 680px;
+}
+
+/* Legal content — long-form prose hierarchy on dark */
+.legal-content {
+  font-size: var(--type-body);
+  color: var(--text-body);
+  line-height: 1.65;
+}
+.legal-content h2 {
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 800;
+  letter-spacing: var(--track-snug);
+  color: var(--text-headline);
+  margin: var(--space-8) 0 var(--space-4);
+}
+.legal-content h2:first-child { margin-top: 0; }
+.legal-content h3 {
+  font-size: clamp(18px, 2vw, 20px);
+  font-weight: 700;
+  color: var(--text-headline);
+  margin: var(--space-6) 0 var(--space-3);
+}
+.legal-content p { margin: 0 0 var(--space-4); }
+.legal-content ul {
+  list-style: disc;
+  padding-left: var(--space-5);
+  margin: 0 0 var(--space-4);
+}
+.legal-content ul li { padding: 4px 0; }
+.legal-content strong { color: var(--text-headline); font-weight: 700; }
+/* Inline links in body prose. Lighthouse flagged these as relying on
+   color alone to be distinguishable (link-in-text-block) — failed WCAG
+   1.4.1 use-of-color. Adding underline + small offset so the link cue
+   doesn't depend on mint perception. Mint stays the brand accent. */
+.legal-content a {
+  color: var(--mint);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+.legal-content a:hover {
+  color: var(--mint-hover);
+  text-decoration-thickness: 2px;
+}
+.legal-content .divider {
+  border-top: 1px solid var(--border-default);
+  margin: var(--space-7) 0;
+}
+
+/* Support FAQs */
+.faq-category { margin-bottom: var(--space-7); }
+.faq-category + .faq-category {
+  /* Hairline divider + breathing room between categories so the eye
+     knows it's crossed into a new topic. The first category sits flush
+     under the section subtitle; only sibling categories get the rule. */
+  border-top: 1px solid var(--border-default);
+  padding-top: var(--space-7);
+}
+.faq-category-title {
+  /* Real H2-tier divider, not an eyebrow. 12px gray was invisible across
+     8000px of scroll — designer P0. White, weight 600, sized between H2
+     and H3 so it asserts hierarchy without competing with FAQ-item h3s. */
+  font-size: clamp(22px, 2.6vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-headline);
+  margin: 0 0 var(--space-5);
+  text-transform: none;
+}
+.faq-list {
+  display: grid;
+  gap: var(--space-3);
+  /* Cap width for prose readability — at 1440 desktop the unconstrained
+     list pushes lines to ~157ch; target 60-80ch range. Mobile is unaffected. */
+  max-width: 720px;
+}
+.faq-item {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-card);
+  padding: var(--space-5) var(--space-6);
+}
+.faq-item h3 {
+  font-size: var(--type-h3);
+  font-weight: 700;
+  color: var(--text-headline);
+  margin: 0 0 var(--space-3);
+}
+.faq-item p {
+  font-size: var(--type-body);
+  color: var(--text-body);
+  margin: 0 0 var(--space-3);
+  line-height: 1.55;
+}
+.faq-item p:last-child { margin-bottom: 0; }
+.faq-item ul {
+  list-style: disc;
+  padding-left: var(--space-5);
+  margin: 0 0 var(--space-3);
+}
+.faq-item ul li { padding: 2px 0; color: var(--text-body); }
+.faq-item strong { color: var(--text-headline); font-weight: 700; }
+
+/* Support hero contact line */
+.contact-link {
+  font-weight: 700;
+  color: var(--mint);
+  text-decoration: none;
+}
+.contact-link:hover { color: var(--mint-hover); text-decoration: underline; }
+
+/* Buttons (used on 404 page) */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: var(--radius-tight);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 150ms ease-out, background 150ms ease-out;
+  border: none;
+}
+.btn:hover { transform: translateY(-1px); text-decoration: none; }
+.btn-primary {
+  background: var(--mint);
+  color: var(--bg-page);
+}
+.btn-primary:hover { background: var(--mint-hover); }
+.btn-secondary {
+  background: transparent;
+  color: var(--text-body);
+  border: 1px solid var(--border-default);
+}
+.btn-secondary:hover { background: var(--bg-elevated); color: var(--text-headline); }
+.btn-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+/* ---- Analytics consent banner ------------------------------- */
+/* The consent card injected by site.js (GA4 opt-in/out). Class
+   names `.analytics-consent` and `.panel` come from v1 styles —
+   re-styled here for v2 dark Mint Social. Bottom-right floating
+   card, no drop shadow (brand floor), no glassmorphism. */
+
+.analytics-consent {
+  position: fixed;
+  bottom: var(--space-4);
+  right: var(--space-4);
+  left: var(--space-4);
+  max-width: 420px;
+  margin-left: auto;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-card);
+  padding: var(--space-5);
+  z-index: 90;
+}
+.analytics-consent h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-headline);
+  margin: 0 0 var(--space-2);
+  letter-spacing: 0;
+}
+.analytics-consent p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-body);
+  margin: 0 0 var(--space-4);
+}
+.analytics-consent a {
+  color: var(--mint);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.analytics-consent-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+.analytics-consent-actions .btn {
+  padding: 8px 16px;
+  font-size: 13px;
+}
+
+@media (max-width: 480px) {
+  .analytics-consent {
+    bottom: var(--space-3);
+    right: var(--space-3);
+    left: var(--space-3);
+    padding: var(--space-4);
+  }
+}
+
+/* ============================================================
+   5. Crop overrides (must win cascade against section-specific img rules)
+   ============================================================ */
+/* These rules are placed at the end of the file so they override
+   .hero-device img, .proximity-device img, .phone-shot--howit img.
+   See post-panel cuts 2026-04-27: caption strip on screen-01-proximity.png
+   was duplicating hero H1 — need to clip top 21.6% across all 3
+   instances of that screenshot. */
+
+/* Phone-only crop variant — clips the caption strip from the top of
+   `screen-01-proximity.png` (the composed ASC screenshot bakes
+   "Walk in. Remember everyone." into a strip above the iPhone). The
+   source PNG ALREADY has its own iPhone bezel + rounded corners
+   rendered, so the wrapper here MUST be invisible — no border,
+   no background, no border-radius, no padding. Otherwise we get a
+   visible frame-around-the-iPhone (caught by Julian, 2026-04-27).
+   Wrapper exists ONLY to provide an aspect-ratio container that
+   `object-fit:cover + object-position:center bottom` can clip against. */
+.phone-shot--proximity-cropped,
+.hero-device .phone-shot--proximity-cropped,
+.proximity-device.phone-shot--proximity-cropped,
+.howit-step .phone-shot--proximity-cropped {
+  width: 100%;
+  /* Source image: 1242×2688. Layout:
+       y=0–~280   caption text "Walk in. Remember everyone." (top-left)
+       y=~480     iPhone top bezel begins
+       y=~2580    iPhone bottom bezel ends
+     Earlier crop at 1242/2108 clipped 580px from the top, which cut
+     INTO the iPhone's top bezel by ~100px (Julian's "top is being
+     chopped" complaint). New ratio 1242/2400 clips 288px from the top
+     — past the caption (gone), short of the iPhone (preserved). */
+  aspect-ratio: 1242 / 2400;
+  overflow: hidden;
+  display: block;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.phone-shot--proximity-cropped img,
+.hero-device .phone-shot--proximity-cropped img,
+.proximity-device.phone-shot--proximity-cropped img,
+.howit-step .phone-shot--proximity-cropped img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center bottom !important;
+  display: block !important;
+  border-radius: 0 !important;
+}
+
+/* Constrain the proximity-deep-dive phone width specifically */
+.proximity-device.phone-shot--proximity-cropped {
+  width: 280px;
+  max-width: 100%;
+}
