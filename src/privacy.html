@@ -84,7 +84,8 @@
             <ul>
               <li><strong>Precise location</strong> when you capture a place pin or use place search (if you grant permission)</li>
               <li><strong>Background location</strong> if you enable nearby place alerts (geofencing — set to Always)</li>
-              <li>Place coordinates and optional timestamps are stored on your device</li>
+              <li>Place coordinates and optional timestamps are stored on your device. Proximity alerts are evaluated on your device — your location is not sent to us to power them</li>
+              <li>The one time place coordinates leave your device is when you choose to share: the coordinates of any place attached to the people you share are included in the share-link payload (see "Share links" above)</li>
             </ul>
             <p>
               MetHere does not transmit your precise location coordinates for advertising or cross-app tracking.
@@ -101,7 +102,21 @@
             <ul>
               <li>If you take or pick a photo for a person, the image is resized and saved on your device only — not transmitted to our servers</li>
               <li>If you save a share card, the image is saved to your Photos library (if you grant permission)</li>
-              <li>If you export or auto-backup, a backup file is written to your device and/or your iCloud Drive</li>
+              <li>If you export a backup, a backup file is written to your device and you can choose to save it to iCloud Drive or another location</li>
+            </ul>
+
+            <h3>Share links (Firebase Firestore)</h3>
+            <p>
+              MetHere stays on your device — with one exception you control. When you tap Share to send someone a
+              share link, the people you selected for that share are uploaded to a Firebase Firestore document so the
+              link's recipient can open it. Only what you explicitly chose to share is uploaded.
+            </p>
+            <ul>
+              <li>The uploaded payload includes, for each person you shared: their name, position, the date you met, and your notes about them</li>
+              <li>It also includes, for any place attached to those people: the place name, your nickname for it, its label, and its coordinates</li>
+              <li>It does not include your encounter history, your photos, your tags, or anyone you did not select for that share</li>
+              <li>Anyone with the share link can open and read that document — that is how sharing works. Share links are short-lived and are not tied to your identity</li>
+              <li>If you never use the Share feature, none of your people or place data is ever uploaded</li>
             </ul>
 
             <h3>Usage analytics (TelemetryDeck)</h3>
@@ -139,21 +154,26 @@
               Analytics opt-out tools.
             </p>
 
-            <h3>Crash reporting (Sentry)</h3>
+            <h3>Crash reporting and performance monitoring (Sentry)</h3>
             <p>
               MetHere uses <strong>Sentry</strong> to monitor app stability and diagnose crashes. If the app crashes or
               hits an unhandled error, diagnostic information may be sent to Sentry, including device model, operating
               system version, app version, a stack trace of the failure, and breadcrumbs of recent UI interactions and
               network requests leading up to the error.
             </p>
+            <p>
+              Sentry also collects a small sample of performance data — measurements like app launch time, screen
+              transition timing, and slow-frame samples — so we can find and fix performance regressions after release.
+              This sampling is anonymous and is not linked to your identity.
+            </p>
             <ul>
-              <li>Crash reports help us fix bugs and improve reliability</li>
+              <li>Crash and performance reports help us fix bugs and keep the app fast and reliable</li>
               <li>We do not send the names, notes, tags, or addresses you enter to Sentry. Breadcrumbs capture the type of action (such as "venue added" or "paywall opened"), not the text you typed</li>
-              <li>Crash data may be associated with a device or app instance identifier</li>
+              <li>Crash and performance data may be associated with a device or app instance identifier</li>
             </ul>
             <p>
-              Crash data is processed by Sentry on US-based servers according to their privacy policy and is used solely
-              to improve the stability and performance of MetHere.
+              Crash and performance data is processed by Sentry on US-based servers according to their privacy policy
+              and is used solely to improve the stability and performance of MetHere.
             </p>
 
             <h3>Purchases and Subscriptions (RevenueCat + Apple)</h3>
@@ -191,7 +211,7 @@
               <li><strong>Firebase Firestore (Google)</strong> for short-lived share-link delivery (only when you choose to share contacts with someone)</li>
               <li><strong>RevenueCat and Apple</strong> for purchases and Pro access validation</li>
               <li><strong>Apple MapKit</strong> for place search and map snapshots</li>
-              <li><strong>Apple iCloud Drive</strong> for backups you choose to export or auto-backup</li>
+              <li><strong>Apple iCloud Drive</strong> for backups you choose to export and save there</li>
               <li><strong>Apple StoreKit</strong> for in-app review prompts</li>
               <li><strong>Apple system services</strong> for location, notifications, microphone, speech recognition, camera, and Photos</li>
             </ul>
@@ -201,9 +221,9 @@
 
             <h2>Data Storage and Retention</h2>
             <ul>
-              <li>Your people and place data is stored locally on your device. If you enable iCloud Backup, copies are also written to your iCloud Drive</li>
+              <li>Your people and place data is stored locally on your device. With Pro, you can export a backup file at any time and save it to iCloud Drive, Files, or another destination of your choice</li>
               <li>You can reset the app from Settings to delete all local data on this device</li>
-              <li>iCloud Drive copies persist after you uninstall MetHere — you can delete them manually from the Files app or iCloud.com</li>
+              <li>If you saved an exported backup to iCloud Drive, that file persists after you uninstall MetHere — you can delete it manually from the Files app or iCloud.com</li>
               <li>Analytics data is retained by TelemetryDeck according to its privacy policy. Crash reporting data is retained by Sentry according to its privacy policy</li>
             </ul>
 
@@ -211,7 +231,7 @@
             <ul>
               <li>You can disable permissions (location, notifications, microphone, camera, photos) at any time in iOS Settings</li>
               <li>You can reset the app to remove all local data on this device</li>
-              <li>You can delete backups from Files / iCloud Drive at any time</li>
+              <li>You can delete exported backup files from Files / iCloud Drive at any time</li>
               <li>You can change your website analytics choice at any time using the Privacy choices button on the site</li>
               <li>You can request help with deletion of analytics or crash data associated with your device by contacting us</li>
             </ul>
